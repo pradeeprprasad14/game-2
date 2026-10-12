@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tarazu - The Balance Scale Game | तराजू का खेल | तराजूचा खेळ</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Yatra+One&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
@@ -165,7 +165,6 @@
 
     <!-- MAIN SCALE STAGE (SVG + Physics) -->
     <main id="scale-stage">
-      <!-- Traditional Arch Background Motif -->
       <div class="bazaar-awning"></div>
 
       <!-- Interactive Scale SVG -->
@@ -210,53 +209,41 @@
 
         <!-- Stand Base & Central Pillar (Fixed) -->
         <g id="stand-group" filter="url(#shadow)">
-          <!-- Wooden base platform -->
           <path d="M 330 460 L 570 460 C 585 460 590 472 580 475 L 320 475 C 310 472 315 460 330 460 Z" fill="url(#woodStand)"/>
           <ellipse cx="450" cy="460" rx="140" ry="12" fill="#3D1D06" opacity="0.6"/>
           
-          <!-- Central pillar -->
           <rect x="440" y="100" width="20" height="360" rx="6" fill="url(#brassGold)"/>
-          <!-- Pillar carved decorative rings -->
           <ellipse cx="450" cy="180" rx="18" ry="6" fill="#FCE185"/>
           <ellipse cx="450" cy="270" rx="18" ry="6" fill="#FCE185"/>
           <ellipse cx="450" cy="370" rx="20" ry="7" fill="#FCE185"/>
 
-          <!-- Top bracket / Crown Arch -->
           <path d="M 425 105 Q 450 65 475 105 Z" fill="url(#brassGold)"/>
           <circle cx="450" cy="80" r="16" fill="url(#brassGold)"/>
           <circle cx="450" cy="80" r="8" fill="#4A250B"/>
           
-          <!-- Balance Dial / Indicator Center Arc with Calibration Ticks -->
           <path d="M 390 95 A 60 60 0 0 1 510 95" stroke="#7A4805" stroke-width="5" fill="none"/>
           
-          <!-- Calibration tick marks on the arch (-3, -2, -1, 0, +1, +2, +3) -->
-          <line x1="450" y1="35" x2="450" y2="45" stroke="#DC2626" stroke-width="3"/> <!-- 0 center tick -->
+          <line x1="450" y1="35" x2="450" y2="45" stroke="#DC2626" stroke-width="3"/>
           <line x1="420" y1="42" x2="424" y2="50" stroke="#7A4805" stroke-width="2"/>
           <line x1="395" y1="58" x2="401" y2="64" stroke="#7A4805" stroke-width="2"/>
           <line x1="480" y1="42" x2="476" y2="50" stroke="#7A4805" stroke-width="2"/>
           <line x1="505" y1="58" x2="499" y2="64" stroke="#7A4805" stroke-width="2"/>
 
-          <!-- Glowing balance jewel indicator on top center -->
           <circle id="center-jewel" cx="450" cy="30" r="9" fill="url(#jewelAmber)" stroke="#78350F" stroke-width="2"/>
         </g>
 
         <!-- Tilting Beam Group (Rotates around (450, 80)) -->
         <g id="beam-group" transform="rotate(0, 450, 80)">
-          <!-- Main horizontal beam (Dandi) -->
           <path d="M 120 76 L 780 76 Q 785 80 780 84 L 120 84 Q 115 80 120 76 Z" fill="url(#brassGold)" filter="url(#shadow)"/>
-          <!-- Beam center ring -->
           <circle cx="450" cy="80" r="14" fill="url(#brassGold)" stroke="#663A04" stroke-width="2"/>
           <circle cx="450" cy="80" r="5" fill="#FFF"/>
 
-          <!-- Balance Needle Pointer (Points straight UP to center tick when level) -->
           <polygon id="balance-needle" points="447,80 453,80 450,25" fill="#DC2626" stroke="#991B1B" stroke-width="1"/>
           <circle cx="450" cy="24" r="4" fill="#EF4444"/>
 
-          <!-- Left Chain Hook -->
           <circle cx="150" cy="80" r="8" fill="url(#brassGold)"/>
           <circle cx="150" cy="80" r="4" fill="#3D1D06"/>
 
-          <!-- Right Chain Hook -->
           <circle cx="750" cy="80" r="8" fill="url(#brassGold)"/>
           <circle cx="750" cy="80" r="4" fill="#3D1D06"/>
         </g>
@@ -267,7 +254,6 @@
           <line id="left-chain-2" x1="150" y1="80" x2="150" y2="283" stroke="#9A5D0D" stroke-width="2" stroke-dasharray="4,2"/>
           <line id="left-chain-3" x1="150" y1="80" x2="220" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
 
-          <!-- Brass Pan Body (Palda) -->
           <ellipse cx="150" cy="285" rx="80" ry="16" fill="url(#panShade)" filter="url(#shadow)"/>
           <ellipse cx="150" cy="283" rx="76" ry="13" fill="#FFE28A" opacity="0.4"/>
           <ellipse cx="150" cy="285" rx="80" ry="16" stroke="#7A4805" stroke-width="2" fill="none"/>
@@ -279,7 +265,6 @@
           <line id="right-chain-2" x1="750" y1="80" x2="750" y2="283" stroke="#9A5D0D" stroke-width="2" stroke-dasharray="4,2"/>
           <line id="right-chain-3" x1="750" y1="80" x2="820" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
 
-          <!-- Brass Pan Body (Palda) -->
           <ellipse cx="750" cy="285" rx="80" ry="16" fill="url(#panShade)" filter="url(#shadow)"/>
           <ellipse cx="750" cy="283" rx="76" ry="13" fill="#FFE28A" opacity="0.4"/>
           <ellipse cx="750" cy="285" rx="80" ry="16" stroke="#7A4805" stroke-width="2" fill="none"/>
@@ -311,18 +296,16 @@
       </div>
     </main>
 
-    <!-- Bottom Tray: Available Weights & Produce Shelf -->
+    <!-- Bottom Tray -->
     <footer id="bottom-shelf">
       <div class="shelf-header">
         <span class="shelf-title" data-i18n="tray_title">Pick & Drag Weights:</span>
         <span class="shelf-sub" data-i18n="tray_hint">(Tap or drag onto scale pans)</span>
       </div>
-      <div id="weights-tray" class="weights-tray">
-        <!-- Dynamically injected weight tokens -->
-      </div>
+      <div id="weights-tray" class="weights-tray"></div>
     </footer>
 
-    <!-- HOW TO PLAY TUTORIAL MODAL -->
+    <!-- TUTORIAL MODAL -->
     <div id="modal-tutorial" class="modal-backdrop hidden">
       <div class="modal-card tutorial-card">
         <div class="modal-header">
@@ -358,7 +341,7 @@
       </div>
     </div>
 
-    <!-- LEVEL COMPLETE CELEBRATION MODAL -->
+    <!-- CELEBRATION MODAL -->
     <div id="modal-celebration" class="modal-backdrop hidden">
       <div class="modal-card celebration-card">
         <div class="confetti-cannon" id="confetti-container"></div>
@@ -394,14 +377,12 @@
           <button class="stage-tab" data-stage="3" data-i18n="stage_3">Mystery Box ❓</button>
           <button class="stage-tab" data-stage="4" data-i18n="stage_4">Two Ways 🌟</button>
         </div>
-        <div id="levels-grid" class="levels-grid">
-          <!-- Dynamic level buttons -->
-        </div>
+        <div id="levels-grid" class="levels-grid"></div>
       </div>
     </div>
 
   </div>
 
-  <script src="game.js"></script>
+  <script src="game.js?v=2.0"></script>
 </body>
 </html>
