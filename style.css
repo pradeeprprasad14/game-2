@@ -21,6 +21,7 @@
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -47,7 +48,227 @@ body {
   overflow: hidden;
 }
 
-/* Indian Bazaar festive top trim */
+/* -------------------------------------------------------------
+   WELCOME / STARTING SCREEN OVERLAY
+   ------------------------------------------------------------- */
+.welcome-screen {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #fffbeb 0%, #fef08a 50%, #fed7aa 100%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.welcome-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Festive Toran Garland */
+.toran-decorations {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.8rem;
+  padding: 0 20px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  animation: toranSway 3s ease-in-out infinite alternate;
+}
+
+@keyframes toranSway {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 5px solid #d97706;
+  border-radius: 32px;
+  padding: 28px 36px;
+  width: 92%;
+  max-width: 580px;
+  box-shadow: 0 20px 50px rgba(120, 53, 15, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  position: relative;
+}
+
+.game-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo-scale-icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 4px 8px rgba(217, 119, 6, 0.35));
+  animation: scaleFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes scaleFloat {
+  0% { transform: translateY(0) rotate(-4deg); }
+  100% { transform: translateY(-6px) rotate(4deg); }
+}
+
+.logo-title {
+  font-family: 'Fredoka', 'Yatra One', cursive, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #b45309, #ea580c, #b91c1c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #92400e;
+}
+
+/* Welcome Language Selection */
+.welcome-lang-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+/* Mascot Selection Box */
+.mascot-selection-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.mascot-select-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.mascot-options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.mascot-opt-btn {
+  background: #fef3c7;
+  border: 3px solid #d97706;
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #b45309;
+  transition: transform 0.15s, border-color 0.15s, background-color 0.15s;
+  font-family: inherit;
+  font-weight: 700;
+  color: #78350f;
+}
+
+.mascot-opt-btn.active {
+  background: #dcfce7;
+  border-color: #16a34a;
+  box-shadow: 0 4px 0 #15803d;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.mascot-opt-emoji {
+  font-size: 2.2rem;
+  line-height: 1.1;
+}
+
+.mascot-opt-name {
+  font-size: 0.88rem;
+}
+
+/* Mascot Speech in Welcome Screen */
+.welcome-speech-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.welcome-avatar {
+  width: 58px;
+  height: 58px;
+  font-size: 2.6rem;
+  flex-shrink: 0;
+}
+
+.welcome-bubble {
+  flex: 1;
+  text-align: left;
+}
+
+#welcome-speech-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #78350f;
+  line-height: 1.3;
+}
+
+/* Welcome Buttons */
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.big-play-btn {
+  font-size: 1.6rem;
+  padding: 16px 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 0 #15803d, 0 12px 24px rgba(34, 197, 94, 0.35);
+  cursor: pointer;
+}
+
+.big-play-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #15803d;
+}
+
+.welcome-sub-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* -------------------------------------------------------------
+   TOP HEADER BAR
+   ------------------------------------------------------------- */
 .bazaar-awning {
   position: absolute;
   top: 0;
@@ -67,7 +288,6 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* TOP HEADER */
 #top-bar {
   display: flex;
   align-items: center;
@@ -83,7 +303,7 @@ body {
 .header-left, .header-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .icon-btn {
@@ -101,7 +321,7 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 0 #d97706;
   transition: transform 0.1s, box-shadow 0.1s, background-color 0.2s;
-  min-height: 48px;
+  min-height: 46px;
 }
 
 .icon-btn:active {
@@ -109,22 +329,36 @@ body {
   box-shadow: 0 1px 0 #d97706;
 }
 
+/* Temple bell animation */
+.bell-btn {
+  background: #fef08a;
+  border-color: #ca8a04;
+  font-size: 1.3rem;
+  padding: 6px 12px;
+}
+
+.bell-btn:hover, .bell-btn:active {
+  animation: bellRing 0.5s ease-in-out;
+}
+
+@keyframes bellRing {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(8deg); }
+  100% { transform: rotate(0); }
+}
+
+.level-badge-inner {
+  display: flex;
+  gap: 4px;
+  font-weight: 700;
+  color: #ea580c;
+}
+
 .highlight-btn {
   background: linear-gradient(135deg, #fef08a, #facc15);
   border-color: #ca8a04;
-}
-
-.level-badge {
-  background: #ea580c;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.15rem;
-  padding: 6px 16px;
-  border-radius: 999px;
-  box-shadow: 0 4px 0 #9a3412;
-  display: flex;
-  gap: 6px;
-  letter-spacing: 0.5px;
 }
 
 /* Mascot Speech Bubble */
@@ -133,8 +367,8 @@ body {
   align-items: center;
   gap: 8px;
   flex: 1;
-  max-width: 540px;
-  margin: 0 8px;
+  max-width: 520px;
+  margin: 0 6px;
 }
 
 .mascot-avatar {
@@ -150,11 +384,21 @@ body {
   box-shadow: 0 4px 0 #16a34a;
   animation: gentleBob 2.5s ease-in-out infinite;
   flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @keyframes gentleBob {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-3px) rotate(4deg); }
+}
+
+.mascot-avatar.celebrating {
+  animation: mascotCelebration 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
+}
+
+@keyframes mascotCelebration {
+  0% { transform: translateY(0) scale(1) rotate(-8deg); }
+  100% { transform: translateY(-10px) scale(1.15) rotate(8deg); }
 }
 
 .speech-bubble {
@@ -185,7 +429,7 @@ body {
 }
 
 #speech-text {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 700;
   color: #78350f;
   line-height: 1.25;
@@ -195,8 +439,8 @@ body {
   background: #fef3c7;
   border: 2px solid #f59e0b;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -207,7 +451,7 @@ body {
 }
 
 .speak-btn:active {
-  transform: scale(0.92);
+  transform: scale(0.9);
   background: #fde68a;
 }
 
@@ -226,7 +470,7 @@ body {
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 700;
-  padding: 5px 11px;
+  padding: 5px 12px;
   border-radius: 999px;
   cursor: pointer;
   color: #78350f;
@@ -239,7 +483,9 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* SUB-BAR HINTS & CHALLENGE STATUS */
+/* -------------------------------------------------------------
+   SUB-BAR & HINTS
+   ------------------------------------------------------------- */
 #sub-bar {
   display: flex;
   align-items: center;
@@ -319,7 +565,9 @@ body {
   box-shadow: 0 3px 0 #b45309;
 }
 
-/* MAIN SCALE STAGE */
+/* -------------------------------------------------------------
+   MAIN SCALE STAGE
+   ------------------------------------------------------------- */
 #scale-stage {
   flex: 1;
   position: relative;
@@ -329,6 +577,7 @@ body {
   width: 100%;
   min-height: 320px;
   overflow: hidden;
+  touch-action: none;
 }
 
 #scale-svg {
@@ -342,7 +591,7 @@ body {
 .pan-overlay {
   position: absolute;
   width: 180px;
-  height: 160px;
+  height: 170px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -351,12 +600,24 @@ body {
   transition: transform 0.05s linear, background-color 0.15s, border-color 0.15s;
   z-index: 25;
   border-radius: 24px;
+  touch-action: none;
 }
 
 .pan-overlay.drop-hover {
-  background: rgba(254, 240, 138, 0.4);
+  background: rgba(254, 240, 138, 0.45);
   outline: 3px dashed #ca8a04;
   outline-offset: 4px;
+}
+
+.pan-label-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #78350f;
+  background: rgba(254, 243, 199, 0.85);
+  border: 1px solid #d97706;
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-bottom: 2px;
 }
 
 .pan-items-shelf {
@@ -379,7 +640,7 @@ body {
   font-weight: 700;
   color: #78350f;
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  margin-top: 4px;
+  margin-top: 2px;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: flex;
   align-items: center;
@@ -405,8 +666,8 @@ body {
 }
 
 .hud-circle {
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   border: 3px solid #d97706;
@@ -425,7 +686,15 @@ body {
   transform: scale(1.15);
 }
 
-/* BOTTOM TRAY / SHELF */
+/* Center jewel glow inside SVG */
+#center-jewel.balanced {
+  fill: url(#jewelGlow);
+  filter: drop-shadow(0 0 8px #22c55e);
+}
+
+/* -------------------------------------------------------------
+   BOTTOM TRAY / SHELF
+   ------------------------------------------------------------- */
 #bottom-shelf {
   background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 40%, #fed7aa 100%);
   border-top: 4px solid #f59e0b;
@@ -465,7 +734,9 @@ body {
   padding: 6px 10px;
 }
 
-/* WEIGHT TOKEN STYLING (Authentic Indian Batta & Produce) */
+/* -------------------------------------------------------------
+   WEIGHT TOKEN STYLING
+   ------------------------------------------------------------- */
 .weight-token {
   position: relative;
   display: flex;
@@ -488,6 +759,12 @@ body {
   box-shadow: 0 10px 0 rgba(0,0,0,0.18), 0 12px 20px rgba(0,0,0,0.2);
 }
 
+.weight-token.selected {
+  outline: 4px solid #22c55e;
+  outline-offset: 3px;
+  transform: translateY(-5px) scale(1.06);
+}
+
 .weight-token:active, .weight-token.dragging {
   cursor: grabbing;
   transform: scale(1.08);
@@ -495,7 +772,7 @@ body {
   z-index: 1000;
 }
 
-/* Traditional Brass Batta weight (hexagonal shape feel / metallic bevel) */
+/* Traditional Brass Batta weight */
 .weight-batta {
   background: radial-gradient(circle at 35% 30%, #fff2a3 0%, #e5a93c 45%, #b45309 85%, #78350f 100%);
   border: 3px solid #78350f;
@@ -503,7 +780,7 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Different sizes proportional to weight for Class 1-3 kids */
+/* Proportional sizes for Class 1-3 kids */
 .weight-1kg { width: 56px; height: 56px; font-size: 0.95rem; }
 .weight-2kg { width: 66px; height: 66px; font-size: 1.05rem; }
 .weight-3kg { width: 74px; height: 74px; font-size: 1.15rem; }
@@ -513,7 +790,7 @@ body {
 .weight-8kg { width: 104px; height: 104px; font-size: 1.45rem; }
 .weight-10kg { width: 112px; height: 112px; font-size: 1.5rem; }
 
-/* In-Pan item scaling to fit nicely */
+/* In-Pan item scaling to sit cleanly */
 .pan-items-shelf .weight-token {
   transform: scale(0.85);
   margin: -4px;
@@ -522,7 +799,7 @@ body {
   transform: scale(0.92);
 }
 
-/* Dot Counters for Class 1 Kids (visual dots matching number) */
+/* Dot Counters for Class 1 Kids */
 .dots-container {
   display: flex;
   gap: 3px;
@@ -539,7 +816,7 @@ body {
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
 }
 
-/* Bazaar Produce Item (Watermelon, Pumpkin, Mango, etc.) */
+/* Bazaar Produce Item */
 .produce-item {
   background: #ffffff;
   border: 3px solid #ea580c;
@@ -573,7 +850,9 @@ body {
   font-weight: 800;
 }
 
-/* MODALS */
+/* -------------------------------------------------------------
+   MODALS (TUTORIAL, CELEBRATION, LEVELS)
+   ------------------------------------------------------------- */
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -607,6 +886,50 @@ body {
 @keyframes popIn {
   0% { transform: scale(0.7); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* Tutorial Modal */
+.tutorial-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 14px 0;
+  text-align: left;
+}
+
+.tut-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 2px solid #fde68a;
+  border-radius: 16px;
+  padding: 10px 14px;
+}
+
+.tut-step-icon {
+  font-size: 2.2rem;
+  background: #fef3c7;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tut-step-text strong {
+  color: #78350f;
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.tut-step-text p {
+  color: #92400e;
+  font-size: 0.92rem;
+  line-height: 1.25;
 }
 
 /* Celebration Screen */
@@ -764,14 +1087,6 @@ body {
   box-shadow: 0 2px 0 #d97706;
 }
 
-.level-select-btn.locked {
-  background: #e5e7eb;
-  border-color: #9ca3af;
-  box-shadow: 0 4px 0 #6b7280;
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
 .level-btn-num {
   font-size: 1.4rem;
   font-weight: 800;
@@ -787,7 +1102,7 @@ body {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(-3deg); }
   50% { transform: rotate(3deg); }
-  75% { transform: rotate(-1.5deg); }
+  75% { transform: rotate(3deg); }
   100% { transform: rotate(0deg); }
 }
 
@@ -826,10 +1141,18 @@ body {
   }
 }
 
-/* TOUCH TARGETS & RESPONSIVENESS */
+/* -------------------------------------------------------------
+   RESPONSIVENESS & TOUCH OPTIMIZATION
+   ------------------------------------------------------------- */
 @media (max-width: 768px) {
   #top-bar {
     padding: 14px 10px 6px 10px;
+  }
+  .welcome-card {
+    padding: 20px;
+  }
+  .logo-title {
+    font-size: 2.5rem;
   }
   .mascot-avatar {
     width: 44px;

@@ -6,13 +6,17 @@ An interactive, responsive 2D drag-and-drop educational game that brings the tra
 ---
 
 ## 🎮 How to Play
-1. **Open `index.html`** in any modern web browser (Google Chrome, Edge, Safari, Firefox) on tablet, phone, or laptop.
-2. **Listen to Mithoo 🦜:** Tap the speaker 🔊 button anytime to hear audio instructions in **English, Hindi, or Marathi**.
-3. **Drag or Tap Weights:**
+1. **Open `index.html`** in any modern web browser on tablet, phone, or desktop.
+2. **Welcome Screen:** Choose your language (English, हिन्दी, मराठी) and your shop mascot buddy:
+   - 🦜 **Mithoo** (Friendly Parrot)
+   - 🐒 **Chintu** (Playful Monkey)
+   - 🐘 **Gappu** (Gentle Elephant)
+3. **Listen to Mascot Narration:** Tap the 🔊 button anytime to hear voice instructions via the browser's Web Speech API.
+4. **Drag or Tap Weights:**
    - Drag brass *batta* weights (1 kg, 2 kg, 3 kg, 4 kg, 5 kg) or market produce (🍉 Watermelon, 🥥 Coconut, 🎃 Pumpkin, 🥭 Mango) onto the pans.
-   - **Tap-to-place:** Kids can also tap a weight from the tray to automatically place it on the scale.
-4. **Watch the Scale Tilt:**
-   - The beam tilts with smooth, realistic damped spring physics proportional to weight difference.
+   - **Tap-to-place:** Kids can also tap a weight from the tray to place it directly.
+5. **Watch the Scale Tilt:**
+   - Smooth damped spring physics simulate realistic balance beam rotation.
    - When both sides are equal, the beam settles level, the central jewel lights up green, and celebratory stars burst forth!
 
 ---
@@ -34,19 +38,9 @@ An interactive, responsive 2D drag-and-drop educational game that brings the tra
 
 ---
 
-## 🌟 Key Design Features
-
-1. **Voice and Visuals First:**
-   - Browser **Web Speech API** for spoken narration in Hindi (`hi-IN`), Marathi (`mr-IN`), and English (`en-IN`).
-   - "Mithoo" the parrot speaks prompts and animates when talking.
-   - Counting dots on weights for young kids who are still learning numerals.
-2. **Bilingual / Trilingual Toggle:**
-   - Instant language buttons for **English (EN)**, **हिन्दी (Hindi)**, and **मराठी (Marathi)**.
-3. **Friendly Failure:**
-   - No buzzers, no penalties, and no red cross marks!
-   - Unequal scale attempts trigger a gentle cartoon wobble and friendly voice guidance ("Left side is heavier! Add more to the right").
-4. **Procedural Web Audio:**
-   - Zero external audio files required! Synthesizes authentic brass clinks, wobble tones, and Indian pentatonic celebration chimes directly via the Web Audio API.
-5. **Big Touch Targets:**
-   - Generous drop zones with dashed outlines on hover.
-   - Touch drag & drop and pointer events tested for iPads, Android tablets, and smartphones.
+## 🌟 Key Features
+- **Vibrant Starting Interface** with festive toran decorations and mascot selection.
+- **Interactive Bazaar Temple Bell 🔔** with resonant brass acoustics.
+- **Voice & Visuals First** with Web Speech API and procedural Web Audio fallback.
+- **Bilingual / Trilingual Toggle (EN, HI, MR)**.
+- **Friendly Failure:** Gentle wobble and helpful tips, never harsh buzzers.

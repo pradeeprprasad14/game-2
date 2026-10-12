@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Tarazu - The Balance Scale Game | तराजू का खेल</title>
+  <title>Tarazu - The Balance Scale Game | तराजू का खेल | तराजूचा खेळ</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,22 +11,109 @@
 </head>
 <body>
   <div id="game-container">
-    <!-- Top Header Bar -->
+
+    <!-- STARTING INTERFACE / WELCOME SCREEN OVERLAY -->
+    <div id="screen-welcome" class="welcome-screen">
+      <!-- Traditional Marigold Toran & Festive Awning -->
+      <div class="toran-decorations">
+        <span class="toran-flower">🌼</span>
+        <span class="toran-leaf">🍃</span>
+        <span class="toran-flower">🌸</span>
+        <span class="toran-leaf">🍃</span>
+        <span class="toran-flower">🌼</span>
+        <span class="toran-leaf">🍃</span>
+        <span class="toran-flower">🌸</span>
+        <span class="toran-leaf">🍃</span>
+        <span class="toran-flower">🌼</span>
+      </div>
+
+      <div class="welcome-card">
+        <div class="game-logo">
+          <div class="logo-scale-icon">⚖️</div>
+          <h1 class="logo-title">TARAZU</h1>
+          <h2 class="logo-subtitle" data-i18n="app_sub">The Balance Scale Game • तराजू का खेल</h2>
+        </div>
+
+        <!-- Language Selector on Welcome Screen -->
+        <div class="welcome-lang-box">
+          <span class="lang-label" data-i18n="choose_lang">Language / भाषा:</span>
+          <div class="lang-selector">
+            <button class="lang-btn active" data-lang="en">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="hi">🇮🇳 हिन्दी</button>
+            <button class="lang-btn" data-lang="mr">🇮🇳 मराठी</button>
+          </div>
+        </div>
+
+        <!-- Mascot Companion Chooser -->
+        <div class="mascot-selection-box">
+          <span class="mascot-select-title" data-i18n="choose_buddy">Choose Your Shop Mascot:</span>
+          <div class="mascot-options">
+            <button class="mascot-opt-btn active" data-mascot="parrot" title="Mithoo the Parrot">
+              <span class="mascot-opt-emoji">🦜</span>
+              <span class="mascot-opt-name" data-i18n="mascot_parrot">Mithoo</span>
+            </button>
+            <button class="mascot-opt-btn" data-mascot="monkey" title="Chintu the Monkey">
+              <span class="mascot-opt-emoji">🐒</span>
+              <span class="mascot-opt-name" data-i18n="mascot_monkey">Chintu</span>
+            </button>
+            <button class="mascot-opt-btn" data-mascot="elephant" title="Gappu the Elephant">
+              <span class="mascot-opt-emoji">🐘</span>
+              <span class="mascot-opt-name" data-i18n="mascot_elephant">Gappu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mascot Speech greeting on Welcome Screen -->
+        <div class="welcome-speech-row">
+          <div class="mascot-avatar welcome-avatar" id="welcome-mascot-avatar">🦜</div>
+          <div class="speech-bubble welcome-bubble">
+            <p id="welcome-speech-text" data-i18n="welcome_greeting">Namaste! Let's balance weights together at the Bazaar!</p>
+            <button id="btn-welcome-speak" class="speak-btn" title="Listen">🔊</button>
+          </div>
+        </div>
+
+        <!-- Big Vibrant Action Buttons -->
+        <div class="welcome-buttons">
+          <button id="btn-start-play" class="action-btn primary-btn pulse-glow big-play-btn">
+            <span class="play-icon">▶️</span>
+            <span class="play-text" data-i18n="start_play">PLAY GAME</span>
+          </button>
+          
+          <div class="welcome-sub-actions">
+            <button id="btn-welcome-levels" class="action-btn secondary-btn">
+              <span>🗺️</span> <span data-i18n="choose_level">Levels</span>
+            </button>
+            <button id="btn-welcome-sandbox" class="action-btn secondary-btn highlight-btn">
+              <span>⚖️</span> <span data-i18n="sandbox">Free Play</span>
+            </button>
+            <button id="btn-how-to-play" class="action-btn secondary-btn info-btn">
+              <span>❓</span> <span data-i18n="how_to_play">How to Play</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TOP HEADER BAR (In-Game) -->
     <header id="top-bar">
       <div class="header-left">
-        <button id="btn-home" class="icon-btn" title="Levels Menu" aria-label="Levels Menu">
+        <button id="btn-home" class="icon-btn" title="Main Menu" aria-label="Main Menu">
           <span class="btn-icon">🏠</span>
           <span class="btn-text" data-i18n="menu">Menu</span>
         </button>
-        <div class="level-badge">
-          <span id="level-label" data-i18n="level">Level</span>
-          <span id="level-number">1</span>
-        </div>
+        <button id="btn-open-levels" class="icon-btn" title="Levels List" aria-label="Levels List">
+          <span class="btn-icon">🗺️</span>
+          <span class="level-badge-inner">
+            <span id="level-label" data-i18n="level">Level</span>
+            <span id="level-number">1</span>
+          </span>
+        </button>
       </div>
 
       <!-- Mascot & Speech Banner -->
       <div class="mascot-speech-container">
-        <div class="mascot-avatar" id="mascot-avatar" title="Mithoo">
+        <div class="mascot-avatar" id="mascot-avatar" title="Shop Mascot">
           🦜
         </div>
         <div class="speech-bubble" id="speech-bubble">
@@ -37,16 +124,22 @@
         </div>
       </div>
 
-      <!-- Header Controls: Language & Sound -->
+      <!-- Header Controls: Language, Sound & Bazaar Bell -->
       <div class="header-right">
-        <!-- Language Switcher -->
-        <div class="lang-selector">
+        <!-- Interactive Bazaar Temple Bell -->
+        <button id="btn-temple-bell" class="icon-btn bell-btn" title="Ring Bazaar Bell!">
+          <span id="bell-icon">🔔</span>
+        </button>
+
+        <!-- Language Switcher in Header -->
+        <div class="lang-selector header-lang">
           <button class="lang-btn active" data-lang="en">EN</button>
           <button class="lang-btn" data-lang="hi">हिन्दी</button>
           <button class="lang-btn" data-lang="mr">मराठी</button>
         </div>
+
         <button id="btn-sound" class="icon-btn" title="Toggle Sound">
-          <span id="sound-icon">🔔</span>
+          <span id="sound-icon">🔊</span>
         </button>
         <button id="btn-mode-toggle" class="icon-btn highlight-btn" title="Sandbox Free Play">
           <span>⚖️</span>
@@ -70,7 +163,7 @@
       </button>
     </div>
 
-    <!-- Main Scale Stage (SVG + Physics) -->
+    <!-- MAIN SCALE STAGE (SVG + Physics) -->
     <main id="scale-stage">
       <!-- Traditional Arch Background Motif -->
       <div class="bazaar-awning"></div>
@@ -78,7 +171,6 @@
       <!-- Interactive Scale SVG -->
       <svg id="scale-svg" viewBox="0 0 900 480" preserveAspectRatio="xMidYMid meet">
         <defs>
-          <!-- Gradients for brass / traditional metal finish -->
           <linearGradient id="brassGold" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FFF2A3"/>
             <stop offset="35%" stop-color="#E5A93C"/>
@@ -99,12 +191,20 @@
             <stop offset="100%" stop-color="#8E5B10"/>
           </linearGradient>
 
+          <radialGradient id="jewelGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#86EFAC"/>
+            <stop offset="60%" stop-color="#22C55E"/>
+            <stop offset="100%" stop-color="#15803D"/>
+          </radialGradient>
+
+          <radialGradient id="jewelAmber" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FDE047"/>
+            <stop offset="60%" stop-color="#F59E0B"/>
+            <stop offset="100%" stop-color="#B45309"/>
+          </radialGradient>
+
           <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
             <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#301500" flood-opacity="0.3"/>
-          </filter>
-
-          <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#22C55E" flood-opacity="0.8"/>
           </filter>
         </defs>
 
@@ -121,14 +221,23 @@
           <ellipse cx="450" cy="270" rx="18" ry="6" fill="#FCE185"/>
           <ellipse cx="450" cy="370" rx="20" ry="7" fill="#FCE185"/>
 
-          <!-- Top bracket / Crown -->
+          <!-- Top bracket / Crown Arch -->
           <path d="M 425 105 Q 450 65 475 105 Z" fill="url(#brassGold)"/>
           <circle cx="450" cy="80" r="16" fill="url(#brassGold)"/>
           <circle cx="450" cy="80" r="8" fill="#4A250B"/>
           
-          <!-- Balance Dial / Indicator Center Arc -->
-          <path d="M 410 95 A 40 40 0 0 1 490 95" stroke="#7A4805" stroke-width="4" fill="none"/>
-          <circle cx="450" cy="55" r="5" id="center-indicator-pip" fill="#E5A93C"/>
+          <!-- Balance Dial / Indicator Center Arc with Calibration Ticks -->
+          <path d="M 390 95 A 60 60 0 0 1 510 95" stroke="#7A4805" stroke-width="5" fill="none"/>
+          
+          <!-- Calibration tick marks on the arch (-3, -2, -1, 0, +1, +2, +3) -->
+          <line x1="450" y1="35" x2="450" y2="45" stroke="#DC2626" stroke-width="3"/> <!-- 0 center tick -->
+          <line x1="420" y1="42" x2="424" y2="50" stroke="#7A4805" stroke-width="2"/>
+          <line x1="395" y1="58" x2="401" y2="64" stroke="#7A4805" stroke-width="2"/>
+          <line x1="480" y1="42" x2="476" y2="50" stroke="#7A4805" stroke-width="2"/>
+          <line x1="505" y1="58" x2="499" y2="64" stroke="#7A4805" stroke-width="2"/>
+
+          <!-- Glowing balance jewel indicator on top center -->
+          <circle id="center-jewel" cx="450" cy="30" r="9" fill="url(#jewelAmber)" stroke="#78350F" stroke-width="2"/>
         </g>
 
         <!-- Tilting Beam Group (Rotates around (450, 80)) -->
@@ -139,9 +248,9 @@
           <circle cx="450" cy="80" r="14" fill="url(#brassGold)" stroke="#663A04" stroke-width="2"/>
           <circle cx="450" cy="80" r="5" fill="#FFF"/>
 
-          <!-- Balance Needle Pointer (Points straight UP to center pip when level) -->
-          <polygon id="balance-needle" points="447,80 453,80 450,30" fill="#DC2626" stroke="#991B1B" stroke-width="1"/>
-          <circle cx="450" cy="30" r="4" fill="#EF4444"/>
+          <!-- Balance Needle Pointer (Points straight UP to center tick when level) -->
+          <polygon id="balance-needle" points="447,80 453,80 450,25" fill="#DC2626" stroke="#991B1B" stroke-width="1"/>
+          <circle cx="450" cy="24" r="4" fill="#EF4444"/>
 
           <!-- Left Chain Hook -->
           <circle cx="150" cy="80" r="8" fill="url(#brassGold)"/>
@@ -152,9 +261,8 @@
           <circle cx="750" cy="80" r="4" fill="#3D1D06"/>
         </g>
 
-        <!-- Left Pan Assembly (Hangs vertically from Left Hook, Y shifts with tilt) -->
+        <!-- Left Pan Assembly -->
         <g id="left-pan-group">
-          <!-- Hanging Chains (3 strands) -->
           <line id="left-chain-1" x1="150" y1="80" x2="80" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
           <line id="left-chain-2" x1="150" y1="80" x2="150" y2="283" stroke="#9A5D0D" stroke-width="2" stroke-dasharray="4,2"/>
           <line id="left-chain-3" x1="150" y1="80" x2="220" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
@@ -162,16 +270,11 @@
           <!-- Brass Pan Body (Palda) -->
           <ellipse cx="150" cy="285" rx="80" ry="16" fill="url(#panShade)" filter="url(#shadow)"/>
           <ellipse cx="150" cy="283" rx="76" ry="13" fill="#FFE28A" opacity="0.4"/>
-          <!-- Rim ring -->
           <ellipse cx="150" cy="285" rx="80" ry="16" stroke="#7A4805" stroke-width="2" fill="none"/>
-
-          <!-- Visual Drop Zone Highlight for Left Pan -->
-          <ellipse id="left-drop-zone" cx="150" cy="275" rx="75" ry="30" fill="transparent" class="drop-target-area"/>
         </g>
 
-        <!-- Right Pan Assembly (Hangs vertically from Right Hook, Y shifts with tilt) -->
+        <!-- Right Pan Assembly -->
         <g id="right-pan-group">
-          <!-- Hanging Chains (3 strands) -->
           <line id="right-chain-1" x1="750" y1="80" x2="680" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
           <line id="right-chain-2" x1="750" y1="80" x2="750" y2="283" stroke="#9A5D0D" stroke-width="2" stroke-dasharray="4,2"/>
           <line id="right-chain-3" x1="750" y1="80" x2="820" y2="280" stroke="#B87318" stroke-width="2.5" stroke-dasharray="4,2"/>
@@ -179,16 +282,13 @@
           <!-- Brass Pan Body (Palda) -->
           <ellipse cx="750" cy="285" rx="80" ry="16" fill="url(#panShade)" filter="url(#shadow)"/>
           <ellipse cx="750" cy="283" rx="76" ry="13" fill="#FFE28A" opacity="0.4"/>
-          <!-- Rim ring -->
           <ellipse cx="750" cy="285" rx="80" ry="16" stroke="#7A4805" stroke-width="2" fill="none"/>
-
-          <!-- Visual Drop Zone Highlight for Right Pan -->
-          <ellipse id="right-drop-zone" cx="750" cy="275" rx="75" ry="30" fill="transparent" class="drop-target-area"/>
         </g>
       </svg>
 
-      <!-- HTML Overlays for Dynamic Pan Items (Supports touch drag, click-to-remove) -->
+      <!-- HTML Overlays for Dynamic Pan Items -->
       <div id="pan-overlay-left" class="pan-overlay" data-pan="left">
+        <div class="pan-label-tag" data-i18n="left_pan">Left Pan</div>
         <div class="pan-items-shelf" id="left-pan-items"></div>
         <div class="pan-weight-tag" id="left-weight-badge">
           <span class="weight-value">0</span> <span class="unit">kg</span>
@@ -196,13 +296,14 @@
       </div>
 
       <div id="pan-overlay-right" class="pan-overlay" data-pan="right">
+        <div class="pan-label-tag" data-i18n="right_pan">Right Pan</div>
         <div class="pan-items-shelf" id="right-pan-items"></div>
         <div class="pan-weight-tag" id="right-weight-badge">
           <span class="weight-value">0</span> <span class="unit">kg</span>
         </div>
       </div>
 
-      <!-- Center Balance Status Ring & Check Button -->
+      <!-- Center Fulcrum Status Ring -->
       <div id="center-fulcrum-hud">
         <div id="balance-glow-indicator" class="hud-circle" title="Balance Status">
           <span id="balance-emoji">⚖️</span>
@@ -221,7 +322,43 @@
       </div>
     </footer>
 
-    <!-- Level Complete Modal / Win Screen -->
+    <!-- HOW TO PLAY TUTORIAL MODAL -->
+    <div id="modal-tutorial" class="modal-backdrop hidden">
+      <div class="modal-card tutorial-card">
+        <div class="modal-header">
+          <h2 data-i18n="how_to_play_title">How to Play Tarazu ⚖️</h2>
+          <button id="btn-close-tutorial" class="close-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="tutorial-steps">
+          <div class="tut-step">
+            <div class="tut-step-icon">📦</div>
+            <div class="tut-step-text">
+              <strong data-i18n="tut_step1_title">1. Look at Left Pan</strong>
+              <p data-i18n="tut_step1_desc">Check what is on the left side: a brass weight, a mystery box, or yummy fruit!</p>
+            </div>
+          </div>
+          <div class="tut-step">
+            <div class="tut-step-icon">✋</div>
+            <div class="tut-step-text">
+              <strong data-i18n="tut_step2_title">2. Drag or Tap Weights</strong>
+              <p data-i18n="tut_step2_desc">Pick weights from the bottom shelf. Drag them or just tap them onto the pans.</p>
+            </div>
+          </div>
+          <div class="tut-step">
+            <div class="tut-step-icon">🎯</div>
+            <div class="tut-step-text">
+              <strong data-i18n="tut_step3_title">3. Make the Scale Level!</strong>
+              <p data-i18n="tut_step3_desc">When both pans have equal weight, the red needle points straight up and the jewel glows green!</p>
+            </div>
+          </div>
+        </div>
+        <button id="btn-got-it" class="action-btn primary-btn pulse-glow" style="margin-top: 16px;">
+          <span data-i18n="got_it">Got It! Let's Play! 🚀</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- LEVEL COMPLETE CELEBRATION MODAL -->
     <div id="modal-celebration" class="modal-backdrop hidden">
       <div class="modal-card celebration-card">
         <div class="confetti-cannon" id="confetti-container"></div>
@@ -244,7 +381,7 @@
       </div>
     </div>
 
-    <!-- Levels Menu Modal -->
+    <!-- LEVELS MENU MODAL -->
     <div id="modal-levels" class="modal-backdrop hidden">
       <div class="modal-card levels-card">
         <div class="modal-header">
@@ -253,7 +390,7 @@
         </div>
         <div class="stages-tabs">
           <button class="stage-tab active" data-stage="1" data-i18n="stage_1">Basic (1-5 kg)</button>
-          <button class="stage-tab" data-stage="2" data-i18n="stage_2">Bazaar Items</button>
+          <button class="stage-tab" data-stage="2" data-i18n="stage_2">Bazaar Produce</button>
           <button class="stage-tab" data-stage="3" data-i18n="stage_3">Mystery Box ❓</button>
           <button class="stage-tab" data-stage="4" data-i18n="stage_4">Two Ways 🌟</button>
         </div>

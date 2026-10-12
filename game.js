@@ -2,7 +2,7 @@
  * Tarazu - The Traditional Indian Balance Scale Game (Classes 1-3)
  * Bilingual (EN, HI, MR) with Web Speech API audio narration,
  * Web Audio API procedural sound effects, SVG + Spring physics,
- * and tablet/phone touch drag-and-drop.
+ * Tablet/Phone touch drag-and-drop, Welcome Screen & Mascot companions.
  */
 
 // -------------------------------------------------------------
@@ -15,6 +15,8 @@ const I18N = {
     sandbox: "Free Play",
     levels_mode: "Levels",
     reset: "Reset",
+    left_pan: "Left Pan",
+    right_pan: "Right Pan",
     tray_title: "Pick & Drag Weights:",
     tray_hint: "(Tap or drag weights to pans)",
     win_title: "Shabaash! Perfect Balance!",
@@ -33,8 +35,24 @@ const I18N = {
     tilted_left: "Left side is heavier! Add more to the right.",
     tilted_right: "Right side is heavier! Left side is lighter.",
     balanced_msg: "Wah! Both sides are equal!",
-    mystery_revealed: "Mystery weight discovered: {val} kg!",
-    welcome_speech: "Welcome to Tarazu! Drag weights to make the scale level.",
+    mystery_revealed: "Mystery box opened: {val} kg!",
+    welcome_greeting: "Namaste! Let's balance weights together at the Bazaar!",
+    app_sub: "The Balance Scale Game • तराजू का खेल",
+    choose_lang: "Language / भाषा:",
+    choose_buddy: "Choose Your Shop Mascot:",
+    mascot_parrot: "Mithoo 🦜",
+    mascot_monkey: "Chintu 🐒",
+    mascot_elephant: "Gappu 🐘",
+    start_play: "PLAY GAME",
+    how_to_play: "How to Play",
+    how_to_play_title: "How to Play Tarazu ⚖️",
+    tut_step1_title: "1. Look at Left Pan",
+    tut_step1_desc: "Check what is on the left side: a brass weight, a mystery box, or yummy fruit!",
+    tut_step2_title: "2. Drag or Tap Weights",
+    tut_step2_desc: "Pick weights from the bottom shelf. Drag them or just tap them onto the pans.",
+    tut_step3_title: "3. Make the Scale Level!",
+    tut_step3_desc: "When both pans have equal weight, the red needle points straight up and the jewel glows green!",
+    got_it: "Got It! Let's Play! 🚀",
     tts_lang: "en-IN"
   },
   hi: {
@@ -43,6 +61,8 @@ const I18N = {
     sandbox: "मुक्त खेल",
     levels_mode: "लेवल",
     reset: "रीसेट",
+    left_pan: "बायां पलड़ा",
+    right_pan: "दायां पलड़ा",
     tray_title: "बाट चुनो और रखो:",
     tray_hint: "(पलड़े पर खींचें या छुएं)",
     win_title: "शाबाश! बिल्कुल बराबर!",
@@ -62,7 +82,23 @@ const I18N = {
     tilted_right: "दायां पलड़ा भारी है! वजन कम करो।",
     balanced_msg: "वाह! दोनों तरफ बिल्कुल बराबर है!",
     mystery_revealed: "जादुई डिब्बे का वजन मिला: {val} किग्रा!",
-    welcome_speech: "तराजू के खेल में स्वागत है! दोनों पलड़ों को बराबर करो।",
+    welcome_greeting: "नमस्ते! आओ तराजू के बाज़ार में मिलकर वजन तोलें!",
+    app_sub: "तराजू का खेल • वजन काटा खेळ",
+    choose_lang: "भाषा चुनें:",
+    choose_buddy: "अपना साथी चुनें:",
+    mascot_parrot: "मीठू 🦜",
+    mascot_monkey: "चिंटू 🐒",
+    mascot_elephant: "गप्पू 🐘",
+    start_play: "खेल शुरू करें",
+    how_to_play: "कैसे खेलें",
+    how_to_play_title: "तराजू कैसे खेलें ⚖️",
+    tut_step1_title: "1. बाएं पलड़े को देखो",
+    tut_step1_desc: "बाएं पलड़े पर क्या रखा है: बाट, जादुई डिब्बा, या फल!",
+    tut_step2_title: "2. बाट खींचो या छुओ",
+    tut_step2_desc: "नीचे से बाट चुनो और दाएं पलड़े पर रखो।",
+    tut_step3_title: "3. तराजू को सीधा करो!",
+    tut_step3_desc: "जब दोनों तरफ वजन बराबर होगा, सुई सीधी खड़ी होगी और हरी रोशनी चमकेगी!",
+    got_it: "समझ गए! खेलें! 🚀",
     tts_lang: "hi-IN"
   },
   mr: {
@@ -71,6 +107,8 @@ const I18N = {
     sandbox: "मुक्त खेळ",
     levels_mode: "पातळ्या",
     reset: "रीसेट",
+    left_pan: "डावे पारडे",
+    right_pan: "उजवे पारडे",
     tray_title: "वजने निवडा आणि ठेवा:",
     tray_hint: "(पारड्यात ओढा किंवा टॅप करा)",
     win_title: "शाब्बास! अगदी बरोबर!",
@@ -90,15 +128,37 @@ const I18N = {
     tilted_right: "उजवे पारडे जड आहे! डावे पारडे हलके आहे.",
     balanced_msg: "छान! दोन्ही पारडी अगदी समसमान झाली!",
     mystery_revealed: "गूढ डब्याचे वजन सापडले: {val} किलो!",
-    welcome_speech: "तराजूच्या खेळात स्वागत आहे! दोन्ही पारडी समान करा.",
+    welcome_greeting: "नमस्ते! चला बाजारात तराजू खेळ खेळूया!",
+    app_sub: "वजन काटा खेळ • तराजू का खेल",
+    choose_lang: "भाषा निवडा:",
+    choose_buddy: "आपला सोबती निवडा:",
+    mascot_parrot: "मिठू 🦜",
+    mascot_monkey: "चिंटू 🐒",
+    mascot_elephant: "गप्पू 🐘",
+    start_play: "खेळ सुरू करा",
+    how_to_play: "कसे खेळायचे",
+    how_to_play_title: "तराजू कसा खेळायचा ⚖️",
+    tut_step1_title: "1. डावे पारडे बघा",
+    tut_step1_desc: "डाव्या पारड्यात काय आहे: वजन, गूढ डबा किंवा ताजी फळे!",
+    tut_step2_title: "2. वजने ओढा किंवा टॅप करा",
+    tut_step2_desc: "खालून योग्य वजने निवडून उजव्या पारड्यात ठेवा.",
+    tut_step3_title: "3. काटा सरळ करा!",
+    tut_step3_desc: "दोन्ही पारडी समसमान झाली की लाल काटा सरळ होईल आणि हिरवा दिवा चमकेल!",
+    got_it: "समजले! खेळूया! 🚀",
     tts_lang: "mr-IN"
   }
 };
 
 let currentLang = 'en';
+let currentMascot = 'parrot'; // 'parrot', 'monkey', 'elephant'
+const MASCOT_EMOJIS = {
+  parrot: '🦜',
+  monkey: '🐒',
+  elephant: '🐘'
+};
 
 // -------------------------------------------------------------
-// 2. AUDIO SYNTHESIS (Web Audio API procedural sound)
+// 2. AUDIO SYNTHESIS & BAZAAR SOUNDS
 // -------------------------------------------------------------
 class AudioController {
   constructor() {
@@ -141,6 +201,33 @@ class AudioController {
     osc.stop(t + 0.15);
   }
 
+  playTempleBell() {
+    if (!this.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    const t = this.ctx.currentTime;
+    // Harmonious brass bell chords
+    const freqs = [659.25, 1318.5, 1975.5];
+    freqs.forEach((freq, idx) => {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, t);
+
+      const initVol = 0.25 / (idx + 1);
+      gain.gain.setValueAtTime(initVol, t);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 1.6);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 1.6);
+    });
+  }
+
   playWobble() {
     if (!this.soundEnabled) return;
     this.init();
@@ -170,8 +257,8 @@ class AudioController {
     this.init();
     if (!this.ctx) return;
 
-    // Cheerful Indian pentatonic / bell sequence: Sa Re Ga Pa Dha Sa
-    const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+    // Cheerful Indian pentatonic / bell sequence
+    const notes = [523.25, 659.25, 783.99, 1046.50];
     const t = this.ctx.currentTime;
 
     notes.forEach((freq, idx) => {
@@ -203,7 +290,7 @@ class AudioController {
     const gain = this.ctx.createGain();
 
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(400, t);
+    osc.frequency.setValueAtTime(440, t);
     osc.frequency.exponentialRampToValueAtTime(880, t + 0.08);
 
     gain.gain.setValueAtTime(0.25, t);
@@ -247,10 +334,10 @@ class SpeechController {
   speak(text) {
     if (!this.synth || !audio.soundEnabled) return;
     try {
-      this.synth.cancel(); // stop previous speech
+      this.synth.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.9; // gentle and clear for children
-      utterance.pitch = 1.1; // friendly tone
+      utterance.rate = 0.9;
+      utterance.pitch = 1.1;
 
       const selectedVoice = this.voiceMap[currentLang];
       if (selectedVoice) {
@@ -258,7 +345,6 @@ class SpeechController {
       }
       utterance.lang = I18N[currentLang].tts_lang;
 
-      // Animate mascot while speaking
       const mascot = document.getElementById('mascot-avatar');
       if (mascot) {
         mascot.style.transform = 'scale(1.2) rotate(-5deg)';
@@ -269,7 +355,7 @@ class SpeechController {
 
       this.synth.speak(utterance);
     } catch (e) {
-      console.log('Speech error fallback:', e);
+      console.log('Speech fallback:', e);
     }
   }
 }
@@ -427,19 +513,21 @@ const LEVELS = [
   },
 
   // Stage 3: Mystery Box (Missing-weight puzzle / Early Algebra)
+  // FIXED: Right pan starts empty so child solves by balancing!
   {
     id: 9,
     stage: 3,
     title: "Mystery Box 1",
-    promptEn: "What is inside the Mystery Box? Right has 3 kg!",
-    promptHi: "जादुई डिब्बे में कितना वजन है? दाएं 3 किग्रा है!",
-    promptMr: "गूढ डब्यात किती वजन आहे? उजवीकडे 3 किलो आहे!",
+    promptEn: "What is inside the Mystery Box? Find out by balancing!",
+    promptHi: "जादुई डिब्बे में कितना वजन है? तोलकर पता लगाओ!",
+    promptMr: "गूढ डब्यात किती वजन आहे? तराजू समान करून शोधा!",
     leftItems: [{ type: 'mystery', weight: 3, label: '?' }],
-    rightItems: [{ type: 'batta', weight: 3, label: '3 kg' }],
+    rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
       { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' }
+      { type: 'batta', weight: 3, label: '3 kg' },
+      { type: 'batta', weight: 4, label: '4 kg' }
     ],
     targetWeight: 3,
     mysteryWeight: 3,
@@ -448,10 +536,10 @@ const LEVELS = [
   {
     id: 10,
     stage: 3,
-    title: "Mystery Box + 1 kg = 4 kg",
-    promptEn: "Mystery Box + 1 kg = 4 kg. How heavy is the Box?",
-    promptHi: "जादुई डिब्बा + 1 किग्रा = 4 किग्रा। डिब्बा कितने का है?",
-    promptMr: "गूढ डबा + 1 किलो = 4 किलो. डब्याचे वजन किती?",
+    title: "Mystery Box + 1 kg",
+    promptEn: "Mystery Box + 1 kg. Right pan needs total weight to balance!",
+    promptHi: "जादुई डिब्बा + 1 किग्रा। संतुलन बनाकर डिब्बे का वजन जानो!",
+    promptMr: "गूढ डबा + 1 किलो. तराजू संतुलित करून डब्याचे वजन शोधा!",
     leftItems: [
       { type: 'mystery', weight: 3, label: '?' },
       { type: 'batta', weight: 1, label: '1 kg' }
@@ -464,15 +552,15 @@ const LEVELS = [
     ],
     targetWeight: 4,
     mysteryWeight: 3,
-    mode: 'single'
+    mode: 'mystery_discovery'
   },
   {
     id: 11,
     stage: 3,
     title: "Mystery Pot + 2 kg = 6 kg",
-    promptEn: "Mystery Gift + 2 kg balances with 6 kg!",
-    promptHi: "जादुई उपहार + 2 किग्रा, 6 किग्रा के बराबर है!",
-    promptMr: "गूढ भेट + 2 किलो, 6 किलो बरोबर संतुलित करा!",
+    promptEn: "Mystery Gift + 2 kg on left. Balance with 6 kg!",
+    promptHi: "जादुई उपहार + 2 किग्रा! 6 किग्रा बनाकर संतुलित करो!",
+    promptMr: "गूढ भेट + 2 किलो! 6 किलो वजन ठेवून संतुलित करा!",
     leftItems: [
       { type: 'mystery', weight: 4, label: '?' },
       { type: 'batta', weight: 2, label: '2 kg' }
@@ -486,7 +574,7 @@ const LEVELS = [
     ],
     targetWeight: 6,
     mysteryWeight: 4,
-    mode: 'single'
+    mode: 'mystery_discovery'
   },
 
   // Stage 4: Two Different Ways to Balance Challenge
@@ -537,14 +625,14 @@ const LEVELS = [
 const state = {
   currentLevelIndex: 0,
   isSandbox: false,
-  completedLevels: {}, // { levelId: stars }
+  completedLevels: {},
   leftPan: [],
   rightPan: [],
   tray: [],
-  twoWaysHistory: [], // stores sets of weights used for multi-way puzzle
+  twoWaysHistory: [],
   currentAngle: 0,
   targetAngle: 0,
-  isSettled: true,
+  selectedTrayIndex: null, // For tap-to-select & tap-pan-to-drop
   checkTimeout: null
 };
 
@@ -552,10 +640,22 @@ const state = {
 // 6. DOM ELEMENTS
 // -------------------------------------------------------------
 const dom = {
+  screenWelcome: document.getElementById('screen-welcome'),
+  welcomeSpeechText: document.getElementById('welcome-speech-text'),
+  btnWelcomeSpeak: document.getElementById('btn-welcome-speak'),
+  btnStartPlay: document.getElementById('btn-start-play'),
+  btnWelcomeLevels: document.getElementById('btn-welcome-levels'),
+  btnWelcomeSandbox: document.getElementById('btn-welcome-sandbox'),
+  btnHowToPlay: document.getElementById('btn-how-to-play'),
+  modalTutorial: document.getElementById('modal-tutorial'),
+  btnCloseTutorial: document.getElementById('btn-close-tutorial'),
+  btnGotIt: document.getElementById('btn-got-it'),
   levelNumber: document.getElementById('level-number'),
   speechText: document.getElementById('speech-text'),
   btnSpeak: document.getElementById('btn-speak'),
   btnHome: document.getElementById('btn-home'),
+  btnOpenLevels: document.getElementById('btn-open-levels'),
+  btnTempleBell: document.getElementById('btn-temple-bell'),
   btnSound: document.getElementById('btn-sound'),
   soundIcon: document.getElementById('sound-icon'),
   btnReset: document.getElementById('btn-reset'),
@@ -578,6 +678,9 @@ const dom = {
   weightsTray: document.getElementById('weights-tray'),
   balanceGlowIndicator: document.getElementById('balance-glow-indicator'),
   balanceEmoji: document.getElementById('balance-emoji'),
+  centerJewel: document.getElementById('center-jewel'),
+  mascotAvatar: document.getElementById('mascot-avatar'),
+  welcomeMascotAvatar: document.getElementById('welcome-mascot-avatar'),
   modalCelebration: document.getElementById('modal-celebration'),
   modalLevels: document.getElementById('modal-levels'),
   btnCloseLevels: document.getElementById('btn-close-levels'),
@@ -589,26 +692,23 @@ const dom = {
 };
 
 // -------------------------------------------------------------
-// 7. INITIALIZATION & EVENT LISTENERS
+// 7. INITIALIZATION & SETUP
 // -------------------------------------------------------------
 function initGame() {
   loadProgress();
   setupLanguageButtons();
+  setupMascotButtons();
+  setupWelcomeScreenEvents();
   setupHeaderEvents();
   setupModalEvents();
   setupPanDropZones();
   setupPointerTouchDrag();
 
-  // Start with Level 1
+  // Load level 0 data in background
   loadLevel(0);
 
-  // Start smooth physics rendering loop
+  // Physics animation loop
   requestAnimationFrame(physicsLoop);
-
-  // Initial welcome greeting
-  setTimeout(() => {
-    updateMascotSpeech(I18N[currentLang].welcome_speech);
-  }, 400);
 }
 
 function loadProgress() {
@@ -629,14 +729,72 @@ function saveProgress() {
 }
 
 // -------------------------------------------------------------
-// 8. LANGUAGE & LOCALIZATION
+// 8. WELCOME SCREEN & MASCOT SELECTION
+// -------------------------------------------------------------
+function setupWelcomeScreenEvents() {
+  // Start Game Button (Unlocks Audio on user interaction!)
+  dom.btnStartPlay.addEventListener('click', () => {
+    audio.init();
+    audio.playTempleBell();
+    dom.screenWelcome.classList.add('hidden');
+    loadLevel(0);
+  });
+
+  dom.btnWelcomeLevels.addEventListener('click', () => {
+    audio.init();
+    audio.playPop();
+    openLevelsModal();
+  });
+
+  dom.btnWelcomeSandbox.addEventListener('click', () => {
+    audio.init();
+    audio.playPop();
+    dom.screenWelcome.classList.add('hidden');
+    toggleSandboxMode();
+  });
+
+  dom.btnHowToPlay.addEventListener('click', () => {
+    audio.init();
+    audio.playPop();
+    dom.modalTutorial.classList.remove('hidden');
+  });
+
+  dom.btnWelcomeSpeak.addEventListener('click', () => {
+    audio.init();
+    audio.playPop();
+    voice.speak(dom.welcomeSpeechText.textContent);
+  });
+}
+
+function setupMascotButtons() {
+  document.querySelectorAll('.mascot-opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      audio.init();
+      audio.playPop();
+      document.querySelectorAll('.mascot-opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMascot = btn.dataset.mascot;
+
+      const emoji = MASCOT_EMOJIS[currentMascot] || '🦜';
+      dom.mascotAvatar.textContent = emoji;
+      dom.welcomeMascotAvatar.textContent = emoji;
+    });
+  });
+}
+
+// -------------------------------------------------------------
+// 9. LANGUAGE & LOCALIZATION
 // -------------------------------------------------------------
 function setupLanguageButtons() {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      audio.init();
+      audio.playPop();
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentLang = btn.dataset.lang;
+      // Keep all matching buttons synced
+      const lang = btn.dataset.lang;
+      document.querySelectorAll(`.lang-btn[data-lang="${lang}"]`).forEach(b => b.classList.add('active'));
+      currentLang = lang;
       applyLanguage();
     });
   });
@@ -651,13 +809,14 @@ function applyLanguage() {
     }
   });
 
-  // Refresh current level texts
   if (state.isSandbox) {
     updateMascotSpeech(dict.sandbox);
   } else {
     const level = LEVELS[state.currentLevelIndex];
-    const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
-    updateMascotSpeech(prompt);
+    if (level) {
+      const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
+      updateMascotSpeech(prompt, false);
+    }
   }
 
   renderLevelsGrid();
@@ -671,9 +830,23 @@ function updateMascotSpeech(text, autoSpeak = true) {
 }
 
 // -------------------------------------------------------------
-// 9. HEADER & MODAL CONTROLS
+// 10. HEADER & MODAL CONTROLS
 // -------------------------------------------------------------
 function setupHeaderEvents() {
+  dom.btnHome.addEventListener('click', () => {
+    audio.playPop();
+    dom.screenWelcome.classList.remove('hidden');
+  });
+
+  dom.btnOpenLevels.addEventListener('click', () => {
+    audio.playPop();
+    openLevelsModal();
+  });
+
+  dom.btnTempleBell.addEventListener('click', () => {
+    audio.playTempleBell();
+  });
+
   dom.btnSpeak.addEventListener('click', () => {
     audio.playPop();
     voice.speak(dom.speechText.textContent);
@@ -681,13 +854,8 @@ function setupHeaderEvents() {
 
   dom.btnSound.addEventListener('click', () => {
     audio.soundEnabled = !audio.soundEnabled;
-    dom.soundIcon.textContent = audio.soundEnabled ? '🔔' : '🔕';
+    dom.soundIcon.textContent = audio.soundEnabled ? '🔊' : '🔇';
     audio.playPop();
-  });
-
-  dom.btnHome.addEventListener('click', () => {
-    audio.playPop();
-    openLevelsModal();
   });
 
   dom.btnModeToggle.addEventListener('click', () => {
@@ -707,6 +875,17 @@ function setupModalEvents() {
     dom.modalLevels.classList.add('hidden');
   });
 
+  dom.btnCloseTutorial.addEventListener('click', () => {
+    audio.playPop();
+    dom.modalTutorial.classList.add('hidden');
+  });
+
+  dom.btnGotIt.addEventListener('click', () => {
+    audio.playPop();
+    dom.modalTutorial.classList.add('hidden');
+    dom.screenWelcome.classList.add('hidden');
+  });
+
   dom.btnReplayLevel.addEventListener('click', () => {
     audio.playPop();
     dom.modalCelebration.classList.add('hidden');
@@ -723,7 +902,6 @@ function setupModalEvents() {
     }
   });
 
-  // Stage tab buttons in levels modal
   document.querySelectorAll('.stage-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.stage-tab').forEach(t => t.classList.remove('active'));
@@ -760,6 +938,7 @@ function renderLevelsGrid(filterStage = 1) {
     btn.addEventListener('click', () => {
       audio.playPop();
       dom.modalLevels.classList.add('hidden');
+      dom.screenWelcome.classList.add('hidden');
       state.isSandbox = false;
       loadLevel(idx);
     });
@@ -776,7 +955,6 @@ function toggleSandboxMode() {
     dom.challengeStatus.classList.add('hidden');
     updateMascotSpeech(currentLang === 'hi' ? "मुक्त खेल: अपनी मर्ज़ी से कोई भी बाट रखो!" : (currentLang === 'mr' ? "मुक्त खेळ: आपल्या आवडीनुसार वजने ठेवा!" : "Free Play: Place any weights to explore balance!"));
 
-    // Sandbox starter items
     state.leftPan = [];
     state.rightPan = [];
     state.tray = [
@@ -796,23 +974,22 @@ function toggleSandboxMode() {
 }
 
 // -------------------------------------------------------------
-// 10. LEVEL LOADING & RESET
+// 11. LEVEL LOADING & RESET
 // -------------------------------------------------------------
 function loadLevel(index) {
   state.currentLevelIndex = index;
   state.isSandbox = false;
   state.twoWaysHistory = [];
+  state.selectedTrayIndex = null;
   dom.modeText.textContent = I18N[currentLang].sandbox;
 
   const level = LEVELS[index];
   dom.levelNumber.textContent = level.id;
 
-  // Deep clone level items
   state.leftPan = JSON.parse(JSON.stringify(level.leftItems));
   state.rightPan = JSON.parse(JSON.stringify(level.rightItems));
   state.tray = JSON.parse(JSON.stringify(level.trayItems));
 
-  // Configure Challenge Badge for "Two Ways" mode
   if (level.mode === 'two_ways') {
     dom.challengeStatus.classList.remove('hidden');
     dom.way1Badge.className = 'challenge-badge active';
@@ -831,6 +1008,7 @@ function loadLevel(index) {
 }
 
 function resetCurrentLevel() {
+  state.selectedTrayIndex = null;
   if (state.isSandbox) {
     state.leftPan = [];
     state.rightPan = [];
@@ -847,7 +1025,7 @@ function resetCurrentLevel() {
 }
 
 // -------------------------------------------------------------
-// 11. ITEM RENDERING & CREATION
+// 12. ITEM RENDERING & CREATION
 // -------------------------------------------------------------
 function renderAllItems() {
   renderPan(dom.leftPanItems, state.leftPan, 'left');
@@ -867,6 +1045,9 @@ function renderTray() {
   dom.weightsTray.innerHTML = '';
   state.tray.forEach((item, index) => {
     const el = createItemElement(item, 'tray', index);
+    if (state.selectedTrayIndex === index) {
+      el.classList.add('selected');
+    }
     dom.weightsTray.appendChild(el);
   });
 }
@@ -881,7 +1062,6 @@ function createItemElement(item, location, index) {
   if (item.type === 'batta') {
     el.classList.add('weight-batta');
     let dotsHtml = '';
-    // Show counting dots for Class 1-2 kids
     if (item.weight <= 5) {
       dotsHtml = `<div class="dots-container">${Array(item.weight).fill('<span class="dot-counter"></span>').join('')}</div>`;
     }
@@ -904,8 +1084,7 @@ function createItemElement(item, location, index) {
   }
 
   // Tap-to-move feature for young kids
-  el.addEventListener('click', (e) => {
-    // If not dragging, handle tap to transfer
+  el.addEventListener('click', () => {
     if (!el.classList.contains('was-dragged')) {
       handleItemTap(location, index);
     }
@@ -917,22 +1096,27 @@ function createItemElement(item, location, index) {
 
 function handleItemTap(location, index) {
   audio.playPop();
+  const level = LEVELS[state.currentLevelIndex];
+
   if (location === 'tray') {
-    // Tapping tray item: move to right pan (or left pan if right is full)
+    // If clicked tray item: move directly to right pan (or left pan in sandbox if right has weight)
     const item = state.tray.splice(index, 1)[0];
-    state.rightPan.push(item);
+    if (state.isSandbox && state.rightPan.length > state.leftPan.length) {
+      state.leftPan.push(item);
+    } else {
+      state.rightPan.push(item);
+    }
   } else if (location === 'left') {
-    // Tapping left pan item: return to tray (only if allowed by level)
-    const level = LEVELS[state.currentLevelIndex];
-    if (!state.isSandbox && level && level.leftItems && level.leftItems[index] && level.leftItems.length > 0 && level.mode !== 'sandbox') {
-      // Gentle wobble feedback if trying to remove locked puzzle weight
-      triggerWobble();
+    // Left pan item tapped: check if locked puzzle question
+    if (!state.isSandbox && level && level.leftItems && level.leftItems[index] && level.leftItems.length > 0) {
+      triggerFriendlyWobble();
+      updateMascotSpeech(currentLang === 'hi' ? "यह तो सवाल है! दाएं पलड़े पर सही वजन रखो।" : (currentLang === 'mr' ? "हे कोडे आहे! उजव्या पारड्यात वजन ठेवा." : "That's the puzzle weight! Match it on the right!"));
       return;
     }
     const item = state.leftPan.splice(index, 1)[0];
     state.tray.push(item);
   } else if (location === 'right') {
-    // Tapping right pan item: return to tray
+    // Right pan item: return to tray
     const item = state.rightPan.splice(index, 1)[0];
     state.tray.push(item);
   }
@@ -943,7 +1127,7 @@ function handleItemTap(location, index) {
 }
 
 // -------------------------------------------------------------
-// 12. DRAG AND DROP WITH POINTER EVENTS (Touch & Mouse)
+// 13. DRAG AND DROP WITH POINTER EVENTS (Touch & Mouse)
 // -------------------------------------------------------------
 let activeDrag = null;
 
@@ -952,13 +1136,12 @@ function setupPointerTouchDrag() {
     const token = e.target.closest('.weight-token');
     if (!token) return;
 
-    // Young kids dragging locked level items on left pan
     const loc = token.dataset.location;
     const idx = parseInt(token.dataset.index, 10);
     const level = LEVELS[state.currentLevelIndex];
 
+    // Prevent dragging locked puzzle base weights
     if (!state.isSandbox && loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
-      // Don't drag base level puzzle item
       return;
     }
 
@@ -990,7 +1173,6 @@ function setupPointerTouchDrag() {
       activeDrag.hasMoved = true;
       activeDrag.element.classList.add('was-dragged');
 
-      // Create floating drag avatar if not already created
       if (!activeDrag.clone) {
         activeDrag.clone = activeDrag.element.cloneNode(true);
         activeDrag.clone.classList.add('dragging');
@@ -1040,8 +1222,8 @@ function highlightPanUnderPointer(x, y) {
   const leftRect = dom.leftPanOverlay.getBoundingClientRect();
   const rightRect = dom.rightPanOverlay.getBoundingClientRect();
 
-  dom.leftPanOverlay.classList.toggle('drop-hover', isInside(x, y, leftRect));
-  dom.rightPanOverlay.classList.toggle('drop-hover', isInside(x, y, rightRect));
+  dom.leftPanOverlay.classList.toggle('drop-hover', isInside(x, y, leftRect, 20));
+  dom.rightPanOverlay.classList.toggle('drop-hover', isInside(x, y, rightRect, 20));
 }
 
 function clearPanHighlights() {
@@ -1061,19 +1243,16 @@ function dropItemAtPosition(x, y, dragData) {
   const rightRect = dom.rightPanOverlay.getBoundingClientRect();
   const trayRect = dom.weightsTray.getBoundingClientRect();
 
-  // Generous 35px padding so young kids on touch devices have an easy drop target
   let targetLocation = null;
   if (isInside(x, y, leftRect, 35)) targetLocation = 'left';
   else if (isInside(x, y, rightRect, 35)) targetLocation = 'right';
   else if (isInside(x, y, trayRect, 20)) targetLocation = 'tray';
 
   if (!targetLocation || targetLocation === dragData.location) {
-    // Returned to original place
     renderAllItems();
     return;
   }
 
-  // Remove from source collection
   let item = null;
   if (dragData.location === 'tray') {
     item = state.tray.splice(dragData.index, 1)[0];
@@ -1085,7 +1264,6 @@ function dropItemAtPosition(x, y, dragData) {
 
   if (!item) return;
 
-  // Add to target collection
   if (targetLocation === 'left') {
     state.leftPan.push(item);
   } else if (targetLocation === 'right') {
@@ -1100,58 +1278,72 @@ function dropItemAtPosition(x, y, dragData) {
 }
 
 function setupPanDropZones() {
-  // Desktop HTML5 drag fallback if ever triggered
   [dom.leftPanOverlay, dom.rightPanOverlay].forEach(overlay => {
     overlay.addEventListener('dragover', e => e.preventDefault());
+    overlay.addEventListener('click', (e) => {
+      // If a tray item was tapped/selected, drop it here
+      if (state.selectedTrayIndex !== null) {
+        const item = state.tray.splice(state.selectedTrayIndex, 1)[0];
+        const side = overlay.dataset.pan;
+        if (side === 'left') state.leftPan.push(item);
+        else state.rightPan.push(item);
+        state.selectedTrayIndex = null;
+        audio.playClink();
+        renderAllItems();
+        recalculateBalance();
+      }
+    });
   });
 }
 
 // -------------------------------------------------------------
-// 13. PHYSICS & TILT DYNAMICS (Spring & Damped Harmonic)
+// 14. PHYSICS & TILT DYNAMICS
 // -------------------------------------------------------------
 function recalculateBalance() {
   const leftTotal = state.leftPan.reduce((sum, it) => sum + it.weight, 0);
   const rightTotal = state.rightPan.reduce((sum, it) => sum + it.weight, 0);
 
-  // Update badges
   dom.leftWeightBadge.querySelector('.weight-value').textContent = leftTotal;
   dom.rightWeightBadge.querySelector('.weight-value').textContent = rightTotal;
 
   const diff = leftTotal - rightTotal;
-
-  // Max tilt angle is 14 degrees
   const MAX_ANGLE = 14;
   let target = diff * 2.8;
   if (target > MAX_ANGLE) target = MAX_ANGLE;
   if (target < -MAX_ANGLE) target = -MAX_ANGLE;
 
-  state.targetAngle = -target; // Negative tilts left up / right down
+  state.targetAngle = -target;
 
-  // Update status hint text
-  if (diff === 0) {
+  // Visual & Mascot Reactions
+  if (diff === 0 && (leftTotal > 0 || rightTotal > 0)) {
     dom.hintText.textContent = I18N[currentLang].balanced_msg;
     dom.needleHintIcon.textContent = "✨";
     dom.balanceGlowIndicator.classList.add('balanced');
     dom.leftWeightBadge.classList.add('balanced');
     dom.rightWeightBadge.classList.add('balanced');
+    dom.centerJewel.classList.add('balanced');
     dom.balanceEmoji.textContent = "⭐";
-  } else if (diff > 0) {
-    dom.hintText.textContent = I18N[currentLang].tilted_left;
-    dom.needleHintIcon.textContent = "⬅️";
-    dom.balanceGlowIndicator.classList.remove('balanced');
-    dom.leftWeightBadge.classList.remove('balanced');
-    dom.rightWeightBadge.classList.remove('balanced');
-    dom.balanceEmoji.textContent = "⚖️";
+    dom.mascotAvatar.classList.add('celebrating');
   } else {
-    dom.hintText.textContent = I18N[currentLang].tilted_right;
-    dom.needleHintIcon.textContent = "➡️";
     dom.balanceGlowIndicator.classList.remove('balanced');
     dom.leftWeightBadge.classList.remove('balanced');
     dom.rightWeightBadge.classList.remove('balanced');
+    dom.centerJewel.classList.remove('balanced');
     dom.balanceEmoji.textContent = "⚖️";
+    dom.mascotAvatar.classList.remove('celebrating');
+
+    if (diff > 0) {
+      dom.hintText.textContent = I18N[currentLang].tilted_left;
+      dom.needleHintIcon.textContent = "⬅️";
+    } else if (diff < 0) {
+      dom.hintText.textContent = I18N[currentLang].tilted_right;
+      dom.needleHintIcon.textContent = "➡️";
+    } else {
+      dom.hintText.textContent = I18N[currentLang].level_hint_default;
+      dom.needleHintIcon.textContent = "⚖️";
+    }
   }
 
-  // Schedule check for level complete when settled
   if (state.checkTimeout) clearTimeout(state.checkTimeout);
   state.checkTimeout = setTimeout(() => {
     checkWinCondition(leftTotal, rightTotal);
@@ -1159,26 +1351,20 @@ function recalculateBalance() {
 }
 
 function physicsLoop() {
-  // Smooth damped spring interpolation
   const damping = 0.08;
   state.currentAngle += (state.targetAngle - state.currentAngle) * damping;
 
-  // Apply beam rotation around fulcrum (450, 80)
   dom.beamGroup.setAttribute('transform', `rotate(${state.currentAngle}, 450, 80)`);
 
-  // Calculate left and right hook coordinates
   const rad = (state.currentAngle * Math.PI) / 180;
   const beamRadius = 300;
 
-  // Left hook: originally (150, 80) -> relative (-300, 0)
   const leftHookX = 450 - beamRadius * Math.cos(rad);
   const leftHookY = 80 - beamRadius * Math.sin(rad);
 
-  // Right hook: originally (750, 80) -> relative (+300, 0)
   const rightHookX = 450 + beamRadius * Math.cos(rad);
   const rightHookY = 80 + beamRadius * Math.sin(rad);
 
-  // Chains vertical drop delta
   const chainLength = 200;
   const leftPanX = leftHookX;
   const leftPanY = leftHookY + chainLength;
@@ -1186,31 +1372,24 @@ function physicsLoop() {
   const rightPanX = rightHookX;
   const rightPanY = rightHookY + chainLength;
 
-  // Update left chain lines
   updateChainSVG('left-chain-1', leftHookX, leftHookY, leftPanX - 70, leftPanY - 5);
   updateChainSVG('left-chain-2', leftHookX, leftHookY, leftPanX, leftPanY - 2);
   updateChainSVG('left-chain-3', leftHookX, leftHookY, leftPanX + 70, leftPanY - 5);
 
-  // Update left pan body
-  const leftPanEl = dom.leftPanGroup.querySelectorAll('ellipse');
-  leftPanEl.forEach(el => {
+  dom.leftPanGroup.querySelectorAll('ellipse').forEach(el => {
     el.setAttribute('cx', leftPanX);
     el.setAttribute('cy', leftPanY);
   });
 
-  // Update right chain lines
   updateChainSVG('right-chain-1', rightHookX, rightHookY, rightPanX - 70, rightPanY - 5);
   updateChainSVG('right-chain-2', rightHookX, rightHookY, rightPanX, rightPanY - 2);
   updateChainSVG('right-chain-3', rightHookX, rightHookY, rightPanX + 70, rightPanY - 5);
 
-  // Update right pan body
-  const rightPanEl = dom.rightPanGroup.querySelectorAll('ellipse');
-  rightPanEl.forEach(el => {
+  dom.rightPanGroup.querySelectorAll('ellipse').forEach(el => {
     el.setAttribute('cx', rightPanX);
     el.setAttribute('cy', rightPanY);
   });
 
-  // Synchronize HTML overlay positions to match SVG coordinates
   syncOverlayPosition(dom.leftPanOverlay, leftPanX, leftPanY);
   syncOverlayPosition(dom.rightPanOverlay, rightPanX, rightPanY);
 
@@ -1235,7 +1414,6 @@ function syncOverlayPosition(overlay, svgX, svgY) {
 
   if (!svgRect.width || !svgRect.height) return;
 
-  // SVG viewBox is 900 x 480 with preserveAspectRatio="xMidYMid meet"
   const vbWidth = 900;
   const vbHeight = 480;
   const aspect = vbWidth / vbHeight;
@@ -1243,12 +1421,10 @@ function syncOverlayPosition(overlay, svgX, svgY) {
 
   let scale, offsetX, offsetY;
   if (rectAspect > aspect) {
-    // Stage is wider than SVG ratio: black/empty bars horizontally
     scale = svgRect.height / vbHeight;
     offsetX = (svgRect.width - vbWidth * scale) / 2;
     offsetY = 0;
   } else {
-    // Stage is taller than SVG ratio: empty bars vertically
     scale = svgRect.width / vbWidth;
     offsetX = 0;
     offsetY = (svgRect.height - vbHeight * scale) / 2;
@@ -1263,7 +1439,7 @@ function syncOverlayPosition(overlay, svgX, svgY) {
 }
 
 // -------------------------------------------------------------
-// 14. WIN CONDITIONS, MULTI-WAY SOLVING & FRIENDLY FAILURE
+// 15. WIN CONDITIONS & SOLVING LOGIC
 // -------------------------------------------------------------
 function checkWinCondition(leftTotal, rightTotal) {
   if (state.isSandbox) return;
@@ -1271,7 +1447,6 @@ function checkWinCondition(leftTotal, rightTotal) {
 
   const level = LEVELS[state.currentLevelIndex];
 
-  // Friendly failure wobble if weights are unequal and user has tried placing weights
   if (leftTotal !== rightTotal) {
     if (rightTotal > 0) {
       triggerFriendlyWobble();
@@ -1279,7 +1454,6 @@ function checkWinCondition(leftTotal, rightTotal) {
     return;
   }
 
-  // Both sides are equal!
   if (level.mode === 'two_ways') {
     handleTwoWaysSolve(leftTotal, rightTotal, level);
   } else {
@@ -1296,10 +1470,12 @@ function triggerFriendlyWobble() {
 }
 
 function handleStandardSolve(leftTotal, rightTotal, level) {
-  // If mystery box level, reveal mystery item!
+  // Mystery box reveal
+  let mysteryVal = null;
   state.leftPan.forEach(item => {
     if (item.type === 'mystery') {
       item.revealed = true;
+      mysteryVal = item.weight;
     }
   });
   renderAllItems();
@@ -1308,15 +1484,13 @@ function handleStandardSolve(leftTotal, rightTotal, level) {
   state.completedLevels[level.id] = 3;
   saveProgress();
 
-  showCelebration(leftTotal, rightTotal);
+  showCelebration(leftTotal, rightTotal, mysteryVal ? `Mystery Box = ${mysteryVal} kg!` : null);
 }
 
 function handleTwoWaysSolve(leftTotal, rightTotal, level) {
-  // Create fingerprint of weights on the right pan
   const currentComb = state.rightPan.map(i => i.weight).sort().join('+');
 
   if (state.twoWaysHistory.length === 0) {
-    // Way 1 solved!
     state.twoWaysHistory.push(currentComb);
     dom.way1Badge.className = 'challenge-badge completed';
     dom.way1Badge.textContent = `${I18N[currentLang].way_1}: ✅ (${currentComb} kg)`;
@@ -1326,7 +1500,6 @@ function handleTwoWaysSolve(leftTotal, rightTotal, level) {
     audio.playWin();
     updateMascotSpeech(I18N[currentLang].way_1_done);
 
-    // Gently return right pan weights to tray so kid can build the second combination
     setTimeout(() => {
       while (state.rightPan.length > 0) {
         state.tray.push(state.rightPan.pop());
@@ -1338,11 +1511,9 @@ function handleTwoWaysSolve(leftTotal, rightTotal, level) {
   } else if (state.twoWaysHistory.length === 1) {
     const prevComb = state.twoWaysHistory[0];
     if (currentComb === prevComb) {
-      // Used the exact same combination again! Gentle voice reminder
       updateMascotSpeech(currentLang === 'hi' ? "यह तरीका पहले इस्तेमाल हो चुका है! कोई अलग बाट चुनो।" : (currentLang === 'mr' ? "ही पद्धत आधी वापरली आहे! वेगळी वजने निवडा." : "You already tried this combo! Find a different way!"));
       triggerFriendlyWobble();
     } else {
-      // Way 2 solved! Both ways completed!
       dom.way2Badge.className = 'challenge-badge completed';
       dom.way2Badge.textContent = `${I18N[currentLang].way_2}: ✅ (${currentComb} kg)`;
 
@@ -1380,7 +1551,7 @@ function spawnConfetti() {
 }
 
 // -------------------------------------------------------------
-// 15. BOOTSTRAP ON LOAD
+// 16. BOOTSTRAP
 // -------------------------------------------------------------
 window.addEventListener('DOMContentLoaded', () => {
   initGame();
