@@ -5,42 +5,39 @@ An interactive, responsive 2D drag-and-drop educational game that brings the tra
 
 ---
 
-## 🎮 How to Play
-1. **Open `index.html`** in any modern web browser on tablet, phone, or desktop.
-2. **Welcome Screen:** Choose your language (English, हिन्दी, मराठी) and your shop mascot buddy:
-   - 🦜 **Mithoo** (Friendly Parrot)
-   - 🐒 **Chintu** (Playful Monkey)
-   - 🐘 **Gappu** (Gentle Elephant)
-3. **Listen to Mascot Narration:** Tap the 🔊 button anytime to hear voice instructions via the browser's Web Speech API.
-4. **Drag or Tap Weights:**
-   - Drag brass *batta* weights (1 kg, 2 kg, 3 kg, 4 kg, 5 kg) or market produce (🍉 Watermelon, 🥥 Coconut, 🎃 Pumpkin, 🥭 Mango) onto the pans.
-   - **Tap-to-place:** Kids can also tap a weight from the tray to place it directly.
-5. **Watch the Scale Tilt:**
-   - Smooth damped spring physics simulate realistic balance beam rotation.
-   - When both sides are equal, the beam settles level, the central jewel lights up green, and celebratory stars burst forth!
+## 🍎 New in Version 3.0: Real Market Objects & Natural Human Voice
+- **Real Market Objects on the Left Pan:**
+  - Plain, abstract weight blocks on the left have been replaced by vibrant, delicious Indian market items:
+    - 🥥 **Tender Coconut** (2 kg)
+    - 🥭 **Sweet Mango Basket** (3 kg)
+    - 🎃 **Golden Pumpkin** (4 kg)
+    - 🍉 **Giant Watermelon** (5 kg)
+    - 🍍 **Sweet Pineapple** (2 kg)
+    - 🥕 **Carrot Bag** (3 kg)
+    - 🥔 **Potato Sack** (4 kg & 6 kg)
+    - 🍎 **Royal Apple Basket** (5 kg)
+    - 🎁 **Mystery Gift Box** (3 kg)
+    - 🏺 **Magic Matka Pot** (3 kg)
+    - 📦 **Bazaar Parcel** (4 kg)
+- **Authentic Brass *Batta* Weights on Right Pan:**
+  - Standard Indian hexagonal/circular brass weights (1 kg, 2 kg, 3 kg, 4 kg, 5 kg) with visual dot counters for Class 1 kids.
+- **Natural Human Voice Engine:**
+  - Intelligent voice selector prioritizing modern high-definition Neural/Natural human voices in **English**, **हिन्दी (Hindi)**, and **मराठी (Marathi)**.
+  - Realistic human pacing (`0.88x`), friendly teacher pitch, and Web Audio formant vocal cheers ("Wah!", "Shabaash!").
 
 ---
 
-## 🧠 Educational Progression (Class 1 to 3 Curriculum)
-
-- **Stage 1: Basic Balance (Class 1)**
-  - Direct 1-to-1 matching and simple sums ($1 + 2 = 3$).
-  - **Visual Counting Dots:** Weights include dot patterns matching the number so non-readers can count dots directly!
-- **Stage 2: Indian Bazaar Produce (Class 2)**
-  - Real-world market context: weighing fresh coconuts, pumpkins, mango baskets, and watermelons using standard brass batta weights.
-- **Stage 3: Mystery Box ❓ (Early Algebra, Class 2–3)**
-  - Unknown weight in a mystery box ($? + 1 = 4$).
-  - When balanced, the box unlocks to reveal the mystery value!
-- **Stage 4: "Two Different Ways" Challenge (Class 3)**
-  - Find two distinct combinations to balance the same weight (e.g. balance 6 kg with $3 + 3$, then find another way: $4 + 2$).
-- **Free Play / Sandbox Mode (⚖️):**
-  - Open exploration where kids and teachers can test any combination freely.
+## 🎮 How to Play
+1. **Open `index.html`** in any web browser on tablet, phone, or laptop.
+2. **Choose Mascot & Language:** Pick Mithoo 🦜, Chintu 🐒, or Gappu 🐘.
+3. **Listen to Spoken Hints:** Tap 🔊 to hear prompts spoken in a natural human voice.
+4. **Weigh the Object:** Drag brass *batta* weights from the tray to the right pan until the red needle points straight up and the jewel glows emerald green!
 
 ---
 
 ## 🌟 Key Features
 - **Vibrant Starting Interface** with festive toran decorations and mascot selection.
 - **Interactive Bazaar Temple Bell 🔔** with resonant brass acoustics.
-- **Voice & Visuals First** with Web Speech API and procedural Web Audio fallback.
+- **Voice & Visuals First** with Neural TTS and procedural Web Audio formant cheers.
 - **Bilingual / Trilingual Toggle (EN, HI, MR)**.
 - **Friendly Failure:** Gentle wobble and helpful tips, never harsh buzzers.

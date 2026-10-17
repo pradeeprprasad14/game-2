@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tarazu - The Balance Scale Game | तराजू का खेल | तराजूचा खेळ</title>
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <link rel="stylesheet" href="style.css?v=3.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Yatra+One&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@
 
         <!-- Mascot Companion Chooser -->
         <div class="mascot-selection-box">
-          <span class="mascot-select-title" data-i18n="choose_buddy">Choose Your Shop Mascot:</span>
+          <span class="mascot-select-title" data-i18n="choose_buddy">Choose Your Bazaar Mascot:</span>
           <div class="mascot-options">
             <button class="mascot-opt-btn active" data-mascot="parrot" title="Mithoo the Parrot">
               <span class="mascot-opt-emoji">🦜</span>
@@ -67,21 +67,21 @@
         <div class="welcome-speech-row">
           <div class="mascot-avatar welcome-avatar" id="welcome-mascot-avatar">🦜</div>
           <div class="speech-bubble welcome-bubble">
-            <p id="welcome-speech-text" data-i18n="welcome_greeting">Namaste! Let's balance weights together at the Bazaar!</p>
-            <button id="btn-welcome-speak" class="speak-btn" title="Listen">🔊</button>
+            <p id="welcome-speech-text" data-i18n="welcome_greeting">Namaste! Welcome to Tarazu Bazaar! Let's weigh delicious fruits and vegetables together!</p>
+            <button id="btn-welcome-speak" class="speak-btn" title="Listen with human voice">🔊</button>
           </div>
         </div>
 
         <!-- Big Vibrant Action Buttons -->
         <div class="welcome-buttons">
           <button id="btn-start-play" class="action-btn primary-btn pulse-glow big-play-btn">
-            <span class="play-icon">▶️</span>
-            <span class="play-text" data-i18n="start_play">PLAY GAME</span>
+            <span class="play-icon">🛒</span>
+            <span class="play-text" data-i18n="start_play">ENTER BAZAAR</span>
           </button>
           
           <div class="welcome-sub-actions">
             <button id="btn-welcome-levels" class="action-btn secondary-btn">
-              <span>🗺️</span> <span data-i18n="choose_level">Levels</span>
+              <span>🗺️</span> <span data-i18n="choose_level">Objects</span>
             </button>
             <button id="btn-welcome-sandbox" class="action-btn secondary-btn highlight-btn">
               <span>⚖️</span> <span data-i18n="sandbox">Free Play</span>
@@ -118,7 +118,7 @@
         </div>
         <div class="speech-bubble" id="speech-bubble">
           <p id="speech-text">Balance the scale!</p>
-          <button id="btn-speak" class="speak-btn" title="Listen again" aria-label="Listen audio">
+          <button id="btn-speak" class="speak-btn" title="Listen with natural human voice" aria-label="Listen audio">
             🔊
           </button>
         </div>
@@ -273,7 +273,7 @@
 
       <!-- HTML Overlays for Dynamic Pan Items -->
       <div id="pan-overlay-left" class="pan-overlay" data-pan="left">
-        <div class="pan-label-tag" data-i18n="left_pan">Left Pan</div>
+        <div class="pan-label-tag" data-i18n="left_pan">Object to Weigh 🍎</div>
         <div class="pan-items-shelf" id="left-pan-items"></div>
         <div class="pan-weight-tag" id="left-weight-badge">
           <span class="weight-value">0</span> <span class="unit">kg</span>
@@ -281,7 +281,7 @@
       </div>
 
       <div id="pan-overlay-right" class="pan-overlay" data-pan="right">
-        <div class="pan-label-tag" data-i18n="right_pan">Right Pan</div>
+        <div class="pan-label-tag" data-i18n="right_pan">Brass Weights ⚖️</div>
         <div class="pan-items-shelf" id="right-pan-items"></div>
         <div class="pan-weight-tag" id="right-weight-badge">
           <span class="weight-value">0</span> <span class="unit">kg</span>
@@ -299,8 +299,8 @@
     <!-- Bottom Tray -->
     <footer id="bottom-shelf">
       <div class="shelf-header">
-        <span class="shelf-title" data-i18n="tray_title">Pick & Drag Weights:</span>
-        <span class="shelf-sub" data-i18n="tray_hint">(Tap or drag onto scale pans)</span>
+        <span class="shelf-title" data-i18n="tray_title">Pick Brass Weights:</span>
+        <span class="shelf-sub" data-i18n="tray_hint">(Drag or tap weights to balance the object)</span>
       </div>
       <div id="weights-tray" class="weights-tray"></div>
     </footer>
@@ -309,34 +309,34 @@
     <div id="modal-tutorial" class="modal-backdrop hidden">
       <div class="modal-card tutorial-card">
         <div class="modal-header">
-          <h2 data-i18n="how_to_play_title">How to Play Tarazu ⚖️</h2>
+          <h2 data-i18n="how_to_play_title">How to Weigh at the Bazaar ⚖️</h2>
           <button id="btn-close-tutorial" class="close-btn" aria-label="Close">✕</button>
         </div>
         <div class="tutorial-steps">
           <div class="tut-step">
             <div class="tut-step-icon">📦</div>
             <div class="tut-step-text">
-              <strong data-i18n="tut_step1_title">1. Look at Left Pan</strong>
-              <p data-i18n="tut_step1_desc">Check what is on the left side: a brass weight, a mystery box, or yummy fruit!</p>
+              <strong data-i18n="tut_step1_title">1. Look at the Object on the Left</strong>
+              <p data-i18n="tut_step1_desc">A villager brought fresh watermelon, juicy mangoes, or a mystery box!</p>
             </div>
           </div>
           <div class="tut-step">
             <div class="tut-step-icon">✋</div>
             <div class="tut-step-text">
-              <strong data-i18n="tut_step2_title">2. Drag or Tap Weights</strong>
-              <p data-i18n="tut_step2_desc">Pick weights from the bottom shelf. Drag them or just tap them onto the pans.</p>
+              <strong data-i18n="tut_step2_title">2. Place Brass Weights on the Right</strong>
+              <p data-i18n="tut_step2_desc">Drag or tap weights (1, 2, 3, 4, 5 kg) onto the right pan.</p>
             </div>
           </div>
           <div class="tut-step">
             <div class="tut-step-icon">🎯</div>
             <div class="tut-step-text">
-              <strong data-i18n="tut_step3_title">3. Make the Scale Level!</strong>
-              <p data-i18n="tut_step3_desc">When both pans have equal weight, the red needle points straight up and the jewel glows green!</p>
+              <strong data-i18n="tut_step3_title">3. Make the Needle Point Up!</strong>
+              <p data-i18n="tut_step3_desc">When weights match the object, the needle levels out and the jewel glows emerald green!</p>
             </div>
           </div>
         </div>
         <button id="btn-got-it" class="action-btn primary-btn pulse-glow" style="margin-top: 16px;">
-          <span data-i18n="got_it">Got It! Let's Play! 🚀</span>
+          <span data-i18n="got_it">Let's Weigh! 🚀</span>
         </button>
       </div>
     </div>
@@ -350,15 +350,15 @@
           <span class="star-pop delay-1">🌟</span>
           <span class="star-pop delay-2">⭐</span>
         </div>
-        <h2 id="win-title" data-i18n="win_title">Shabaash! Perfect Balance!</h2>
-        <p id="win-msg" data-i18n="win_desc">Both sides are equal!</p>
-        <div class="win-equation" id="win-equation">5 kg = 2 kg + 3 kg</div>
+        <h2 id="win-title" data-i18n="win_title">Wah! Shabaash! Perfect Balance!</h2>
+        <p id="win-msg" data-i18n="win_desc">The scale is completely level!</p>
+        <div class="win-equation" id="win-equation">Watermelon (5 kg) = 2 kg + 3 kg</div>
         <div class="modal-actions">
           <button id="btn-replay-level" class="action-btn secondary-btn">
-            <span>🔄</span> <span data-i18n="replay">Again</span>
+            <span>🔄</span> <span data-i18n="replay">Weigh Again</span>
           </button>
           <button id="btn-next-level" class="action-btn primary-btn pulse-glow">
-            <span>▶️</span> <span data-i18n="next">Next Level</span>
+            <span>▶️</span> <span data-i18n="next">Next Object</span>
           </button>
         </div>
       </div>
@@ -368,13 +368,13 @@
     <div id="modal-levels" class="modal-backdrop hidden">
       <div class="modal-card levels-card">
         <div class="modal-header">
-          <h2 data-i18n="choose_level">Choose a Level</h2>
+          <h2 data-i18n="choose_level">Choose an Object to Weigh</h2>
           <button id="btn-close-levels" class="close-btn" aria-label="Close">✕</button>
         </div>
         <div class="stages-tabs">
-          <button class="stage-tab active" data-stage="1" data-i18n="stage_1">Basic (1-5 kg)</button>
-          <button class="stage-tab" data-stage="2" data-i18n="stage_2">Bazaar Produce</button>
-          <button class="stage-tab" data-stage="3" data-i18n="stage_3">Mystery Box ❓</button>
+          <button class="stage-tab active" data-stage="1" data-i18n="stage_1">Fresh Fruits & Veggies</button>
+          <button class="stage-tab" data-stage="2" data-i18n="stage_2">Bazaar Harvest</button>
+          <button class="stage-tab" data-stage="3" data-i18n="stage_3">Mystery Pots ❓</button>
           <button class="stage-tab" data-stage="4" data-i18n="stage_4">Two Ways 🌟</button>
         </div>
         <div id="levels-grid" class="levels-grid"></div>
@@ -383,6 +383,6 @@
 
   </div>
 
-  <script src="game.js?v=2.0"></script>
+  <script src="game.js?v=3.0"></script>
 </body>
 </html>

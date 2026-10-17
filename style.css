@@ -90,7 +90,7 @@ body {
 }
 
 .welcome-card {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border: 5px solid #d97706;
   border-radius: 32px;
   padding: 28px 36px;
@@ -140,7 +140,6 @@ body {
   color: #92400e;
 }
 
-/* Welcome Language Selection */
 .welcome-lang-box {
   display: flex;
   flex-direction: column;
@@ -234,7 +233,6 @@ body {
   line-height: 1.3;
 }
 
-/* Welcome Buttons */
 .welcome-buttons {
   display: flex;
   flex-direction: column;
@@ -243,7 +241,7 @@ body {
 }
 
 .big-play-btn {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   padding: 16px 36px;
   border-radius: 999px;
   display: flex;
@@ -294,7 +292,7 @@ body {
   justify-content: space-between;
   padding: 18px 16px 8px 16px;
   z-index: 20;
-  background: rgba(255, 251, 235, 0.85);
+  background: rgba(255, 251, 235, 0.88);
   backdrop-filter: blur(8px);
   border-bottom: 2px dashed #fcd34d;
   gap: 10px;
@@ -329,7 +327,6 @@ body {
   box-shadow: 0 1px 0 #d97706;
 }
 
-/* Temple bell animation */
 .bell-btn {
   background: #fef08a;
   border-color: #ca8a04;
@@ -439,8 +436,8 @@ body {
   background: #fef3c7;
   border: 2px solid #f59e0b;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -591,7 +588,7 @@ body {
 .pan-overlay {
   position: absolute;
   width: 180px;
-  height: 170px;
+  height: 175px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -610,14 +607,16 @@ body {
 }
 
 .pan-label-tag {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: #78350f;
-  background: rgba(254, 243, 199, 0.85);
-  border: 1px solid #d97706;
+  background: rgba(254, 243, 199, 0.92);
+  border: 1.5px solid #d97706;
   border-radius: 999px;
-  padding: 1px 8px;
+  padding: 2px 10px;
   margin-bottom: 2px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .pan-items-shelf {
@@ -686,7 +685,6 @@ body {
   transform: scale(1.15);
 }
 
-/* Center jewel glow inside SVG */
 #center-jewel.balanced {
   fill: url(#jewelGlow);
   filter: drop-shadow(0 0 8px #22c55e);
@@ -735,7 +733,7 @@ body {
 }
 
 /* -------------------------------------------------------------
-   WEIGHT TOKEN STYLING
+   WEIGHT TOKEN & BAZAAR OBJECTS STYLING
    ------------------------------------------------------------- */
 .weight-token {
   position: relative;
@@ -743,7 +741,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  border-radius: 18px;
   cursor: grab;
   touch-action: none;
   font-family: 'Fredoka', sans-serif;
@@ -772,7 +770,7 @@ body {
   z-index: 1000;
 }
 
-/* Traditional Brass Batta weight */
+/* Traditional Brass Batta weight (Right Pan) */
 .weight-batta {
   background: radial-gradient(circle at 35% 30%, #fff2a3 0%, #e5a93c 45%, #b45309 85%, #78350f 100%);
   border: 3px solid #78350f;
@@ -780,23 +778,75 @@ body {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-/* Proportional sizes for Class 1-3 kids */
+/* Proportional sizes for weights */
 .weight-1kg { width: 56px; height: 56px; font-size: 0.95rem; }
 .weight-2kg { width: 66px; height: 66px; font-size: 1.05rem; }
 .weight-3kg { width: 74px; height: 74px; font-size: 1.15rem; }
-.weight-4kg { width: 82px; height: 82px; font-size: 1.25rem; }
-.weight-5kg { width: 90px; height: 90px; font-size: 1.35rem; }
-.weight-6kg { width: 96px; height: 96px; font-size: 1.4rem; }
-.weight-8kg { width: 104px; height: 104px; font-size: 1.45rem; }
-.weight-10kg { width: 112px; height: 112px; font-size: 1.5rem; }
+.weight-4kg { width: 84px; height: 84px; font-size: 1.25rem; }
+.weight-5kg { width: 94px; height: 94px; font-size: 1.35rem; }
+.weight-6kg { width: 100px; height: 100px; font-size: 1.4rem; }
 
-/* In-Pan item scaling to sit cleanly */
+/* -------------------------------------------------------------
+   RICH BAZAAR OBJECTS ON LEFT PAN (REPLACING PLAIN WEIGHTS)
+   ------------------------------------------------------------- */
+.produce-item {
+  background: radial-gradient(circle at 40% 30%, #ffffff 0%, #fef3c7 60%, #fed7aa 100%);
+  border: 3px solid #ea580c;
+  color: #7c2d12;
+  box-shadow: 0 6px 0 #9a3412, 0 8px 18px rgba(154, 52, 18, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.produce-emoji {
+  font-size: 2.2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+}
+
+.produce-title-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #9a3412;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  padding: 1px 6px;
+  margin-top: 1px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* Mystery Item Box / Magic Matka */
+.mystery-box {
+  background: linear-gradient(135deg, #a855f7, #6b21a8);
+  border: 3px solid #4c1d95;
+  color: #fef08a;
+  box-shadow: 0 6px 0 #3b0764, 0 8px 18px rgba(107, 33, 168, 0.3);
+  animation: mysteryShimmer 2s infinite ease-in-out;
+  padding: 4px;
+}
+
+@keyframes mysteryShimmer {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4)); }
+  50% { filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.8)); }
+}
+
+.mystery-q {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* In-Pan item scaling */
 .pan-items-shelf .weight-token {
-  transform: scale(0.85);
-  margin: -4px;
+  transform: scale(0.9);
+  margin: -2px;
 }
 .pan-items-shelf .weight-token:hover {
-  transform: scale(0.92);
+  transform: scale(0.96);
 }
 
 /* Dot Counters for Class 1 Kids */
@@ -814,40 +864,6 @@ body {
   border-radius: 50%;
   background: #78350f;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
-}
-
-/* Bazaar Produce Item */
-.produce-item {
-  background: #ffffff;
-  border: 3px solid #ea580c;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.produce-emoji {
-  font-size: 1.8rem;
-  line-height: 1;
-}
-
-/* Mystery Item Box */
-.mystery-box {
-  background: linear-gradient(135deg, #a855f7, #6b21a8);
-  border: 3px solid #4c1d95;
-  color: #fef08a;
-  box-shadow: 0 6px 0 #3b0764;
-  animation: mysteryShimmer 2s infinite ease-in-out;
-}
-
-@keyframes mysteryShimmer {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4)); }
-  50% { filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.8)); }
-}
-
-.mystery-q {
-  font-size: 1.8rem;
-  font-weight: 800;
 }
 
 /* -------------------------------------------------------------
@@ -1071,11 +1087,11 @@ body {
   background: #ffffff;
   border: 3px solid #f59e0b;
   border-radius: 18px;
-  padding: 12px 6px;
+  padding: 10px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   cursor: pointer;
   box-shadow: 0 4px 0 #d97706;
   font-family: inherit;
@@ -1087,14 +1103,19 @@ body {
   box-shadow: 0 2px 0 #d97706;
 }
 
+.level-btn-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 .level-btn-num {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: #78350f;
 }
 
 .level-btn-stars {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 /* WOBBLE ANIMATION FOR FRIENDLY FAILURE */
