@@ -1,12 +1,14 @@
 /**
  * Tarazu - The Traditional Indian Balance Scale Game (Classes 1-3)
  * Features:
- * 1. Natural Human-like Voice Selection (Web Speech API Neural/Natural voice search)
- * 2. Realistic Bazaar Objects on Left Pan (Coconut, Mangoes, Pumpkin, Watermelon, etc.)
- *    replacing all plain weight blocks!
- * 3. Authentic Brass Batta Weights on Right Pan (1, 2, 3, 4, 5 kg) with visual dots
- * 4. Damped Spring Physics, Web Audio procedural sounds & Formant cheers
- * 5. Trilingual (English, Hindi, Marathi) with instant toggle & audio hints
+ * 1. Organic, non-square cutouts for real Indian bazaar objects (corn, coconut, bananas,
+ *    mangoes, grapes, carrots, pumpkin, potato sacks, pineapples, watermelon, apple crates,
+ *    wheat sacks, rice sacks, clay matkas, festival gifts).
+ * 2. Distinctly shaped traditional Indian brass weights (Hexagonal 1kg, Octagonal 2kg,
+ *    Conical Bell 3kg, Decagonal 4kg, Heavy Master Hexagon 5kg, Stepped Pillar 6kg).
+ * 3. Natural Human-like Voice Selection (Neural/Natural browser TTS search).
+ * 4. Damped Spring Physics & Web Audio procedural sounds.
+ * 5. Trilingual (English, Hindi, Marathi) with instant toggle.
  */
 
 // -------------------------------------------------------------
@@ -28,9 +30,9 @@ const I18N = {
     replay: "Weigh Again",
     next: "Next Object ▶️",
     choose_level: "Choose an Object to Weigh",
-    stage_1: "Fresh Fruits & Veggies (1-5 kg)",
-    stage_2: "Bazaar Harvest (2-5 kg)",
-    stage_3: "Mystery Pots & Boxes ❓",
+    stage_1: "Fruits & Veggies (1-3 kg)",
+    stage_2: "Harvest & Sacks (4-5 kg)",
+    stage_3: "Mystery Pots ❓",
     stage_4: "Two Ways Challenge 🌟",
     way_1: "Way 1",
     way_2: "Way 2",
@@ -40,7 +42,7 @@ const I18N = {
     tilted_right: "Right side is heavier! Remove a weight or try a smaller one.",
     balanced_msg: "Wah! Both sides are equal!",
     mystery_revealed: "Mystery weight discovered: {val} kg!",
-    welcome_greeting: "Namaste! Welcome to Tarazu Bazaar! Let's weigh delicious fruits and vegetables together!",
+    welcome_greeting: "Namaste! Welcome to Tarazu Bazaar! Let's weigh delicious fruits, veggies, and grain sacks together!",
     app_sub: "The Balance Scale Game • तराजू का खेल",
     choose_lang: "Language / भाषा:",
     choose_buddy: "Choose Your Bazaar Mascot:",
@@ -51,9 +53,9 @@ const I18N = {
     how_to_play: "How to Play",
     how_to_play_title: "How to Weigh at the Bazaar ⚖️",
     tut_step1_title: "1. Look at the Object on the Left",
-    tut_step1_desc: "A villager brought fresh watermelon, juicy mangoes, or a mystery box!",
-    tut_step2_title: "2. Place Brass Weights on the Right",
-    tut_step2_desc: "Drag or tap weights (1, 2, 3, 4, 5 kg) onto the right pan.",
+    tut_step1_desc: "See the fresh watermelon, banana bunch, or grain sack brought to the bazaar!",
+    tut_step2_title: "2. Place Shaped Brass Weights on the Right",
+    tut_step2_desc: "Drag or tap weights (hexagon 1kg, octagon 2kg, bell 3kg, etc.) onto the right pan.",
     tut_step3_title: "3. Make the Needle Point Up!",
     tut_step3_desc: "When weights match the object, the needle levels out and the jewel glows emerald green!",
     got_it: "Let's Weigh! 🚀",
@@ -68,25 +70,25 @@ const I18N = {
     left_pan: "तोलने की वस्तु 🍎",
     right_pan: "पीतल के बाट ⚖️",
     tray_title: "पीतल के बाट चुनो:",
-    tray_hint: "(वस्तु तोलने के लिए बाट रखें)",
+    tray_hint: "(वस्तु तोलने के लिए सही बाट रखें)",
     win_title: "वाह! शाबाश! बिल्कुल सही वजन!",
     win_desc: "दोनों पलड़े बिल्कुल बराबर हैं!",
     replay: "फिर से तोलें",
     next: "अगली वस्तु ▶️",
     choose_level: "तोलने की वस्तु चुनें",
-    stage_1: "ताज़ा फल और सब्ज़ी (1-5 किग्रा)",
-    stage_2: "बाज़ार की उपज (2-5 किग्रा)",
+    stage_1: "फल और सब्ज़ी (1-3 किग्रा)",
+    stage_2: "उपज और बोरियां (4-5 किग्रा)",
     stage_3: "जादुई मटका और डिब्बा ❓",
     stage_4: "दो तरीके 🌟",
     way_1: "तरीका 1",
     way_2: "तरीका 2",
     way_1_done: "बहुत बढ़िया! अब दूसरे अलग तरीके से तोलकर दिखाओ!",
-    level_hint_default: "बाएं पलड़े की वस्तु तोलने के लिए दाएं में बाट रखो!",
+    level_hint_default: "बाएं पलड़े की चीज़ तोलने के लिए दाएं में बाट रखो!",
     tilted_left: "बायां पलड़ा भारी है! दाएं पलड़े में और बाट रखो।",
     tilted_right: "दायां पलड़ा भारी है! कोई छोटा बाट लगाकर देखो।",
     balanced_msg: "वाह! दोनों तरफ बिल्कुल बराबर है!",
     mystery_revealed: "जादुई वस्तु का सही वजन मिला: {val} किग्रा!",
-    welcome_greeting: "नमस्ते! तराजू बाज़ार में आपका स्वागत है! आओ ताज़े फल और सब्ज़ियाँ तोलें!",
+    welcome_greeting: "नमस्ते! तराजू बाज़ार में आपका स्वागत है! आओ ताज़े फल, सब्ज़ियाँ और बोरियाँ तोलें!",
     app_sub: "तराजू का खेल • वजन काटा खेळ",
     choose_lang: "भाषा चुनें:",
     choose_buddy: "अपना बाज़ार साथी चुनें:",
@@ -97,11 +99,11 @@ const I18N = {
     how_to_play: "कैसे खेलें",
     how_to_play_title: "तराजू से कैसे तोलें ⚖️",
     tut_step1_title: "1. बाईं तरफ की चीज़ देखो",
-    tut_step1_desc: "दुकानदार ताज़ा तरबूज, मीठे आम या जादुई डिब्बा लाया है!",
-    tut_step2_title: "2. दाईं तरफ बाट रखो",
-    tut_step2_desc: "नीचे से पीतल के बाट (1, 2, 3, 4, 5 किग्रा) खींचकर या छूकर रखो।",
+    tut_step1_desc: "दुकानदार ताज़ा तरबूज, केले, मक्का या गेहूं की बोरी लाया है!",
+    tut_step2_title: "2. दाईं तरफ अलग-अलग आकार के बाट रखो",
+    tut_step2_desc: "षट्कोण 1 किग्रा, अष्टकोण 2 किग्रा, घंटाकार 3 किग्रा बाट खींचकर रखो।",
     tut_step3_title: "3. कांटा सीधा करो!",
-    tut_step3_desc: "जैसे ही वजन बराबर होगा, लाल सुई सीधी खड़ी होगी और हरी रोशनी चमकेगी!",
+    tut_step3_desc: "वजन बराबर होते ही लाल सुई सीधी होगी और हरी रोशनी चमकेगी!",
     got_it: "समझ गए! खेलें! 🚀",
     tts_lang: "hi-IN"
   },
@@ -120,8 +122,8 @@ const I18N = {
     replay: "पुन्हा तोका",
     next: "पुढील वस्तू ▶️",
     choose_level: "तोलण्यासाठी वस्तू निवडा",
-    stage_1: "ताजी फळे व भाजी (1-5 किलो)",
-    stage_2: "बाजारातील माल (2-5 किलो)",
+    stage_1: "फळे व भाजी (1-3 किलो)",
+    stage_2: "धान्य व गोणी (4-5 किलो)",
     stage_3: "गूढ मटका व डबा ❓",
     stage_4: "दोन पद्धती 🌟",
     way_1: "पद्धत 1",
@@ -132,7 +134,7 @@ const I18N = {
     tilted_right: "उजवे पारडे जड आहे! उजवीकडून थोडे वजन कमी करा.",
     balanced_msg: "छान! दोन्ही पारडी अगदी समसमान झाली!",
     mystery_revealed: "गूढ वस्तूचे अचूक वजन सापडले: {val} किलो!",
-    welcome_greeting: "नमस्ते! तराजूच्या बाजारात आपले स्वागत आहे! चला ताजी फळे आणि भाज्या तोकूया!",
+    welcome_greeting: "नमस्ते! तराजूच्या बाजारात आपले स्वागत आहे! चला ताजी फळे, भाजी आणि धान्याची गोणी तोकूया!",
     app_sub: "वजन काटा खेळ • तराजू का खेल",
     choose_lang: "भाषा निवडा:",
     choose_buddy: "आपला सोबती निवडा:",
@@ -143,9 +145,9 @@ const I18N = {
     how_to_play: "कसे खेळायचे",
     how_to_play_title: "तराजूने कसे तोकायचे ⚖️",
     tut_step1_title: "1. डाव्या बाजूची वस्तू बघा",
-    tut_step1_desc: "शेतकऱ्याने ताजे कलिंगड, गोड आंबे किंवा गूढ डबा आणला आहे!",
-    tut_step2_title: "2. उजव्या पारड्यात वजने ठेवा",
-    tut_step2_desc: "खालून योग्य वजने (1, 2, 3, 4, 5 किलो) ओढून किंवा टॅप करून ठेवा.",
+    tut_step1_desc: "शेतकऱ्याने ताजे कलिंगड, केळी, मका किंवा गव्हाची गोणी आणली आहे!",
+    tut_step2_title: "2. उजव्या पारड्यात विशिष्ट आकाराची वजने ठेवा",
+    tut_step2_desc: "षट्कोणी 1 किलो, अष्टकोणी 2 किलो किंवा घंटाकार 3 किलो वजने ठेवा.",
     tut_step3_title: "3. काटा अगदी सरळ करा!",
     tut_step3_desc: "वजन जुळताच लाल काटा मधोमध येईल आणि हिरवा दिवा चमकेल!",
     got_it: "समजले! तोकूया! 🚀",
@@ -258,7 +260,7 @@ class AudioController {
     osc.stop(t + 0.35);
   }
 
-  // Celebratory joyful Indian victory chimes
+  // Celebratory joyful victory chimes + formant cheer
   playWin() {
     if (!this.soundEnabled) return;
     this.init();
@@ -285,11 +287,10 @@ class AudioController {
       osc.stop(t + idx * 0.12 + 0.35);
     });
 
-    // Formant vocal cheer "Wah!"
     this.playVocalCheer();
   }
 
-  // Formant vocal cheer synthesis (produces warm human "Wah!" vowel tone)
+  // Formant vocal cheer synthesis (warm human "Wah!" vowel)
   playVocalCheer() {
     if (!this.soundEnabled || !this.ctx) return;
     try {
@@ -299,7 +300,6 @@ class AudioController {
       osc.frequency.setValueAtTime(220, t);
       osc.frequency.exponentialRampToValueAtTime(330, t + 0.35);
 
-      // Formants for /a/ vowel (F1 ~ 800Hz, F2 ~ 1200Hz)
       const f1 = this.ctx.createBiquadFilter();
       f1.type = 'bandpass';
       f1.frequency.setValueAtTime(800, t);
@@ -368,13 +368,11 @@ class SpeechController {
     }
   }
 
-  // Finds the most natural, human-sounding voice available
   getBestHumanVoice(langCode) {
     if (!this.synth) return null;
     const voices = this.synth.getVoices();
     if (!voices || voices.length === 0) return null;
 
-    // Quality keywords: modern browser neural / online / high-definition human voices
     const qualityKeywords = [
       'natural', 'neural', 'online', 'google', 'female', 'premium',
       'neerja', 'swara', 'madhur', 'aarav', 'heera', 'ravi', 'zira', 'jenny', 'samantha'
@@ -382,7 +380,7 @@ class SpeechController {
 
     const langLower = langCode.toLowerCase();
 
-    // 1. Exact language match with neural/natural human voice
+    // 1. Exact match with neural/natural human voice
     let best = voices.find(v => {
       const vLang = v.lang.toLowerCase();
       const vName = v.name.toLowerCase();
@@ -391,14 +389,14 @@ class SpeechController {
     });
     if (best) return best;
 
-    // 2. Any exact language match
+    // 2. Any exact match
     best = voices.find(v => {
       const vLang = v.lang.toLowerCase();
       return vLang.startsWith(langLower) || vLang.replace('_', '-').startsWith(langLower);
     });
     if (best) return best;
 
-    // 3. Intelligent fallback for Indian languages (Marathi fallback to Hindi natural voice)
+    // 3. Indian language fallback (Marathi to Hindi natural voice)
     if (langLower === 'mr' || langLower.startsWith('mr')) {
       best = voices.find(v => v.lang.toLowerCase().startsWith('hi') && qualityKeywords.some(k => v.name.toLowerCase().includes(k))) ||
              voices.find(v => v.lang.toLowerCase().startsWith('hi')) ||
@@ -406,7 +404,7 @@ class SpeechController {
       if (best) return best;
     }
 
-    // 4. English with natural/neural quality
+    // 4. English with natural quality
     if (langLower.startsWith('en')) {
       best = voices.find(v => v.lang.toLowerCase().includes('in') && v.lang.toLowerCase().startsWith('en')) ||
              voices.find(v => v.lang.toLowerCase().startsWith('en') && qualityKeywords.some(k => v.name.toLowerCase().includes(k)));
@@ -419,38 +417,31 @@ class SpeechController {
   speak(text) {
     if (!this.synth || !audio.soundEnabled) return;
     try {
-      this.synth.cancel(); // Stop any pending speech
+      this.synth.cancel();
 
       const utterance = new SpeechSynthesisUtterance(text);
-      
-      // Warm, natural human teacher pacing (not robotic fast or high squeak)
-      utterance.rate = 0.88; // Natural, articulate conversational speed for children
-      utterance.pitch = 1.0; // Realistic natural human vocal pitch
+      utterance.rate = 0.88;
+      utterance.pitch = 1.0;
       utterance.volume = 1.0;
 
       const langCode = I18N[currentLang].tts_lang;
       utterance.lang = langCode;
 
-      const voice = this.getBestHumanVoice(currentLang === 'hi' ? 'hi' : (currentLang === 'mr' ? 'mr' : 'en'));
-      if (voice) {
-        utterance.voice = voice;
+      const v = this.getBestHumanVoice(currentLang === 'hi' ? 'hi' : (currentLang === 'mr' ? 'mr' : 'en'));
+      if (v) {
+        utterance.voice = v;
       }
 
-      // Animate mascot while human voice is speaking
       const mascot = document.getElementById('mascot-avatar');
       if (mascot) {
         mascot.style.transform = 'scale(1.18) rotate(-4deg)';
-        utterance.onend = () => {
-          mascot.style.transform = '';
-        };
-        utterance.onerror = () => {
-          mascot.style.transform = '';
-        };
+        utterance.onend = () => { mascot.style.transform = ''; };
+        utterance.onerror = () => { mascot.style.transform = ''; };
       }
 
       this.synth.speak(utterance);
     } catch (e) {
-      console.log('TTS fallback:', e);
+      console.log('TTS error fallback:', e);
     }
   }
 }
@@ -458,19 +449,36 @@ class SpeechController {
 const voice = new SpeechController();
 
 // -------------------------------------------------------------
-// 4. CURRICULUM: REAL OBJECTS ON LEFT PAN, BRASS BATTA ON RIGHT!
+// 4. EXPANSIVE CURRICULUM: 17 DIVERSE BAZAAR OBJECTS!
 // -------------------------------------------------------------
-// Every single level features a recognizable, colorful Indian market object
-// on the left pan! Children balance it with standard brass batta weights on the right.
+// Real objects: free-standing organic graphics (no square cards!)
+// Weights: distinct geometric shapes (Hexagon, Octagon, Bell, Decagon, Master Hexagon)
 const LEVELS = [
-  // Stage 1: Fresh Fruits & Vegetables (1 - 5 kg)
+  // Stage 1: Fresh Fruits & Veggies (1 - 3 kg)
   {
     id: 1,
     stage: 1,
-    title: "Fresh Coconut (2 kg)",
-    promptEn: "Weigh the coconut! Put a 2 kg brass weight on the right pan.",
-    promptHi: "ताज़ा नारियल तोलो! दाएं पलड़े पर 2 किग्रा का बाट रखो।",
-    promptMr: "ताजा नारळ तोकडा! उजव्या पारड्यात 2 किलोचे वजन ठेवा.",
+    title: "Sweet Golden Corn (1 kg)",
+    promptEn: "Weigh the sweet corn (1 kg)! Put a 1 kg hexagonal brass weight on the right pan.",
+    promptHi: "मीठा भुट्टा (1 किग्रा) तोलो! दाएं पलड़े पर 1 किग्रा का षट्कोण बाट रखो।",
+    promptMr: "गोड मका (1 किलो) तोकडा! उजव्या पारड्यात 1 किलोचे षट्कोणी वजन ठेवा.",
+    leftItems: [{ type: 'produce', weight: 1, emoji: '🌽', nameEn: 'Sweet Corn', nameHi: 'भुट्टा', nameMr: 'मका', label: '1 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' }
+    ],
+    targetWeight: 1,
+    mode: 'single'
+  },
+  {
+    id: 2,
+    stage: 1,
+    title: "Tender Coconut (2 kg)",
+    promptEn: "Weigh the fresh coconut (2 kg)! Put a 2 kg octagonal brass weight on the right.",
+    promptHi: "ताज़ा नारियल (2 किग्रा) तोलो! दाएं पलड़े पर 2 किग्रा का अष्टकोण बाट रखो।",
+    promptMr: "ताजा नारळ (2 किलो) तोकडा! उजव्या पारड्यात 2 किलोचे अष्टकोणी वजन ठेवा.",
     leftItems: [{ type: 'produce', weight: 2, emoji: '🥥', nameEn: 'Coconut', nameHi: 'नारियल', nameMr: 'नारळ', label: '2 kg' }],
     rightItems: [],
     trayItems: [
@@ -482,13 +490,31 @@ const LEVELS = [
     mode: 'single'
   },
   {
-    id: 2,
+    id: 3,
     stage: 1,
-    title: "Sweet Mango Basket (3 kg)",
-    promptEn: "Weigh the mangoes (3 kg)! Combine 1 kg and 2 kg brass weights on the right.",
+    title: "Banana Bunch (2 kg)",
+    promptEn: "Weigh the fresh banana bunch (2 kg)! Balance with weights.",
+    promptHi: "केले की घड़ी (2 किग्रा) तोलो! सही बाट रखकर तराजू बराबर करो।",
+    promptMr: "केळ्यांचा घड (2 किलो) तोकडा! योग्य वजन ठेवून समसमान करा.",
+    leftItems: [{ type: 'produce', weight: 2, emoji: '🍌', nameEn: 'Bananas', nameHi: 'केले', nameMr: 'केळी', label: '2 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' }
+    ],
+    targetWeight: 2,
+    mode: 'single'
+  },
+  {
+    id: 4,
+    stage: 1,
+    title: "Alphonso Mango Basket (3 kg)",
+    promptEn: "Weigh the sweet mango basket (3 kg)! Combine 1 kg and 2 kg brass weights on the right.",
     promptHi: "मीठे आम की टोकरी (3 किग्रा) तोलो! दाएं पलड़े पर 1 और 2 किग्रा बाट जोड़ो।",
     promptMr: "गोड आंब्यांची टोपली (3 किलो) तोकडा! उजवीकडे 1 आणि 2 किलो वजने ठेवा.",
-    leftItems: [{ type: 'produce', weight: 3, emoji: '🥭', nameEn: 'Mangoes', nameHi: 'आम', nameMr: 'आंबे', label: '3 kg' }],
+    leftItems: [{ type: 'produce', weight: 3, emoji: '🥭', nameEn: 'Mangoes', nameHi: 'आम की टोकरी', nameMr: 'आंब्यांची टोपली', label: '3 kg' }],
     rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
@@ -499,10 +525,48 @@ const LEVELS = [
     mode: 'single'
   },
   {
-    id: 3,
+    id: 5,
     stage: 1,
-    title: "Golden Pumpkin (4 kg)",
-    promptEn: "Weigh the big golden pumpkin (4 kg)! Drag weights to balance.",
+    title: "Black Grapes Basket (3 kg)",
+    promptEn: "Weigh the juicy black grapes (3 kg)! Place the 3 kg conical bell weight.",
+    promptHi: "काले अंगूर की टोकरी (3 किग्रा) तोलो! 3 किग्रा का घंटाकार बाट रखो।",
+    promptMr: "काळ्या द्राक्षांची टोपली (3 किलो) तोकडा! 3 किलोचे घंटाकार वजन ठेवा.",
+    leftItems: [{ type: 'produce', weight: 3, emoji: '🍇', nameEn: 'Black Grapes', nameHi: 'अंगूर', nameMr: 'द्राक्षे', label: '3 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' },
+      { type: 'batta', weight: 4, label: '4 kg' }
+    ],
+    targetWeight: 3,
+    mode: 'single'
+  },
+  {
+    id: 6,
+    stage: 1,
+    title: "Crunchy Carrot Bundle (3 kg)",
+    promptEn: "Weigh the fresh carrot bundle (3 kg)! Find the matching weights.",
+    promptHi: "गाजर का बंडल (3 किग्रा) तोलो! सही बाट रखो।",
+    promptMr: "गाजरांचा जुडगा (3 किलो) तोकडा! योग्य वजने ठेवा.",
+    leftItems: [{ type: 'produce', weight: 3, emoji: '🥕', nameEn: 'Carrots', nameHi: 'गाजर बंडल', nameMr: 'गाजरे', label: '3 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' }
+    ],
+    targetWeight: 3,
+    mode: 'single'
+  },
+
+  // Stage 2: Harvest & Sacks (4 - 5 kg)
+  {
+    id: 7,
+    stage: 2,
+    title: "Golden Autumn Pumpkin (4 kg)",
+    promptEn: "Weigh the big golden pumpkin (4 kg)! Drag decagonal weights to balance.",
     promptHi: "बड़ा कद्दू (4 किग्रा) तोलो! सही बाट रखकर बराबर करो।",
     promptMr: "मोठा भोपळा (4 किलो) तोकडा! योग्य वजने ठेवून समसमान करा.",
     leftItems: [{ type: 'produce', weight: 4, emoji: '🎃', nameEn: 'Pumpkin', nameHi: 'कद्दू', nameMr: 'भोपळा', label: '4 kg' }],
@@ -517,11 +581,47 @@ const LEVELS = [
     mode: 'single'
   },
   {
-    id: 4,
-    stage: 1,
-    title: "Giant Watermelon (5 kg)",
-    promptEn: "Weigh the giant watermelon (5 kg)! Balance with weights on the right.",
-    promptHi: "बड़ा तरबूज (5 किग्रा) तोलो! दाएं पलड़े पर बाट रखकर तराजू बराबर करो।",
+    id: 8,
+    stage: 2,
+    title: "Jute Potato Sack (4 kg)",
+    promptEn: "Weigh the burlap potato sack (4 kg)! Place weights on the right pan.",
+    promptHi: "आलू की बोरी (4 किग्रा) तोलो! दाएं पलड़े पर बाट रखो।",
+    promptMr: "बटाट्याची गोणी (4 किलो) तोकडा! उजव्या पारड्यात वजने ठेवा.",
+    leftItems: [{ type: 'produce', weight: 4, emoji: '🥔', customClass: 'obj-sack', nameEn: 'Potato Sack', nameHi: 'आलू की बोरी', nameMr: 'बटाट्याची गोणी', label: '4 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' },
+      { type: 'batta', weight: 4, label: '4 kg' }
+    ],
+    targetWeight: 4,
+    mode: 'single'
+  },
+  {
+    id: 9,
+    stage: 2,
+    title: "Pineapple Pair (4 kg)",
+    promptEn: "Weigh the tropical pineapples (4 kg)! Balance with brass weights.",
+    promptHi: "अनानास (4 किग्रा) तोलो! तराजू सीधा करो।",
+    promptMr: "अननस (4 किलो) तोकडा! तराजू समान करा.",
+    leftItems: [{ type: 'produce', weight: 4, emoji: '🍍', nameEn: 'Pineapples', nameHi: 'अनानास', nameMr: 'अननस', label: '4 kg' }],
+    rightItems: [],
+    trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 2, label: '2 kg' },
+      { type: 'batta', weight: 3, label: '3 kg' }
+    ],
+    targetWeight: 4,
+    mode: 'single'
+  },
+  {
+    id: 10,
+    stage: 2,
+    title: "Giant Striped Watermelon (5 kg)",
+    promptEn: "Weigh the giant watermelon (5 kg)! Balance with the heavy master weights on the right.",
+    promptHi: "बड़ा तरबूज (5 किग्रा) तोलो! दाएं पलड़े पर भारी बाट रखकर तराजू बराबर करो।",
     promptMr: "मोठे कलिंगड (5 किलो) तोकडा! उजव्या पारड्यात वजने ठेवून संतुलित करा.",
     leftItems: [{ type: 'produce', weight: 5, emoji: '🍉', nameEn: 'Watermelon', nameHi: 'तरबूज', nameMr: 'कलिंगड', label: '5 kg' }],
     rightItems: [],
@@ -534,76 +634,39 @@ const LEVELS = [
     targetWeight: 5,
     mode: 'single'
   },
-
-  // Stage 2: Bazaar Harvest (Pineapple, Carrots, Potato Sack, Apple Basket)
   {
-    id: 5,
+    id: 11,
     stage: 2,
-    title: "Sweet Pineapple (2 kg)",
-    promptEn: "Weigh the sweet pineapple (2 kg)! Find the matching weights.",
-    promptHi: "ताज़ा अनानास (2 किग्रा) तोलो! सही बाट चुनो।",
-    promptMr: "ताजे अननस (2 किलो) तोकडा! योग्य वजन निवडा.",
-    leftItems: [{ type: 'produce', weight: 2, emoji: '🍍', nameEn: 'Pineapple', nameHi: 'अनानास', nameMr: 'अननस', label: '2 kg' }],
-    rightItems: [],
-    trayItems: [
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' }
-    ],
-    targetWeight: 2,
-    mode: 'single'
-  },
-  {
-    id: 6,
-    stage: 2,
-    title: "Carrot Bag (3 kg)",
-    promptEn: "Weigh the crunchy carrots (3 kg)! Balance with weights.",
-    promptHi: "गाजर की थैली (3 किग्रा) तोलो! तराजू सीधा करो।",
-    promptMr: "गाजरांची पिशवी (3 किलो) तोकडा! तराजू समान करा.",
-    leftItems: [{ type: 'produce', weight: 3, emoji: '🥕', nameEn: 'Carrots', nameHi: 'गाजर', nameMr: 'गाजरे', label: '3 kg' }],
+    title: "Kashmiri Apple Crate (5 kg)",
+    promptEn: "Weigh the Kashmiri apple crate (5 kg)! Make the scale level.",
+    promptHi: "सेब की पेटी (5 किग्रा) तोलो! पलड़े को बराबर करो।",
+    promptMr: "सफरचंदांची पेटी (5 किलो) तोकडा! दोन्ही पारडी समान करा.",
+    leftItems: [{ type: 'produce', weight: 5, emoji: '🍎', nameEn: 'Apple Crate', nameHi: 'सेब की पेटी', nameMr: 'सफरचंदांची पेटी', label: '5 kg' }],
     rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
       { type: 'batta', weight: 2, label: '2 kg' },
       { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' }
+      { type: 'batta', weight: 5, label: '5 kg' }
     ],
-    targetWeight: 3,
+    targetWeight: 5,
     mode: 'single'
   },
   {
-    id: 7,
+    id: 12,
     stage: 2,
-    title: "Potato Sack (4 kg)",
-    promptEn: "Weigh the potato sack (4 kg)! Add weights to the right.",
-    promptHi: "आलू की बोरी (4 किग्रा) तोलो! सही बाट रखो।",
-    promptMr: "बटाट्याची गोणी (4 किलो) तोकडा! योग्य वजने ठेवा.",
-    leftItems: [{ type: 'produce', weight: 4, emoji: '🥔', nameEn: 'Potatoes', nameHi: 'आलू', nameMr: 'बटाटे', label: '4 kg' }],
-    rightItems: [],
-    trayItems: [
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' }
-    ],
-    targetWeight: 4,
-    mode: 'single'
-  },
-  {
-    id: 8,
-    stage: 2,
-    title: "Royal Apple Basket (5 kg)",
-    promptEn: "Weigh the fresh apple basket (5 kg)! Make the scale level.",
-    promptHi: "सेब की टोकरी (5 किग्रा) तोलो! पलड़े को बराबर करो।",
-    promptMr: "सफरचंदांची टोपली (5 किलो) तोकडा! दोन्ही पारडी समान करा.",
-    leftItems: [{ type: 'produce', weight: 5, emoji: '🍎', nameEn: 'Apples', nameHi: 'सेब', nameMr: 'सफरचंद', label: '5 kg' }],
+    title: "Farmer's Wheat Sack (5 kg)",
+    promptEn: "Weigh the burlap wheat sack (5 kg)! Balance with brass weights.",
+    promptHi: "गेहूं की बोरी (5 किग्रा) तोलो! सही बाट रखो।",
+    promptMr: "गव्हाची गोणी (5 किलो) तोकडा! योग्य वजने ठेवा.",
+    leftItems: [{ type: 'produce', weight: 5, emoji: '🌾', customClass: 'obj-sack', nameEn: 'Wheat Sack', nameHi: 'गेहूं की बोरी', nameMr: 'गव्हाची गोणी', label: '5 kg' }],
     rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
       { type: 'batta', weight: 2, label: '2 kg' },
       { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' }
+      { type: 'batta', weight: 4, label: '4 kg' },
+      { type: 'batta', weight: 5, label: '5 kg' }
     ],
     targetWeight: 5,
     mode: 'single'
@@ -611,13 +674,13 @@ const LEVELS = [
 
   // Stage 3: Mystery Pots & Boxes (Missing Weight / Early Algebra)
   {
-    id: 9,
+    id: 13,
     stage: 3,
-    title: "Mystery Gift Box ❓",
-    promptEn: "What is inside the Mystery Gift? Balance the scale to discover its weight!",
-    promptHi: "जादुई डिब्बे का वजन कितना है? बाट रखकर पता लगाओ!",
-    promptMr: "गूढ भेटीचे वजन किती आहे? तराजू समान करून शोधा!",
-    leftItems: [{ type: 'mystery', weight: 3, emoji: '🎁', nameEn: 'Mystery Box', nameHi: 'जादुई डिब्बा', nameMr: 'गूढ डबा', label: '?' }],
+    title: "Clay Magic Matka ❓",
+    promptEn: "What is inside the Clay Matka? Balance the scale to discover its weight!",
+    promptHi: "मिट्टी के मटके में कितना वजन है? बाट रखकर पता लगाओ!",
+    promptMr: "मातीच्या माठाचे वजन किती आहे? तराजू समान करून शोधा!",
+    leftItems: [{ type: 'mystery', weight: 3, emoji: '🏺', nameEn: 'Clay Matka', nameHi: 'जादुई मटका', nameMr: 'मातीचा माठ', label: '?' }],
     rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
@@ -630,35 +693,33 @@ const LEVELS = [
     mode: 'mystery_discovery'
   },
   {
-    id: 10,
+    id: 14,
     stage: 3,
-    title: "Magic Matka + Apple",
-    promptEn: "Magic Matka + 1 kg Apple. Put total weight on right to reveal the Matka!",
-    promptHi: "जादुई मटका + 1 किग्रा सेब। 4 किग्रा बनाकर मटके का वजन जानो!",
-    promptMr: "जादुई मटका + 1 किलो सफरचंद. 4 किलो लावून मटक्याचे वजन शोधा!",
-    leftItems: [
-      { type: 'mystery', weight: 3, emoji: '🏺', nameEn: 'Magic Matka', nameHi: 'जादुई मटका', nameMr: 'जादुई मडके', label: '?' },
-      { type: 'produce', weight: 1, emoji: '🍎', nameEn: 'Apple', nameHi: 'सेब', nameMr: 'सफरचंद', label: '1 kg' }
-    ],
+    title: "Royal Festival Gift ❓",
+    promptEn: "How heavy is the Mystery Festival Gift? Put brass weights on the right!",
+    promptHi: "त्योहार का जादुई उपहार कितना भारी है? सही बाट रखकर जानो!",
+    promptMr: "सणाची गूढ भेट किती वजनाची आहे? उजवीकडे वजने ठेवून शोधा!",
+    leftItems: [{ type: 'mystery', weight: 4, emoji: '🎁', nameEn: 'Festival Gift', nameHi: 'जादुई उपहार', nameMr: 'सणाची भेट', label: '?' }],
     rightItems: [],
     trayItems: [
+      { type: 'batta', weight: 1, label: '1 kg' },
       { type: 'batta', weight: 2, label: '2 kg' },
       { type: 'batta', weight: 3, label: '3 kg' },
       { type: 'batta', weight: 4, label: '4 kg' }
     ],
     targetWeight: 4,
-    mysteryWeight: 3,
+    mysteryWeight: 4,
     mode: 'mystery_discovery'
   },
   {
-    id: 11,
+    id: 15,
     stage: 3,
-    title: "Mystery Parcel + Coconut",
-    promptEn: "Mystery Parcel + 2 kg Coconut. Balance with 6 kg to unlock the parcel!",
+    title: "Bazaar Parcel + Coconut = 6 kg",
+    promptEn: "Mystery Parcel + 2 kg Coconut on the left. Balance with 6 kg to unlock the parcel!",
     promptHi: "जादुई पार्सल + 2 किग्रा नारियल। 6 किग्रा बनाकर पार्सल खोलो!",
     promptMr: "गूढ पार्सल + 2 किलो नारळ. 6 किलो ठेवून पार्सल उघडा!",
     leftItems: [
-      { type: 'mystery', weight: 4, emoji: '📦', nameEn: 'Mystery Parcel', nameHi: 'जादुई पार्सल', nameMr: 'गूढ पार्सल', label: '?' },
+      { type: 'mystery', weight: 4, emoji: '📦', nameEn: 'Bazaar Parcel', nameHi: 'जादुई पार्सल', nameMr: 'गूढ पार्सल', label: '?' },
       { type: 'produce', weight: 2, emoji: '🥥', nameEn: 'Coconut', nameHi: 'नारियल', nameMr: 'नारळ', label: '2 kg' }
     ],
     rightItems: [],
@@ -675,7 +736,7 @@ const LEVELS = [
 
   // Stage 4: Two Different Ways to Balance Challenge
   {
-    id: 12,
+    id: 16,
     stage: 4,
     title: "Two Ways: 5 kg Watermelon",
     promptEn: "Find TWO DIFFERENT WAYS to balance this 5 kg watermelon!",
@@ -694,13 +755,13 @@ const LEVELS = [
     mode: 'two_ways'
   },
   {
-    id: 13,
+    id: 17,
     stage: 4,
-    title: "Two Ways: 6 kg Potato Sack",
-    promptEn: "Balance this 6 kg potato sack in TWO DIFFERENT WAYS!",
-    promptHi: "इस 6 किग्रा आलू की बोरी को 2 अलग तरीकों से तोलो!",
-    promptMr: "ह्या 6 किलो बटाट्यांच्या गोणीला 2 वेगळ्या पद्धतींनी तोकडा!",
-    leftItems: [{ type: 'produce', weight: 6, emoji: '🥔', nameEn: 'Potato Sack', nameHi: 'आलू की बोरी', nameMr: 'बटाट्याची गोणी', label: '6 kg' }],
+    title: "Two Ways: 6 kg Basmati Rice Sack",
+    promptEn: "Balance this 6 kg Basmati Rice sack in TWO DIFFERENT WAYS!",
+    promptHi: "इस 6 किग्रा बासमती चावल की बोरी को 2 अलग तरीकों से तोलो!",
+    promptMr: "ह्या 6 किलो बासमती तांदळाच्या गोणीला 2 वेगळ्या पद्धतींनी तोकडा!",
+    leftItems: [{ type: 'produce', weight: 6, emoji: '🍚', customClass: 'obj-sack', nameEn: 'Rice Sack', nameHi: 'चावल की बोरी', nameMr: 'तांदळाची गोणी', label: '6 kg' }],
     rightItems: [],
     trayItems: [
       { type: 'batta', weight: 1, label: '1 kg' },
@@ -1022,7 +1083,6 @@ function renderLevelsGrid(filterStage = 1) {
     else if (stars === 2) starStr = '⭐⭐☆';
     else if (stars === 1) starStr = '⭐☆☆';
 
-    // Show object emoji preview on level button
     const objEmoji = (lvl.leftItems && lvl.leftItems[0] && lvl.leftItems[0].emoji) ? lvl.leftItems[0].emoji : '⚖️';
 
     btn.innerHTML = `
@@ -1049,10 +1109,10 @@ function toggleSandboxMode() {
     dom.modeText.textContent = I18N[currentLang].levels_mode;
     dom.levelNumber.textContent = "∞";
     dom.challengeStatus.classList.add('hidden');
-    updateMascotSpeech(currentLang === 'hi' ? "मुक्त बाज़ार: कोई भी फल, सब्ज़ी या बाट रखकर खेलो!" : (currentLang === 'mr' ? "मुक्त बाजार: आवडीची फळे, भाजी किंवा वजने ठेवून खेळा!" : "Free Play: Place any market objects or brass weights to explore balance!"));
+    updateMascotSpeech(currentLang === 'hi' ? "मुक्त बाज़ार: कोई भी फल, सब्ज़ी, बोरी या बाट रखकर खेलो!" : (currentLang === 'mr' ? "मुक्त बाजार: आवडीची फळे, भाजी, धान्य किंवा वजने ठेवून खेळा!" : "Free Play: Place any market objects or brass weights to explore balance!"));
 
     state.leftPan = [
-      { type: 'produce', weight: 3, emoji: '🥭', nameEn: 'Mangoes', nameHi: 'आम', nameMr: 'आंबे', label: '3 kg' }
+      { type: 'produce', weight: 4, emoji: '🎃', nameEn: 'Pumpkin', nameHi: 'कद्दू', nameMr: 'भोपळा', label: '4 kg' }
     ];
     state.rightPan = [];
     state.tray = [
@@ -1061,8 +1121,14 @@ function toggleSandboxMode() {
       { type: 'batta', weight: 3, label: '3 kg' },
       { type: 'batta', weight: 4, label: '4 kg' },
       { type: 'batta', weight: 5, label: '5 kg' },
+      { type: 'produce', weight: 1, emoji: '🌽', nameEn: 'Sweet Corn', nameHi: 'भुट्टा', nameMr: 'मका', label: '1 kg' },
       { type: 'produce', weight: 2, emoji: '🥥', nameEn: 'Coconut', nameHi: 'नारियल', nameMr: 'नारळ', label: '2 kg' },
-      { type: 'produce', weight: 5, emoji: '🍉', nameEn: 'Watermelon', nameHi: 'तरबूज', nameMr: 'कलिंगड', label: '5 kg' }
+      { type: 'produce', weight: 2, emoji: '🍌', nameEn: 'Bananas', nameHi: 'केले', nameMr: 'केळी', label: '2 kg' },
+      { type: 'produce', weight: 3, emoji: '🥭', nameEn: 'Mangoes', nameHi: 'आम', nameMr: 'आंबे', label: '3 kg' },
+      { type: 'produce', weight: 4, emoji: '🥔', customClass: 'obj-sack', nameEn: 'Potato Sack', nameHi: 'आलू की बोरी', nameMr: 'बटाट्याची गोणी', label: '4 kg' },
+      { type: 'produce', weight: 5, emoji: '🍉', nameEn: 'Watermelon', nameHi: 'तरबूज', nameMr: 'कलिंगड', label: '5 kg' },
+      { type: 'produce', weight: 5, emoji: '🌾', customClass: 'obj-sack', nameEn: 'Wheat Sack', nameHi: 'गेहूं की बोरी', nameMr: 'गव्हाची गोणी', label: '5 kg' },
+      { type: 'mystery', weight: 3, emoji: '🏺', nameEn: 'Clay Matka', nameHi: 'जादुई मटका', nameMr: 'मातीचा माठ', label: '?' }
     ];
     renderAllItems();
     recalculateBalance();
@@ -1124,7 +1190,7 @@ function resetCurrentLevel() {
 }
 
 // -------------------------------------------------------------
-// 12. ITEM RENDERING & CREATION (REAL OBJECTS VS BRASS BATTA)
+// 12. ITEM RENDERING (ORGANIC REAL OBJECTS & SHAPED BRASS WEIGHTS)
 // -------------------------------------------------------------
 function renderAllItems() {
   renderPan(dom.leftPanItems, state.leftPan, 'left');
@@ -1164,36 +1230,59 @@ function createItemElement(item, location, index) {
   el.dataset.index = index;
   el.dataset.weight = item.weight;
 
-  // Real bazaar produce / object
+  // 1. REAL BAZAAR OBJECT (Organic, Non-Square Cutout!)
   if (item.type === 'produce') {
-    el.classList.add('produce-item');
+    el.classList.add('object-token', `obj-${item.weight}kg`);
+    if (item.customClass) el.classList.add(item.customClass);
+
     const objName = getItemLocalizedName(item);
     el.innerHTML = `
-      <span class="produce-emoji">${item.emoji}</span>
-      <span class="produce-title-badge">${objName}</span>
-      <span class="weight-label">${item.label || item.weight + ' kg'}</span>
+      <div class="object-visual-wrap">
+        <span class="object-emoji">${item.emoji}</span>
+        <div class="object-pan-shadow"></div>
+      </div>
+      <div class="market-tag">
+        <span class="tag-pin">🏷️</span>
+        <span class="tag-name">${objName}</span>
+        <span class="tag-weight">${item.label || item.weight + ' kg'}</span>
+      </div>
     `;
   }
-  // Mystery Box / Pot
+  // 2. MYSTERY ITEM (Organic Matka / Gift Box / Parcel)
   else if (item.type === 'mystery') {
-    el.classList.add('mystery-box');
+    el.classList.add('object-token', 'obj-mystery', `obj-${item.weight}kg`);
+    if (item.revealed) el.classList.add('revealed');
+
     const objName = getItemLocalizedName(item);
     el.innerHTML = `
-      <span class="produce-emoji">${item.emoji || '🎁'}</span>
-      <span class="mystery-q">${item.revealed ? item.weight + ' kg' : '?'}</span>
-      <span class="produce-title-badge">${objName}</span>
+      <div class="object-visual-wrap">
+        <span class="object-emoji">${item.emoji || '🎁'}</span>
+        <div class="mystery-q-badge">${item.revealed ? item.weight + ' kg' : '?'}</div>
+        <div class="object-pan-shadow"></div>
+      </div>
+      <div class="market-tag">
+        <span class="tag-pin">✨</span>
+        <span class="tag-name">${objName}</span>
+        <span class="tag-weight">${item.revealed ? item.weight + ' kg' : '?'}</span>
+      </div>
     `;
   }
-  // Traditional Indian Brass Batta Weight
+  // 3. AUTHENTIC SHAPED BRASS BATTA WEIGHT (Different Geometric Shapes!)
   else if (item.type === 'batta') {
-    el.classList.add('weight-batta');
+    el.classList.add('batta-token', `batta-${item.weight}kg`);
     let dotsHtml = '';
     if (item.weight <= 5) {
       dotsHtml = `<div class="dots-container">${Array(item.weight).fill('<span class="dot-counter"></span>').join('')}</div>`;
     }
+
     el.innerHTML = `
-      <span class="weight-label">${item.label || item.weight + ' kg'}</span>
-      ${dotsHtml}
+      <div class="batta-body">
+        <div class="batta-knob"></div>
+        <div class="batta-stamp">
+          <span class="batta-weight-text">${item.label || item.weight + ' kg'}</span>
+          ${dotsHtml}
+        </div>
+      </div>
     `;
   }
 
@@ -1220,7 +1309,6 @@ function handleItemTap(location, index) {
       state.rightPan.push(item);
     }
   } else if (location === 'left') {
-    // If left pan has locked challenge object
     if (!state.isSandbox && level && level.leftItems && level.leftItems[index] && level.leftItems.length > 0) {
       triggerFriendlyWobble();
       const objName = getItemLocalizedName(level.leftItems[index]);
@@ -1259,7 +1347,6 @@ function setupPointerTouchDrag() {
     const idx = parseInt(token.dataset.index, 10);
     const level = LEVELS[state.currentLevelIndex];
 
-    // Locked puzzle base objects cannot be dragged away
     if (!state.isSandbox && loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
       return;
     }
@@ -1604,7 +1691,7 @@ function handleStandardSolve(leftTotal, rightTotal, level) {
   showCelebration(
     leftTotal,
     rightTotal,
-    mysteryVal ? `Mystery Box = ${mysteryVal} kg!` : `${objName} (${leftTotal} kg) = ${rightTotal} kg`
+    mysteryVal ? `${objName} = ${mysteryVal} kg!` : `${objName} (${leftTotal} kg) = ${rightTotal} kg`
   );
 }
 

@@ -741,112 +741,283 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
   cursor: grab;
   touch-action: none;
   font-family: 'Fredoka', sans-serif;
-  font-weight: 700;
-  box-shadow: 0 6px 0 rgba(0,0,0,0.2), 0 8px 16px rgba(0,0,0,0.15);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
   user-select: none;
   flex-shrink: 0;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .weight-token:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 10px 0 rgba(0,0,0,0.18), 0 12px 20px rgba(0,0,0,0.2);
+  transform: translateY(-4px) scale(1.05);
 }
 
 .weight-token.selected {
-  outline: 4px solid #22c55e;
-  outline-offset: 3px;
-  transform: translateY(-5px) scale(1.06);
+  filter: drop-shadow(0 0 10px #22c55e);
+  transform: translateY(-6px) scale(1.08);
 }
 
 .weight-token:active, .weight-token.dragging {
   cursor: grabbing;
-  transform: scale(1.08);
-  opacity: 0.9;
+  transform: scale(1.12);
+  opacity: 0.96;
   z-index: 1000;
 }
 
-/* Traditional Brass Batta weight (Right Pan) */
-.weight-batta {
-  background: radial-gradient(circle at 35% 30%, #fff2a3 0%, #e5a93c 45%, #b45309 85%, #78350f 100%);
-  border: 3px solid #78350f;
-  color: #451a03;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+/* -------------------------------------------------------------
+   1. AUTHENTIC SHAPED BRASS BATTA WEIGHTS (DIFFERENT SHAPES!)
+   ------------------------------------------------------------- */
+.batta-token {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  filter: drop-shadow(0 5px 0 #522d01) drop-shadow(0 8px 12px rgba(60, 20, 0, 0.35));
 }
 
-/* Proportional sizes for weights */
-.weight-1kg { width: 56px; height: 56px; font-size: 0.95rem; }
-.weight-2kg { width: 66px; height: 66px; font-size: 1.05rem; }
-.weight-3kg { width: 74px; height: 74px; font-size: 1.15rem; }
-.weight-4kg { width: 84px; height: 84px; font-size: 1.25rem; }
-.weight-5kg { width: 94px; height: 94px; font-size: 1.35rem; }
-.weight-6kg { width: 100px; height: 100px; font-size: 1.4rem; }
+.batta-token:hover {
+  filter: drop-shadow(0 7px 0 #522d01) drop-shadow(0 12px 18px rgba(60, 20, 0, 0.45));
+}
 
-/* -------------------------------------------------------------
-   RICH BAZAAR OBJECTS ON LEFT PAN (REPLACING PLAIN WEIGHTS)
-   ------------------------------------------------------------- */
-.produce-item {
-  background: radial-gradient(circle at 40% 30%, #ffffff 0%, #fef3c7 60%, #fed7aa 100%);
-  border: 3px solid #ea580c;
-  color: #7c2d12;
-  box-shadow: 0 6px 0 #9a3412, 0 8px 18px rgba(154, 52, 18, 0.25);
+.batta-body {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4px;
+  background: radial-gradient(circle at 40% 30%, #fff7b2 0%, #f6c039 30%, #c48312 70%, #6e4103 100%);
+  color: #3b1c02;
+  font-weight: 800;
+  transition: all 0.2s ease;
 }
 
-.produce-emoji {
-  font-size: 2.2rem;
-  line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+/* 1 kg Batta: Classic Indian Hexagon */
+.batta-1kg .batta-body {
+  width: 62px;
+  height: 56px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
-.produce-title-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #9a3412;
-  background: rgba(255, 255, 255, 0.9);
+/* 2 kg Batta: Octagon (8-sided faceted brass batta) */
+.batta-2kg .batta-body {
+  width: 72px;
+  height: 72px;
+  clip-path: polygon(29% 0%, 71% 0%, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0% 71%, 0% 29%);
+}
+
+/* 3 kg Batta: Indian Bell / Conical Taper with Top Ring */
+.batta-3kg .batta-body {
+  width: 80px;
+  height: 80px;
+  clip-path: polygon(22% 8%, 78% 8%, 94% 84%, 82% 100%, 18% 100%, 6% 84%);
+}
+
+/* 4 kg Batta: Decagon (10-sided faceted stepped block) */
+.batta-4kg .batta-body {
+  width: 88px;
+  height: 88px;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+/* 5 kg Batta: Heavy Wide Hexagonal Master Block */
+.batta-5kg .batta-body {
+  width: 100px;
+  height: 88px;
+  clip-path: polygon(18% 0%, 82% 0%, 100% 50%, 82% 100%, 18% 100%, 0% 50%);
+}
+
+/* 6 kg Batta: Heavy Stepped Master Block */
+.batta-6kg .batta-body {
+  width: 106px;
+  height: 94px;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 40%, 100% 60%, 85% 100%, 15% 100%, 0% 60%, 0% 40%);
+}
+
+/* Central Brass Lifting Knob on top of Batta */
+.batta-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fffde7 0%, #ffd54f 45%, #b26a00 90%, #5d3300 100%);
+  border: 1.5px solid #4a2400;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+/* For 3kg conical bell, a brass top ring loop */
+.batta-3kg .batta-knob {
+  width: 22px;
+  height: 14px;
   border-radius: 999px;
-  padding: 1px 6px;
-  margin-top: 1px;
+  border: 3px solid #5a3002;
+  background: transparent;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+}
+
+/* Engraved Stamp on the Batta */
+.batta-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed rgba(90, 42, 2, 0.45);
+  border-radius: 50%;
+  padding: 3px 6px;
+  background: rgba(255, 235, 150, 0.25);
+}
+
+.batta-weight-text {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #3b1800;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55), 0 -1px 0 rgba(0, 0, 0, 0.25);
   line-height: 1.1;
+}
+
+.batta-1kg .batta-weight-text { font-size: 0.95rem; }
+.batta-2kg .batta-weight-text { font-size: 1.05rem; }
+.batta-3kg .batta-weight-text { font-size: 1.15rem; }
+.batta-4kg .batta-weight-text { font-size: 1.25rem; }
+.batta-5kg .batta-weight-text { font-size: 1.35rem; }
+.batta-6kg .batta-weight-text { font-size: 1.4rem; }
+
+/* -------------------------------------------------------------
+   2. ORGANIC REAL OBJECTS ON LEFT PAN (NO SQUARE CARDS!)
+   ------------------------------------------------------------- */
+.object-token {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.object-visual-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Big realistic object cutouts */
+.object-emoji {
+  font-size: 3.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 8px rgba(70, 25, 0, 0.35));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-block;
+  user-select: none;
+}
+
+.object-token:hover .object-emoji {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* Size proportional to weight */
+.obj-1kg .object-emoji { font-size: 3.0rem; }
+.obj-2kg .object-emoji { font-size: 3.5rem; }
+.obj-3kg .object-emoji { font-size: 4.0rem; }
+.obj-4kg .object-emoji { font-size: 4.5rem; }
+.obj-5kg .object-emoji { font-size: 5.0rem; }
+.obj-6kg .object-emoji { font-size: 5.4rem; }
+
+/* Oval Pan Ground Shadow directly under the object */
+.object-pan-shadow {
+  width: 75%;
+  height: 9px;
+  background: radial-gradient(ellipse at center, rgba(60, 25, 0, 0.45) 0%, rgba(60, 25, 0, 0.15) 50%, transparent 75%);
+  border-radius: 50%;
+  margin-top: -6px;
+  margin-bottom: 3px;
+}
+
+/* Organic Market Produce Price/Weight Tag (looks like tied ribbon or market sticker) */
+.market-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1.5px solid #d97706;
+  border-radius: 999px;
+  padding: 2px 10px;
+  box-shadow: 0 3px 6px rgba(90, 35, 0, 0.18);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #78350f;
   white-space: nowrap;
 }
 
-/* Mystery Item Box / Magic Matka */
-.mystery-box {
-  background: linear-gradient(135deg, #a855f7, #6b21a8);
-  border: 3px solid #4c1d95;
-  color: #fef08a;
-  box-shadow: 0 6px 0 #3b0764, 0 8px 18px rgba(107, 33, 168, 0.3);
-  animation: mysteryShimmer 2s infinite ease-in-out;
-  padding: 4px;
+.market-tag .tag-name {
+  color: #9a3412;
 }
 
-@keyframes mysteryShimmer {
-  0%, 100% { filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4)); }
-  50% { filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.8)); }
-}
-
-.mystery-q {
-  font-size: 1.6rem;
+.market-tag .tag-weight {
+  background: #ea580c;
+  color: #ffffff;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.76rem;
   font-weight: 800;
-  line-height: 1;
+}
+
+/* Special styling for Sacks (Burlap look) */
+.obj-sack .object-emoji {
+  filter: drop-shadow(0 6px 10px rgba(90, 45, 10, 0.4));
+}
+
+/* Special styling for Mystery Pot / Box */
+.obj-mystery .object-visual-wrap {
+  position: relative;
+  animation: mysteryFloat 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes mysteryFloat {
+  0% { transform: translateY(0); filter: drop-shadow(0 6px 8px rgba(147, 51, 234, 0.4)); }
+  100% { transform: translateY(-4px); filter: drop-shadow(0 10px 14px rgba(168, 85, 247, 0.7)); }
+}
+
+.mystery-q-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, #fde047 0%, #eab308 100%);
+  color: #4c1d95;
+  border: 2px solid #6b21a8;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.15rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.35);
+}
+
+.obj-mystery.revealed .mystery-q-badge {
+  background: #22c55e;
+  color: #ffffff;
+  border-color: #15803d;
+  width: auto;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 0.85rem;
 }
 
 /* In-Pan item scaling */
 .pan-items-shelf .weight-token {
-  transform: scale(0.9);
+  transform: scale(0.92);
   margin: -2px;
 }
 .pan-items-shelf .weight-token:hover {
-  transform: scale(0.96);
+  transform: scale(0.98);
 }
 
 /* Dot Counters for Class 1 Kids */
@@ -855,15 +1026,15 @@ body {
   gap: 3px;
   justify-content: center;
   align-items: center;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 .dot-counter {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #78350f;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
+  background: #421f03;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.4);
 }
 
 /* -------------------------------------------------------------
