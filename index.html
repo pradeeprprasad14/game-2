@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tarazu - The Balance Scale Game | तराजू का खेल | तराजूचा खेळ</title>
-  <link rel="stylesheet" href="style.css?v=4.0">
+  <link rel="stylesheet" href="style.css?v=5.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Yatra+One&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
@@ -83,9 +83,6 @@
             <button id="btn-welcome-levels" class="action-btn secondary-btn">
               <span>🗺️</span> <span data-i18n="choose_level">Objects</span>
             </button>
-            <button id="btn-welcome-sandbox" class="action-btn secondary-btn highlight-btn">
-              <span>⚖️</span> <span data-i18n="sandbox">Free Play</span>
-            </button>
             <button id="btn-how-to-play" class="action-btn secondary-btn info-btn">
               <span>❓</span> <span data-i18n="how_to_play">How to Play</span>
             </button>
@@ -140,10 +137,6 @@
 
         <button id="btn-sound" class="icon-btn" title="Toggle Sound">
           <span id="sound-icon">🔊</span>
-        </button>
-        <button id="btn-mode-toggle" class="icon-btn highlight-btn" title="Sandbox Free Play">
-          <span>⚖️</span>
-          <span id="mode-text" data-i18n="sandbox">Free Play</span>
         </button>
       </div>
     </header>
@@ -317,7 +310,7 @@
             <div class="tut-step-icon">📦</div>
             <div class="tut-step-text">
               <strong data-i18n="tut_step1_title">1. Look at the Object on the Left</strong>
-              <p data-i18n="tut_step1_desc">A villager brought fresh watermelon, juicy mangoes, or a mystery box!</p>
+              <p data-i18n="tut_step1_desc">A villager brought fresh watermelon, sweet corn, or a burlap grain sack!</p>
             </div>
           </div>
           <div class="tut-step">
@@ -374,8 +367,7 @@
         <div class="stages-tabs">
           <button class="stage-tab active" data-stage="1" data-i18n="stage_1">Fruits & Veggies (1-3 kg)</button>
           <button class="stage-tab" data-stage="2" data-i18n="stage_2">Harvest & Sacks (4-5 kg)</button>
-          <button class="stage-tab" data-stage="3" data-i18n="stage_3">Mystery Pots ❓</button>
-          <button class="stage-tab" data-stage="4" data-i18n="stage_4">Two Ways 🌟</button>
+          <button class="stage-tab" data-stage="3" data-i18n="stage_3">Two Ways 🌟</button>
         </div>
         <div id="levels-grid" class="levels-grid"></div>
       </div>
@@ -383,6 +375,6 @@
 
   </div>
 
-  <script src="game.js?v=4.0"></script>
+  <script src="game.js?v=5.0"></script>
 </body>
 </html>

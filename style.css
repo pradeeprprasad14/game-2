@@ -971,46 +971,6 @@ body {
   filter: drop-shadow(0 6px 10px rgba(90, 45, 10, 0.4));
 }
 
-/* Special styling for Mystery Pot / Box */
-.obj-mystery .object-visual-wrap {
-  position: relative;
-  animation: mysteryFloat 2.2s ease-in-out infinite alternate;
-}
-
-@keyframes mysteryFloat {
-  0% { transform: translateY(0); filter: drop-shadow(0 6px 8px rgba(147, 51, 234, 0.4)); }
-  100% { transform: translateY(-4px); filter: drop-shadow(0 10px 14px rgba(168, 85, 247, 0.7)); }
-}
-
-.mystery-q-badge {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, #fde047 0%, #eab308 100%);
-  color: #4c1d95;
-  border: 2px solid #6b21a8;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1.15rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.35);
-}
-
-.obj-mystery.revealed .mystery-q-badge {
-  background: #22c55e;
-  color: #ffffff;
-  border-color: #15803d;
-  width: auto;
-  border-radius: 999px;
-  padding: 2px 8px;
-  font-size: 0.85rem;
-}
-
 /* In-Pan item scaling */
 .pan-items-shelf .weight-token {
   transform: scale(0.92);

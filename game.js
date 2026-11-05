@@ -18,8 +18,6 @@ const I18N = {
   en: {
     menu: "Menu",
     level: "Level",
-    sandbox: "Free Play",
-    levels_mode: "Levels",
     reset: "Reset",
     left_pan: "Object to Weigh 🍎",
     right_pan: "Brass Weights ⚖️",
@@ -32,8 +30,7 @@ const I18N = {
     choose_level: "Choose an Object to Weigh",
     stage_1: "Fruits & Veggies (1-3 kg)",
     stage_2: "Harvest & Sacks (4-5 kg)",
-    stage_3: "Mystery Pots ❓",
-    stage_4: "Two Ways Challenge 🌟",
+    stage_3: "Two Ways Challenge 🌟",
     way_1: "Way 1",
     way_2: "Way 2",
     way_1_done: "Brilliant! Now clear the right pan and balance it a DIFFERENT way!",
@@ -41,7 +38,6 @@ const I18N = {
     tilted_left: "Left side is heavier! Add more weights to the right.",
     tilted_right: "Right side is heavier! Remove a weight or try a smaller one.",
     balanced_msg: "Wah! Both sides are equal!",
-    mystery_revealed: "Mystery weight discovered: {val} kg!",
     welcome_greeting: "Namaste! Welcome to Tarazu Bazaar! Let's weigh delicious fruits, veggies, and grain sacks together!",
     app_sub: "The Balance Scale Game • तराजू का खेल",
     choose_lang: "Language / भाषा:",
@@ -64,8 +60,6 @@ const I18N = {
   hi: {
     menu: "मेन्यू",
     level: "वस्तु",
-    sandbox: "मुक्त खेल",
-    levels_mode: "लेवल",
     reset: "रीसेट",
     left_pan: "तोलने की वस्तु 🍎",
     right_pan: "पीतल के बाट ⚖️",
@@ -78,8 +72,7 @@ const I18N = {
     choose_level: "तोलने की वस्तु चुनें",
     stage_1: "फल और सब्ज़ी (1-3 किग्रा)",
     stage_2: "उपज और बोरियां (4-5 किग्रा)",
-    stage_3: "जादुई मटका और डिब्बा ❓",
-    stage_4: "दो तरीके 🌟",
+    stage_3: "दो तरीके 🌟",
     way_1: "तरीका 1",
     way_2: "तरीका 2",
     way_1_done: "बहुत बढ़िया! अब दूसरे अलग तरीके से तोलकर दिखाओ!",
@@ -87,7 +80,6 @@ const I18N = {
     tilted_left: "बायां पलड़ा भारी है! दाएं पलड़े में और बाट रखो।",
     tilted_right: "दायां पलड़ा भारी है! कोई छोटा बाट लगाकर देखो।",
     balanced_msg: "वाह! दोनों तरफ बिल्कुल बराबर है!",
-    mystery_revealed: "जादुई वस्तु का सही वजन मिला: {val} किग्रा!",
     welcome_greeting: "नमस्ते! तराजू बाज़ार में आपका स्वागत है! आओ ताज़े फल, सब्ज़ियाँ और बोरियाँ तोलें!",
     app_sub: "तराजू का खेल • वजन काटा खेळ",
     choose_lang: "भाषा चुनें:",
@@ -110,8 +102,6 @@ const I18N = {
   mr: {
     menu: "मेनू",
     level: "वस्तू",
-    sandbox: "मुक्त खेळ",
-    levels_mode: "पातळ्या",
     reset: "रीसेट",
     left_pan: "तोलण्याची वस्तू 🍎",
     right_pan: "पितळी वजने ⚖️",
@@ -124,8 +114,7 @@ const I18N = {
     choose_level: "तोलण्यासाठी वस्तू निवडा",
     stage_1: "फळे व भाजी (1-3 किलो)",
     stage_2: "धान्य व गोणी (4-5 किलो)",
-    stage_3: "गूढ मटका व डबा ❓",
-    stage_4: "दोन पद्धती 🌟",
+    stage_3: "दोन पद्धती 🌟",
     way_1: "पद्धत 1",
     way_2: "पद्धत 2",
     way_1_done: "छान! आता उजवीकडची वजने काढून वेगळ्या पद्धतीने तोका!",
@@ -133,7 +122,6 @@ const I18N = {
     tilted_left: "डावे पारडे जड आहे! उजवीकडे आणखी वजन वाढवा.",
     tilted_right: "उजवे पारडे जड आहे! उजवीकडून थोडे वजन कमी करा.",
     balanced_msg: "छान! दोन्ही पारडी अगदी समसमान झाली!",
-    mystery_revealed: "गूढ वस्तूचे अचूक वजन सापडले: {val} किलो!",
     welcome_greeting: "नमस्ते! तराजूच्या बाजारात आपले स्वागत आहे! चला ताजी फळे, भाजी आणि धान्याची गोणी तोकूया!",
     app_sub: "वजन काटा खेळ • तराजू का खेल",
     choose_lang: "भाषा निवडा:",
@@ -672,72 +660,10 @@ const LEVELS = [
     mode: 'single'
   },
 
-  // Stage 3: Mystery Pots & Boxes (Missing Weight / Early Algebra)
+  // Stage 3: Two Different Ways to Balance Challenge
   {
     id: 13,
     stage: 3,
-    title: "Clay Magic Matka ❓",
-    promptEn: "What is inside the Clay Matka? Balance the scale to discover its weight!",
-    promptHi: "मिट्टी के मटके में कितना वजन है? बाट रखकर पता लगाओ!",
-    promptMr: "मातीच्या माठाचे वजन किती आहे? तराजू समान करून शोधा!",
-    leftItems: [{ type: 'mystery', weight: 3, emoji: '🏺', nameEn: 'Clay Matka', nameHi: 'जादुई मटका', nameMr: 'मातीचा माठ', label: '?' }],
-    rightItems: [],
-    trayItems: [
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' }
-    ],
-    targetWeight: 3,
-    mysteryWeight: 3,
-    mode: 'mystery_discovery'
-  },
-  {
-    id: 14,
-    stage: 3,
-    title: "Royal Festival Gift ❓",
-    promptEn: "How heavy is the Mystery Festival Gift? Put brass weights on the right!",
-    promptHi: "त्योहार का जादुई उपहार कितना भारी है? सही बाट रखकर जानो!",
-    promptMr: "सणाची गूढ भेट किती वजनाची आहे? उजवीकडे वजने ठेवून शोधा!",
-    leftItems: [{ type: 'mystery', weight: 4, emoji: '🎁', nameEn: 'Festival Gift', nameHi: 'जादुई उपहार', nameMr: 'सणाची भेट', label: '?' }],
-    rightItems: [],
-    trayItems: [
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' }
-    ],
-    targetWeight: 4,
-    mysteryWeight: 4,
-    mode: 'mystery_discovery'
-  },
-  {
-    id: 15,
-    stage: 3,
-    title: "Bazaar Parcel + Coconut = 6 kg",
-    promptEn: "Mystery Parcel + 2 kg Coconut on the left. Balance with 6 kg to unlock the parcel!",
-    promptHi: "जादुई पार्सल + 2 किग्रा नारियल। 6 किग्रा बनाकर पार्सल खोलो!",
-    promptMr: "गूढ पार्सल + 2 किलो नारळ. 6 किलो ठेवून पार्सल उघडा!",
-    leftItems: [
-      { type: 'mystery', weight: 4, emoji: '📦', nameEn: 'Bazaar Parcel', nameHi: 'जादुई पार्सल', nameMr: 'गूढ पार्सल', label: '?' },
-      { type: 'produce', weight: 2, emoji: '🥥', nameEn: 'Coconut', nameHi: 'नारियल', nameMr: 'नारळ', label: '2 kg' }
-    ],
-    rightItems: [],
-    trayItems: [
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' },
-      { type: 'batta', weight: 6, label: '6 kg' }
-    ],
-    targetWeight: 6,
-    mysteryWeight: 4,
-    mode: 'mystery_discovery'
-  },
-
-  // Stage 4: Two Different Ways to Balance Challenge
-  {
-    id: 16,
-    stage: 4,
     title: "Two Ways: 5 kg Watermelon",
     promptEn: "Find TWO DIFFERENT WAYS to balance this 5 kg watermelon!",
     promptHi: "इस 5 किग्रा तरबूज को तोलने के 2 अलग-अलग तरीके खोजो!",
@@ -755,8 +681,8 @@ const LEVELS = [
     mode: 'two_ways'
   },
   {
-    id: 17,
-    stage: 4,
+    id: 14,
+    stage: 3,
     title: "Two Ways: 6 kg Basmati Rice Sack",
     promptEn: "Balance this 6 kg Basmati Rice sack in TWO DIFFERENT WAYS!",
     promptHi: "इस 6 किग्रा बासमती चावल की बोरी को 2 अलग तरीकों से तोलो!",
@@ -781,7 +707,6 @@ const LEVELS = [
 // -------------------------------------------------------------
 const state = {
   currentLevelIndex: 0,
-  isSandbox: false,
   completedLevels: {},
   leftPan: [],
   rightPan: [],
@@ -802,7 +727,6 @@ const dom = {
   btnWelcomeSpeak: document.getElementById('btn-welcome-speak'),
   btnStartPlay: document.getElementById('btn-start-play'),
   btnWelcomeLevels: document.getElementById('btn-welcome-levels'),
-  btnWelcomeSandbox: document.getElementById('btn-welcome-sandbox'),
   btnHowToPlay: document.getElementById('btn-how-to-play'),
   modalTutorial: document.getElementById('modal-tutorial'),
   btnCloseTutorial: document.getElementById('btn-close-tutorial'),
@@ -816,8 +740,6 @@ const dom = {
   btnSound: document.getElementById('btn-sound'),
   soundIcon: document.getElementById('sound-icon'),
   btnReset: document.getElementById('btn-reset'),
-  btnModeToggle: document.getElementById('btn-mode-toggle'),
-  modeText: document.getElementById('mode-text'),
   challengeStatus: document.getElementById('challenge-status'),
   way1Badge: document.getElementById('way-1-badge'),
   way2Badge: document.getElementById('way-2-badge'),
@@ -899,13 +821,6 @@ function setupWelcomeScreenEvents() {
     openLevelsModal();
   });
 
-  dom.btnWelcomeSandbox.addEventListener('click', () => {
-    audio.init();
-    audio.playPop();
-    dom.screenWelcome.classList.add('hidden');
-    toggleSandboxMode();
-  });
-
   dom.btnHowToPlay.addEventListener('click', () => {
     audio.init();
     audio.playPop();
@@ -961,14 +876,10 @@ function applyLanguage() {
     }
   });
 
-  if (state.isSandbox) {
-    updateMascotSpeech(dict.sandbox);
-  } else {
-    const level = LEVELS[state.currentLevelIndex];
-    if (level) {
-      const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
-      updateMascotSpeech(prompt, false);
-    }
+  const level = LEVELS[state.currentLevelIndex];
+  if (level) {
+    const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
+    updateMascotSpeech(prompt, false);
   }
 
   renderAllItems();
@@ -1011,11 +922,6 @@ function setupHeaderEvents() {
     audio.playPop();
   });
 
-  dom.btnModeToggle.addEventListener('click', () => {
-    audio.playPop();
-    toggleSandboxMode();
-  });
-
   dom.btnReset.addEventListener('click', () => {
     audio.playPop();
     resetCurrentLevel();
@@ -1051,7 +957,7 @@ function setupModalEvents() {
     if (state.currentLevelIndex < LEVELS.length - 1) {
       loadLevel(state.currentLevelIndex + 1);
     } else {
-      toggleSandboxMode();
+      openLevelsModal();
     }
   });
 
@@ -1095,7 +1001,6 @@ function renderLevelsGrid(filterStage = 1) {
       audio.playPop();
       dom.modalLevels.classList.add('hidden');
       dom.screenWelcome.classList.add('hidden');
-      state.isSandbox = false;
       loadLevel(idx);
     });
 
@@ -1103,50 +1008,13 @@ function renderLevelsGrid(filterStage = 1) {
   });
 }
 
-function toggleSandboxMode() {
-  state.isSandbox = !state.isSandbox;
-  if (state.isSandbox) {
-    dom.modeText.textContent = I18N[currentLang].levels_mode;
-    dom.levelNumber.textContent = "∞";
-    dom.challengeStatus.classList.add('hidden');
-    updateMascotSpeech(currentLang === 'hi' ? "मुक्त बाज़ार: कोई भी फल, सब्ज़ी, बोरी या बाट रखकर खेलो!" : (currentLang === 'mr' ? "मुक्त बाजार: आवडीची फळे, भाजी, धान्य किंवा वजने ठेवून खेळा!" : "Free Play: Place any market objects or brass weights to explore balance!"));
-
-    state.leftPan = [
-      { type: 'produce', weight: 4, emoji: '🎃', nameEn: 'Pumpkin', nameHi: 'कद्दू', nameMr: 'भोपळा', label: '4 kg' }
-    ];
-    state.rightPan = [];
-    state.tray = [
-      { type: 'batta', weight: 1, label: '1 kg' },
-      { type: 'batta', weight: 2, label: '2 kg' },
-      { type: 'batta', weight: 3, label: '3 kg' },
-      { type: 'batta', weight: 4, label: '4 kg' },
-      { type: 'batta', weight: 5, label: '5 kg' },
-      { type: 'produce', weight: 1, emoji: '🌽', nameEn: 'Sweet Corn', nameHi: 'भुट्टा', nameMr: 'मका', label: '1 kg' },
-      { type: 'produce', weight: 2, emoji: '🥥', nameEn: 'Coconut', nameHi: 'नारियल', nameMr: 'नारळ', label: '2 kg' },
-      { type: 'produce', weight: 2, emoji: '🍌', nameEn: 'Bananas', nameHi: 'केले', nameMr: 'केळी', label: '2 kg' },
-      { type: 'produce', weight: 3, emoji: '🥭', nameEn: 'Mangoes', nameHi: 'आम', nameMr: 'आंबे', label: '3 kg' },
-      { type: 'produce', weight: 4, emoji: '🥔', customClass: 'obj-sack', nameEn: 'Potato Sack', nameHi: 'आलू की बोरी', nameMr: 'बटाट्याची गोणी', label: '4 kg' },
-      { type: 'produce', weight: 5, emoji: '🍉', nameEn: 'Watermelon', nameHi: 'तरबूज', nameMr: 'कलिंगड', label: '5 kg' },
-      { type: 'produce', weight: 5, emoji: '🌾', customClass: 'obj-sack', nameEn: 'Wheat Sack', nameHi: 'गेहूं की बोरी', nameMr: 'गव्हाची गोणी', label: '5 kg' },
-      { type: 'mystery', weight: 3, emoji: '🏺', nameEn: 'Clay Matka', nameHi: 'जादुई मटका', nameMr: 'मातीचा माठ', label: '?' }
-    ];
-    renderAllItems();
-    recalculateBalance();
-  } else {
-    dom.modeText.textContent = I18N[currentLang].sandbox;
-    loadLevel(state.currentLevelIndex);
-  }
-}
-
 // -------------------------------------------------------------
 // 11. LEVEL LOADING & RESET
 // -------------------------------------------------------------
 function loadLevel(index) {
   state.currentLevelIndex = index;
-  state.isSandbox = false;
   state.twoWaysHistory = [];
   state.selectedTrayIndex = null;
-  dom.modeText.textContent = I18N[currentLang].sandbox;
 
   const level = LEVELS[index];
   dom.levelNumber.textContent = level.id;
@@ -1174,13 +1042,6 @@ function loadLevel(index) {
 
 function resetCurrentLevel() {
   state.selectedTrayIndex = null;
-  if (state.isSandbox) {
-    state.leftPan = [];
-    state.rightPan = [];
-    renderAllItems();
-    recalculateBalance();
-    return;
-  }
   const level = LEVELS[state.currentLevelIndex];
   state.leftPan = JSON.parse(JSON.stringify(level.leftItems));
   state.rightPan = JSON.parse(JSON.stringify(level.rightItems));
@@ -1248,26 +1109,7 @@ function createItemElement(item, location, index) {
       </div>
     `;
   }
-  // 2. MYSTERY ITEM (Organic Matka / Gift Box / Parcel)
-  else if (item.type === 'mystery') {
-    el.classList.add('object-token', 'obj-mystery', `obj-${item.weight}kg`);
-    if (item.revealed) el.classList.add('revealed');
-
-    const objName = getItemLocalizedName(item);
-    el.innerHTML = `
-      <div class="object-visual-wrap">
-        <span class="object-emoji">${item.emoji || '🎁'}</span>
-        <div class="mystery-q-badge">${item.revealed ? item.weight + ' kg' : '?'}</div>
-        <div class="object-pan-shadow"></div>
-      </div>
-      <div class="market-tag">
-        <span class="tag-pin">✨</span>
-        <span class="tag-name">${objName}</span>
-        <span class="tag-weight">${item.revealed ? item.weight + ' kg' : '?'}</span>
-      </div>
-    `;
-  }
-  // 3. AUTHENTIC SHAPED BRASS BATTA WEIGHT (Different Geometric Shapes!)
+  // 2. AUTHENTIC SHAPED BRASS BATTA WEIGHT (Different Geometric Shapes!)
   else if (item.type === 'batta') {
     el.classList.add('batta-token', `batta-${item.weight}kg`);
     let dotsHtml = '';
@@ -1303,13 +1145,9 @@ function handleItemTap(location, index) {
 
   if (location === 'tray') {
     const item = state.tray.splice(index, 1)[0];
-    if (state.isSandbox && state.rightPan.length > state.leftPan.length) {
-      state.leftPan.push(item);
-    } else {
-      state.rightPan.push(item);
-    }
+    state.rightPan.push(item);
   } else if (location === 'left') {
-    if (!state.isSandbox && level && level.leftItems && level.leftItems[index] && level.leftItems.length > 0) {
+    if (level && level.leftItems && level.leftItems[index] && level.leftItems.length > 0) {
       triggerFriendlyWobble();
       const objName = getItemLocalizedName(level.leftItems[index]);
       updateMascotSpeech(
@@ -1347,7 +1185,7 @@ function setupPointerTouchDrag() {
     const idx = parseInt(token.dataset.index, 10);
     const level = LEVELS[state.currentLevelIndex];
 
-    if (!state.isSandbox && loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
+    if (loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
       return;
     }
 
@@ -1646,7 +1484,6 @@ function syncOverlayPosition(overlay, svgX, svgY) {
 // 15. WIN CONDITIONS & SOLVING LOGIC
 // -------------------------------------------------------------
 function checkWinCondition(leftTotal, rightTotal) {
-  if (state.isSandbox) return;
   if (leftTotal === 0 && rightTotal === 0) return;
 
   const level = LEVELS[state.currentLevelIndex];
@@ -1674,15 +1511,6 @@ function triggerFriendlyWobble() {
 }
 
 function handleStandardSolve(leftTotal, rightTotal, level) {
-  let mysteryVal = null;
-  state.leftPan.forEach(item => {
-    if (item.type === 'mystery') {
-      item.revealed = true;
-      mysteryVal = item.weight;
-    }
-  });
-  renderAllItems();
-
   audio.playWin();
   state.completedLevels[level.id] = 3;
   saveProgress();
@@ -1691,7 +1519,7 @@ function handleStandardSolve(leftTotal, rightTotal, level) {
   showCelebration(
     leftTotal,
     rightTotal,
-    mysteryVal ? `${objName} = ${mysteryVal} kg!` : `${objName} (${leftTotal} kg) = ${rightTotal} kg`
+    `${objName} (${leftTotal} kg) = ${rightTotal} kg`
   );
 }
 
