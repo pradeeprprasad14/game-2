@@ -559,11 +559,13 @@ class AudioController {
 const audio = new AudioController();
 
 // -------------------------------------------------------------
-// 3. HUMAN-LIKE VOICE ENGINE (Deep Neural/Natural Voice Search)
+// 3. HUMAN-LIKE VOICE ENGINE (Neural Audio Studio + Natural Speech)
 // -------------------------------------------------------------
 class SpeechController {
   constructor() {
     this.synth = window.speechSynthesis;
+    this.currentAudio = null;
+    this.currentAudioKey = null;
     this.voicesLoaded = false;
     if (this.synth) {
       this.loadVoices();
@@ -581,6 +583,56 @@ class SpeechController {
     }
   }
 
+  stop() {
+    if (this.currentAudio) {
+      try {
+        this.currentAudio.pause();
+        this.currentAudio.currentTime = 0;
+      } catch (e) {}
+      this.currentAudio = null;
+    }
+    if (this.synth) {
+      try {
+        this.synth.cancel();
+      } catch (e) {}
+    }
+    const mascots = document.querySelectorAll('.mascot-avatar, #welcome-mascot-avatar');
+    mascots.forEach(m => m.classList.remove('mascot-talking'));
+  }
+
+  resolveAudioKey(text) {
+    if (!text) return null;
+    const cleanText = text.trim();
+    const dict = (typeof I18N !== 'undefined' && I18N[currentLang]) ? I18N[currentLang] : null;
+
+    if (dict) {
+      if (cleanText === dict.welcome_greeting?.trim()) return 'welcome';
+      if (cleanText === dict.animal_welcome_speech?.trim()) return 'animal_welcome';
+      if (cleanText === dict.win_title?.trim()) return 'win';
+      if (cleanText === dict.way_1_done?.trim()) return 'way_1_done';
+      if (cleanText === dict.tilted_left?.trim()) return 'tilted_left';
+      if (cleanText === dict.tilted_right?.trim()) return 'tilted_right';
+    }
+
+    if (typeof LEVELS !== 'undefined') {
+      for (const lvl of LEVELS) {
+        if (cleanText === lvl.promptEn?.trim() || cleanText === lvl.promptHi?.trim() || cleanText === lvl.promptMr?.trim()) {
+          return `level_${lvl.id}`;
+        }
+      }
+    }
+
+    if (typeof ANIMAL_CHALLENGES !== 'undefined') {
+      for (const ch of ANIMAL_CHALLENGES) {
+        if (cleanText === ch.descEn?.trim() || cleanText === ch.descHi?.trim() || cleanText === ch.descMr?.trim()) {
+          return `chal_${ch.id}`;
+        }
+      }
+    }
+
+    return null;
+  }
+
   getBestHumanVoice(langCode) {
     if (!this.synth) return null;
     const voices = this.synth.getVoices();
@@ -588,13 +640,23 @@ class SpeechController {
 
     const qualityKeywords = [
       'natural', 'neural', 'online', 'google', 'female', 'premium',
-      'neerja', 'swara', 'madhur', 'aarav', 'heera', 'ravi', 'zira', 'jenny', 'samantha'
+      'neerja', 'swara', 'madhur', 'aarav', 'aarohi', 'heera', 'ravi', 'jenny', 'samantha'
     ];
+
+    const roboticBlacklist = ['desktop', 'david', 'zira', 'mark', 'george', 'hazel', 'susan'];
 
     const langLower = langCode.toLowerCase();
 
+    // Strictly filter out legacy robotic SAPI offline voices
+    const filteredVoices = voices.filter(v => {
+      const vName = v.name.toLowerCase();
+      return !roboticBlacklist.some(r => vName.includes(r));
+    });
+
+    const pool = filteredVoices.length > 0 ? filteredVoices : voices;
+
     // 1. Exact match with neural/natural human voice
-    let best = voices.find(v => {
+    let best = pool.find(v => {
       const vLang = v.lang.toLowerCase();
       const vName = v.name.toLowerCase();
       const isTargetLang = vLang.startsWith(langLower) || vLang.replace('_', '-').startsWith(langLower);
@@ -602,8 +664,8 @@ class SpeechController {
     });
     if (best) return best;
 
-    // 2. Any exact match
-    best = voices.find(v => {
+    // 2. Any match from non-robotic pool
+    best = pool.find(v => {
       const vLang = v.lang.toLowerCase();
       return vLang.startsWith(langLower) || vLang.replace('_', '-').startsWith(langLower);
     });
@@ -611,33 +673,33 @@ class SpeechController {
 
     // 3. Indian language fallback (Marathi to Hindi natural voice)
     if (langLower === 'mr' || langLower.startsWith('mr')) {
-      best = voices.find(v => v.lang.toLowerCase().startsWith('hi') && qualityKeywords.some(k => v.name.toLowerCase().includes(k))) ||
-             voices.find(v => v.lang.toLowerCase().startsWith('hi')) ||
-             voices.find(v => v.lang.toLowerCase().includes('in'));
+      best = pool.find(v => v.lang.toLowerCase().startsWith('hi') && qualityKeywords.some(k => v.name.toLowerCase().includes(k))) ||
+             pool.find(v => v.lang.toLowerCase().startsWith('hi')) ||
+             pool.find(v => v.lang.toLowerCase().includes('in'));
       if (best) return best;
     }
 
-    // 4. English with natural quality
+    // 4. English with natural / Indian accent
     if (langLower.startsWith('en')) {
-      best = voices.find(v => v.lang.toLowerCase().includes('in') && v.lang.toLowerCase().startsWith('en')) ||
-             voices.find(v => v.lang.toLowerCase().startsWith('en') && qualityKeywords.some(k => v.name.toLowerCase().includes(k)));
+      best = pool.find(v => v.lang.toLowerCase().includes('in') && v.lang.toLowerCase().startsWith('en')) ||
+             pool.find(v => v.lang.toLowerCase().startsWith('en') && qualityKeywords.some(k => v.name.toLowerCase().includes(k)));
       if (best) return best;
     }
 
-    return voices[0];
+    return pool[0] || voices[0];
   }
 
-  speak(text) {
-    if (!this.synth || !audio.soundEnabled) return;
+  speakWebSpeech(text) {
+    if (!this.synth || (typeof audio !== 'undefined' && !audio.soundEnabled)) return;
     try {
       this.synth.cancel();
 
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.88;
-      utterance.pitch = 1.0;
+      utterance.rate = 1.0;
+      utterance.pitch = 1.02;
       utterance.volume = 1.0;
 
-      const langCode = I18N[currentLang].tts_lang;
+      const langCode = (typeof I18N !== 'undefined' && I18N[currentLang]) ? I18N[currentLang].tts_lang : 'en-IN';
       utterance.lang = langCode;
 
       const v = this.getBestHumanVoice(currentLang === 'hi' ? 'hi' : (currentLang === 'mr' ? 'mr' : 'en'));
@@ -645,17 +707,55 @@ class SpeechController {
         utterance.voice = v;
       }
 
-      const mascot = document.getElementById('mascot-avatar');
-      if (mascot) {
-        mascot.style.transform = 'scale(1.18) rotate(-4deg)';
-        utterance.onend = () => { mascot.style.transform = ''; };
-        utterance.onerror = () => { mascot.style.transform = ''; };
-      }
+      const mascots = document.querySelectorAll('.mascot-avatar, #welcome-mascot-avatar');
+      mascots.forEach(m => m.classList.add('mascot-talking'));
+      utterance.onend = () => { mascots.forEach(m => m.classList.remove('mascot-talking')); };
+      utterance.onerror = () => { mascots.forEach(m => m.classList.remove('mascot-talking')); };
 
       this.synth.speak(utterance);
     } catch (e) {
-      console.log('TTS error fallback:', e);
+      console.log('Web Speech error fallback:', e);
     }
+  }
+
+  speak(text, audioKey = null) {
+    if (typeof audio !== 'undefined' && !audio.soundEnabled) return;
+    this.stop();
+
+    const key = audioKey || this.resolveAudioKey(text);
+    if (key) {
+      this.currentAudioKey = key;
+      const audioPath = `audio/voices/${key}_${currentLang}.mp3`;
+      const snd = new Audio(audioPath);
+      this.currentAudio = snd;
+
+      const mascots = document.querySelectorAll('.mascot-avatar, #welcome-mascot-avatar');
+      mascots.forEach(m => m.classList.add('mascot-talking'));
+
+      snd.onended = () => {
+        mascots.forEach(m => m.classList.remove('mascot-talking'));
+        this.currentAudio = null;
+      };
+
+      snd.onerror = (err) => {
+        console.warn(`[Voice] Audio file not found or failed (${audioPath}), falling back to Web Speech:`, err);
+        mascots.forEach(m => m.classList.remove('mascot-talking'));
+        this.currentAudio = null;
+        this.speakWebSpeech(text);
+      };
+
+      const playPromise = snd.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn('[Voice] Audio play interrupted or blocked by autoplay policy:', err);
+          mascots.forEach(m => m.classList.remove('mascot-talking'));
+          this.currentAudio = null;
+        });
+      }
+      return;
+    }
+
+    this.speakWebSpeech(text);
   }
 }
 
@@ -1230,7 +1330,8 @@ function setupWelcomeScreenEvents() {
   dom.btnWelcomeSpeak.addEventListener('click', () => {
     audio.init();
     audio.playPop();
-    voice.speak(dom.welcomeSpeechText.textContent);
+    const key = (state.gameMode === 'animals') ? 'animal_welcome' : 'welcome';
+    voice.speak(dom.welcomeSpeechText.textContent, key);
   });
 }
 
@@ -1287,7 +1388,7 @@ function applyLanguage() {
       const desc = currentLang === 'hi' ? ch.descHi : (currentLang === 'mr' ? ch.descMr : ch.descEn);
       const title = currentLang === 'hi' ? ch.titleHi : (currentLang === 'mr' ? ch.titleMr : ch.titleEn);
       if (dom.animalChallengeTitle) dom.animalChallengeTitle.textContent = title;
-      updateMascotSpeech(desc, false);
+      updateMascotSpeech(desc, false, `chal_${ch.id}`);
     }
   } else {
     if (dom.panLabelLeft) dom.panLabelLeft.textContent = dict.left_pan;
@@ -1298,7 +1399,7 @@ function applyLanguage() {
     const level = LEVELS[state.currentLevelIndex];
     if (level) {
       const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
-      updateMascotSpeech(prompt, false);
+      updateMascotSpeech(prompt, false, `level_${level.id}`);
     }
   }
 
@@ -1307,10 +1408,13 @@ function applyLanguage() {
   renderAnimalChallengesGrid();
 }
 
-function updateMascotSpeech(text, autoSpeak = true) {
+function updateMascotSpeech(text, autoSpeak = true, audioKey = null) {
   dom.speechText.textContent = text;
+  if (audioKey) {
+    voice.currentAudioKey = audioKey;
+  }
   if (autoSpeak) {
-    voice.speak(text);
+    voice.speak(text, audioKey);
   }
 }
 
@@ -1354,8 +1458,24 @@ function setupHeaderEvents() {
 
   dom.btnSpeak.addEventListener('click', () => {
     audio.playPop();
-    voice.speak(dom.speechText.textContent);
+    voice.speak(dom.speechText.textContent, voice.currentAudioKey);
   });
+
+  if (dom.mascotAvatar) {
+    dom.mascotAvatar.addEventListener('click', () => {
+      audio.playPop();
+      voice.speak(dom.speechText.textContent, voice.currentAudioKey);
+    });
+  }
+
+  if (dom.speechText && dom.speechText.parentElement) {
+    dom.speechText.parentElement.addEventListener('click', (e) => {
+      if (e.target.id !== 'btn-speak') {
+        audio.playPop();
+        voice.speak(dom.speechText.textContent, voice.currentAudioKey);
+      }
+    });
+  }
 
   dom.btnSound.addEventListener('click', () => {
     audio.soundEnabled = !audio.soundEnabled;
@@ -1559,7 +1679,7 @@ function loadAnimalChallenge(index) {
   ];
 
   const desc = currentLang === 'hi' ? ch.descHi : (currentLang === 'mr' ? ch.descMr : ch.descEn);
-  updateMascotSpeech(desc);
+  updateMascotSpeech(desc, true, `chal_${ch.id}`);
 
   renderAllItems();
   recalculateBalance();
@@ -1639,7 +1759,7 @@ function loadLevel(index) {
   }
 
   const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
-  updateMascotSpeech(prompt);
+  updateMascotSpeech(prompt, true, `level_${level.id}`);
 
   renderAllItems();
   recalculateBalance();
@@ -2351,7 +2471,7 @@ function handleTwoWaysSolve(leftTotal, rightTotal, level) {
     dom.way2Badge.textContent = `${I18N[currentLang].way_2}: ⏳`;
 
     audio.playWin();
-    updateMascotSpeech(I18N[currentLang].way_1_done);
+    updateMascotSpeech(I18N[currentLang].way_1_done, true, 'way_1_done');
 
     setTimeout(() => {
       while (state.rightPan.length > 0) {
@@ -2393,7 +2513,7 @@ function showCelebration(leftTotal, rightTotal, customEq = null) {
   dom.modalCelebration.classList.remove('hidden');
 
   spawnConfetti();
-  updateMascotSpeech(I18N[currentLang].win_title);
+  updateMascotSpeech(I18N[currentLang].win_title, true, 'win');
 }
 
 function spawnConfetti() {

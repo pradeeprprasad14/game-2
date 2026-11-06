@@ -398,6 +398,16 @@ body {
   100% { transform: translateY(-10px) scale(1.15) rotate(8deg); }
 }
 
+.mascot-avatar.mascot-talking,
+#welcome-mascot-avatar.mascot-talking {
+  animation: mascotTalking 0.32s ease-in-out infinite alternate !important;
+}
+
+@keyframes mascotTalking {
+  0% { transform: scale(1) rotate(-3deg); }
+  100% { transform: scale(1.18) rotate(4deg); }
+}
+
 .speech-bubble {
   background: #ffffff;
   border: 3px solid #f59e0b;

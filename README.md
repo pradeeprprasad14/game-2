@@ -31,13 +31,15 @@ Children can now enter a lush Jungle Safari and balance cute cartoon animals on 
 - **Free Safari Playground:**
   - Open-ended sandbox where children freely drag, drop, and compare weights with real-time feedback.
 
-### 🔊 Procedural Animal Sounds & Joyful Animations:
-- Synthesized in real-time with Web Audio API (zero external assets needed):
+### 🔊 Studio-Quality Human Voice Audio & Procedural Sound Effects:
+- **Authentic Human Voice (No Robotic Synthesis):** Pre-rendered high-fidelity human teacher voices in English (`en-IN`), Hindi (`hi-IN`), and Marathi (`mr-IN`) for all 14 Bazaar levels, all 6 Animal Kingdom challenges, welcome speeches, hints, and celebration victories!
+- **Speaking Mascot Animation:** Mascot avatar bounces and animates expressively while speaking.
+- **Procedural Animal Sounds (Web Audio API):**
   - 🎺 Elephant Trumpet (rich harmonic sweep + vibrato LFO)
   - 🦁 Lion Roar (low-frequency sawtooth + formant bandpass filter)
   - 🐒 Monkey Chatter (rapid triple-tone ascending chirps)
   - 🐰 Rabbit Squeak (springy high-frequency whistle hop)
-- **Animations:** Idle wiggles, bouncy squish landing, and celebratory victory dancing on the pans when the scale levels out!
+- **Temple Bell:** Resonant harmonic brass chime on entry and balance!
 
 ---
 
