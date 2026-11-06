@@ -46,6 +46,27 @@ const I18N = {
     mascot_monkey: "Chintu 🐒",
     mascot_elephant: "Gappu 🐘",
     start_play: "ENTER BAZAAR 🛒",
+    start_animals: "ANIMAL KINGDOM 🐾",
+    badge_classic: "Classic Mode",
+    badge_new: "NEW! ✨",
+    section_bazaar: "Bazaar",
+    section_animals: "Animals",
+    mode_bazaar_sub: "Fruits, Veggies & Brass Weights (1-6 kg)",
+    mode_animals_sub: "Elephant, Lion, Monkey & Rabbit (5-100 kg)",
+    animal_tray_title: "Animal Safari Den 🐾",
+    animal_tray_hint: "(Drag animals onto Left or Right pan!)",
+    pan_left_animal: "Left Pan 🌿",
+    pan_right_animal: "Right Pan 🌿",
+    animal_challenges_title: "Safari Challenges 🐾",
+    animal_modal_sub: "Choose a fun balancing challenge with cute cartoon animals!",
+    btn_add_left: "⬅️ Left",
+    btn_add_right: "Right ➡️",
+    balanced_animals: "Wah! Shabaash! Both sides are balanced at {weight} kg!",
+    animal_welcome_speech: "Namaste! Welcome to Animal Kingdom! Drag cute animals to either side of the Tarazu to balance it!",
+    elephant: "Elephant",
+    lion: "Lion",
+    monkey: "Monkey",
+    rabbit: "Rabbit",
     how_to_play: "How to Play",
     how_to_play_title: "How to Weigh at the Bazaar ⚖️",
     tut_step1_title: "1. Look at the Object on the Left",
@@ -88,6 +109,27 @@ const I18N = {
     mascot_monkey: "चिंटू 🐒",
     mascot_elephant: "गप्पू 🐘",
     start_play: "बाज़ार में चलें 🛒",
+    start_animals: "पशु साम्राज्य 🐾",
+    badge_classic: "क्लासिक खेल",
+    badge_new: "नया! ✨",
+    section_bazaar: "बाज़ार",
+    section_animals: "पशु साम्राज्य",
+    mode_bazaar_sub: "फल, सब्ज़ियाँ और पीतल के बाट (1-6 किग्रा)",
+    mode_animals_sub: "हाथी, शेर, बंदर और खरगोश (5-100 किग्रा)",
+    animal_tray_title: "सफारी पशु कुटीर 🐾",
+    animal_tray_hint: "(जानवरों को दाएं या बाएं किसी भी पलड़े पर रखो!)",
+    pan_left_animal: "बायां पलड़ा 🌿",
+    pan_right_animal: "दायां पलड़ा 🌿",
+    animal_challenges_title: "सफारी चुनौतियां 🐾",
+    animal_modal_sub: "प्यारे जानवरों के साथ मजेदार तोलने की चुनौती चुनो!",
+    btn_add_left: "⬅️ बायां",
+    btn_add_right: "दायां ➡️",
+    balanced_animals: "वाह! शाबाश! दोनों तरफ {weight} किग्रा बराबर हैं!",
+    animal_welcome_speech: "नमस्ते! पशु साम्राज्य में आपका स्वागत है! जानवरों को तराजू के दोनों पलड़ों पर रखकर बराबर तोलो!",
+    elephant: "हाथी",
+    lion: "शेर",
+    monkey: "बंदर",
+    rabbit: "खरगोश",
     how_to_play: "कैसे खेलें",
     how_to_play_title: "तराजू से कैसे तोलें ⚖️",
     tut_step1_title: "1. बाईं तरफ की चीज़ देखो",
@@ -130,6 +172,27 @@ const I18N = {
     mascot_monkey: "चिंटू 🐒",
     mascot_elephant: "गप्पू 🐘",
     start_play: "बाजारात जाऊया 🛒",
+    start_animals: "प्राण्यांचे राज्य 🐾",
+    badge_classic: "क्लासिक खेळ",
+    badge_new: "नवीन! ✨",
+    section_bazaar: "बाजार",
+    section_animals: "प्राण्यांचे राज्य",
+    mode_bazaar_sub: "फळे, भाजी आणि पितळी वजने (1-6 किलो)",
+    mode_animals_sub: "हत्ती, सिंह, माकड आणि ससा (5-100 किलो)",
+    animal_tray_title: "सफारी प्राण्यांची जागा 🐾",
+    animal_tray_hint: "(प्राण्यांना डाव्या किंवा उजव्या कोणत्याही पारड्यात ठेवा!)",
+    pan_left_animal: "डावे पारडे 🌿",
+    pan_right_animal: "उजवे पारडे 🌿",
+    animal_challenges_title: "सफारी आव्हाने 🐾",
+    animal_modal_sub: "गोड प्राण्यांसोबत तोलण्याचे मजेदार आव्हान निवडा!",
+    btn_add_left: "⬅️ डावे",
+    btn_add_right: "उजवे ➡️",
+    balanced_animals: "छान! शाब्बास! दोन्ही बाजू {weight} किलो समसमान झाल्या!",
+    animal_welcome_speech: "नमस्ते! प्राण्यांच्या राज्यात आपले स्वागत आहे! तराजूच्या दोन्ही पारड्यात प्राणी ठेवून समसमान करा!",
+    elephant: "हत्ती",
+    lion: "सिंह",
+    monkey: "माकड",
+    rabbit: "ससा",
     how_to_play: "कसे खेळायचे",
     how_to_play_title: "तराजूने कसे तोकायचे ⚖️",
     tut_step1_title: "1. डाव्या बाजूची वस्तू बघा",
@@ -328,6 +391,168 @@ class AudioController {
 
     osc.start(t);
     osc.stop(t + 0.09);
+  }
+
+  // -------------------------------------------------------------
+  // ANIMAL SOUND EFFECTS (Procedural Web Audio API)
+  // -------------------------------------------------------------
+
+  // 1. Elephant (100 kg): Brassy fanfare trumpet call with vibrato
+  playElephantSound() {
+    if (!this.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const t = this.ctx.currentTime;
+      const osc1 = this.ctx.createOscillator();
+      const osc2 = this.ctx.createOscillator();
+      const lfo = this.ctx.createOscillator();
+      const lfoGain = this.ctx.createGain();
+      const filter = this.ctx.createBiquadFilter();
+      const masterGain = this.ctx.createGain();
+
+      osc1.type = 'sawtooth';
+      osc2.type = 'triangle';
+
+      osc1.frequency.setValueAtTime(260, t);
+      osc1.frequency.exponentialRampToValueAtTime(480, t + 0.18);
+      osc1.frequency.linearRampToValueAtTime(430, t + 0.65);
+
+      osc2.frequency.setValueAtTime(265, t);
+      osc2.frequency.exponentialRampToValueAtTime(486, t + 0.18);
+      osc2.frequency.linearRampToValueAtTime(435, t + 0.65);
+
+      lfo.frequency.setValueAtTime(7.5, t);
+      lfoGain.gain.setValueAtTime(14, t);
+      lfo.connect(lfoGain);
+      lfoGain.connect(osc1.frequency);
+      lfoGain.connect(osc2.frequency);
+
+      filter.type = 'bandpass';
+      filter.frequency.setValueAtTime(650, t);
+      filter.frequency.exponentialRampToValueAtTime(1400, t + 0.2);
+      filter.frequency.linearRampToValueAtTime(880, t + 0.65);
+      filter.Q.setValueAtTime(3.5, t);
+
+      masterGain.gain.setValueAtTime(0, t);
+      masterGain.gain.linearRampToValueAtTime(0.32, t + 0.08);
+      masterGain.gain.exponentialRampToValueAtTime(0.001, t + 0.7);
+
+      osc1.connect(filter);
+      osc2.connect(filter);
+      filter.connect(masterGain);
+      masterGain.connect(this.ctx.destination);
+
+      lfo.start(t);
+      osc1.start(t);
+      osc2.start(t);
+      lfo.stop(t + 0.7);
+      osc1.stop(t + 0.7);
+      osc2.stop(t + 0.7);
+    } catch (e) {}
+  }
+
+  // 2. Lion (50 kg): Deep cartoon roar / growl
+  playLionSound() {
+    if (!this.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const t = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const filter = this.ctx.createBiquadFilter();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(120, t);
+      osc.frequency.linearRampToValueAtTime(80, t + 0.22);
+      osc.frequency.exponentialRampToValueAtTime(52, t + 0.65);
+
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(380, t);
+      filter.frequency.linearRampToValueAtTime(720, t + 0.2);
+      filter.frequency.exponentialRampToValueAtTime(200, t + 0.65);
+      filter.Q.setValueAtTime(5, t);
+
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(0.34, t + 0.06);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.65);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.65);
+    } catch (e) {}
+  }
+
+  // 3. Monkey (10 kg): Cheerful upward chatter chirps
+  playMonkeySound() {
+    if (!this.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const t = this.ctx.currentTime;
+      const chirps = [
+        { start: 0, f0: 420, f1: 780, dur: 0.11 },
+        { start: 0.13, f0: 520, f1: 900, dur: 0.12 },
+        { start: 0.27, f0: 620, f1: 1080, dur: 0.14 }
+      ];
+
+      chirps.forEach(c => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(c.f0, t + c.start);
+        osc.frequency.exponentialRampToValueAtTime(c.f1, t + c.start + c.dur * 0.7);
+        osc.frequency.exponentialRampToValueAtTime(c.f0 * 1.2, t + c.start + c.dur);
+
+        gain.gain.setValueAtTime(0, t + c.start);
+        gain.gain.linearRampToValueAtTime(0.28, t + c.start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + c.start + c.dur);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(t + c.start);
+        osc.stop(t + c.start + c.dur);
+      });
+    } catch (e) {}
+  }
+
+  // 4. Rabbit (5 kg): Sweet high-pitched boing hop squeak
+  playRabbitSound() {
+    if (!this.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const t = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(780, t);
+      osc.frequency.exponentialRampToValueAtTime(1450, t + 0.08);
+      osc.frequency.exponentialRampToValueAtTime(920, t + 0.22);
+
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(0.26, t + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(t);
+      osc.stop(t + 0.25);
+    } catch (e) {}
+  }
+
+  playAnimalSound(species) {
+    if (species === 'elephant') this.playElephantSound();
+    else if (species === 'lion') this.playLionSound();
+    else if (species === 'monkey') this.playMonkeySound();
+    else if (species === 'rabbit') this.playRabbitSound();
+    else this.playPop();
   }
 }
 
@@ -703,11 +928,145 @@ const LEVELS = [
 ];
 
 // -------------------------------------------------------------
+// 4B. ANIMAL KINGDOM SPECIES & CHALLENGES (NEW FEATURE)
+// -------------------------------------------------------------
+const ANIMAL_SPECIES = {
+  elephant: {
+    id: 'elephant',
+    weight: 100,
+    emoji: '🐘',
+    color: '#3b82f6',
+    nameEn: 'Elephant',
+    nameHi: 'हाथी',
+    nameMr: 'हत्ती',
+    soundLabel: '🎺 Trumpet!'
+  },
+  lion: {
+    id: 'lion',
+    weight: 50,
+    emoji: '🦁',
+    color: '#f59e0b',
+    nameEn: 'Lion',
+    nameHi: 'शेर',
+    nameMr: 'सिंह',
+    soundLabel: '🦁 Roar!'
+  },
+  monkey: {
+    id: 'monkey',
+    weight: 10,
+    emoji: '🐒',
+    color: '#a855f7',
+    nameEn: 'Monkey',
+    nameHi: 'बंदर',
+    nameMr: 'माकड',
+    soundLabel: '🐒 Chatter!'
+  },
+  rabbit: {
+    id: 'rabbit',
+    weight: 5,
+    emoji: '🐰',
+    color: '#ec4899',
+    nameEn: 'Rabbit',
+    nameHi: 'खरगोश',
+    nameMr: 'ससा',
+    soundLabel: '🐰 Squeak!'
+  }
+};
+
+const ANIMAL_CHALLENGES = [
+  {
+    id: 1,
+    titleEn: "Balance the Monkey! 🐒",
+    titleHi: "बंदर को तोलो! 🐒",
+    titleMr: "माकडाला तोका! 🐒",
+    descEn: "Can you balance the 10 kg Monkey? How many 5 kg Rabbits do you need on the right?",
+    descHi: "क्या आप 10 किग्रा के बंदर को तोल सकते हैं? दाईं तरफ 5 किग्रा के कितने खरगोश चाहिए?",
+    descMr: "तुम्ही 10 किलोच्या माकडाला तोकू शकता का? उजवीकडे 5 किलोचे किती ससे लागतील?",
+    leftInitial: [{ type: 'animal', species: 'monkey', weight: 10, id: 'm1' }],
+    rightInitial: [],
+    targetWeight: 10,
+    badgeEmoji: '🐒🐰'
+  },
+  {
+    id: 2,
+    titleEn: "How Many Monkeys for a Lion? 🦁",
+    titleHi: "शेर के बराबर कितने बंदर? 🦁",
+    titleMr: "सिंहाच्या बरोबरीला किती माकडे? 🦁",
+    descEn: "The Lion weighs 50 kg! Add 10 kg Monkeys to the right pan to balance him!",
+    descHi: "शेर का वजन 50 किग्रा है! दाएं पलड़े पर 10 किग्रा वाले बंदर रखकर बराबर करो!",
+    descMr: "सिंहाचे वजन 50 किलो आहे! उजव्या पारड्यात 10 किलोची माकडे ठेवून समान करा!",
+    leftInitial: [{ type: 'animal', species: 'lion', weight: 50, id: 'l1' }],
+    rightInitial: [],
+    targetWeight: 50,
+    badgeEmoji: '🦁🐒'
+  },
+  {
+    id: 3,
+    titleEn: "Mighty Elephant King! 🐘",
+    titleHi: "महाबली हाथी राजा! 🐘",
+    titleMr: "महाबली हत्ती राजा! 🐘",
+    descEn: "Gappu the Elephant weighs 100 kg! How many 50 kg Lions will balance him?",
+    descHi: "गप्पू हाथी 100 किग्रा का है! 50 किग्रा के कितने शेर उसे बराबर तोलेंगे?",
+    descMr: "गप्पू हत्ती 100 किलोचा आहे! 50 किलोचे किती सिंह त्याला समान तोकतील?",
+    leftInitial: [{ type: 'animal', species: 'elephant', weight: 100, id: 'e1' }],
+    rightInitial: [],
+    targetWeight: 100,
+    badgeEmoji: '🐘🦁'
+  },
+  {
+    id: 4,
+    titleEn: "Friendly Jungle Mix! 🦁🐒🐰",
+    titleHi: "जंगल मित्रों की टोली! 🦁🐒🐰",
+    titleMr: "जंगल मित्रांची जोडी! 🦁🐒🐰",
+    descEn: "Balance the 50 kg Lion using a mix of Monkeys (10 kg) and Rabbits (5 kg)!",
+    descHi: "50 किग्रा के शेर को बंदर (10 किग्रा) और खरगोश (5 किग्रा) मिलाकर बराबर तोलो!",
+    descMr: "50 किलोच्या सिंहाला माकडे (10 किलो) व ससे (5 किलो) एकत्र करून तोका!",
+    leftInitial: [{ type: 'animal', species: 'lion', weight: 50, id: 'l1' }],
+    rightInitial: [{ type: 'animal', species: 'monkey', weight: 10, id: 'm1' }],
+    targetWeight: 50,
+    badgeEmoji: '🦁🐰'
+  },
+  {
+    id: 5,
+    titleEn: "Grand Safari Seesaw! 🐘🐒",
+    titleHi: "बड़ा सफारी शीशॉ! 🐘🐒",
+    titleMr: "भव्य सफारी सी-सॉ! 🐘🐒",
+    descEn: "Elephant (100 kg) and Monkey (10 kg) = 110 kg! Balance both sides with animals!",
+    descHi: "हाथी (100 किग्रा) और बंदर (10 किग्रा) मिलकर 110 किग्रा! दोनों तरफ बराबर करो!",
+    descMr: "हत्ती (100 किलो) आणि माकड (10 किलो) मिळून 110 किलो! दोन्ही बाजू समान करा!",
+    leftInitial: [
+      { type: 'animal', species: 'elephant', weight: 100, id: 'e1' },
+      { type: 'animal', species: 'monkey', weight: 10, id: 'm1' }
+    ],
+    rightInitial: [],
+    targetWeight: 110,
+    badgeEmoji: '🐘🐒'
+  },
+  {
+    id: 6,
+    isFreePlay: true,
+    titleEn: "Safari Playground (Free Play) 🎪🐾",
+    titleHi: "सफारी मैदान (मुक्त खेल) 🎪🐾",
+    titleMr: "सफारी मैदान (मुक्त खेळ) 🎪🐾",
+    descEn: "Place any animals on EITHER pan! Explore weight comparison and balancing freely!",
+    descHi: "दोनों में से किसी भी पलड़े पर जानवर रखो! तोलने और तुलना करने का आनंद लो!",
+    descMr: "दोन्हीपैकी कोणत्याही पारड्यात प्राणी ठेवा! मुक्तपणे तोलून तुलना करा!",
+    leftInitial: [{ type: 'animal', species: 'elephant', weight: 100, id: 'e1' }],
+    rightInitial: [{ type: 'animal', species: 'lion', weight: 50, id: 'l1' }],
+    targetWeight: null,
+    badgeEmoji: '🎪🐾'
+  }
+];
+
+// -------------------------------------------------------------
 // 5. GAME STATE
 // -------------------------------------------------------------
 const state = {
+  gameMode: 'bazaar', // 'bazaar' | 'animals'
   currentLevelIndex: 0,
   completedLevels: {},
+  animalChallengeIndex: 0,
+  animalCompletedChallenges: {},
   leftPan: [],
   rightPan: [],
   tray: [],
@@ -722,11 +1081,14 @@ const state = {
 // 6. DOM ELEMENTS
 // -------------------------------------------------------------
 const dom = {
+  gameContainer: document.getElementById('game-container'),
   screenWelcome: document.getElementById('screen-welcome'),
   welcomeSpeechText: document.getElementById('welcome-speech-text'),
   btnWelcomeSpeak: document.getElementById('btn-welcome-speak'),
   btnStartPlay: document.getElementById('btn-start-play'),
+  btnStartAnimals: document.getElementById('btn-start-animals'),
   btnWelcomeLevels: document.getElementById('btn-welcome-levels'),
+  btnWelcomeAnimals: document.getElementById('btn-welcome-animals'),
   btnHowToPlay: document.getElementById('btn-how-to-play'),
   modalTutorial: document.getElementById('modal-tutorial'),
   btnCloseTutorial: document.getElementById('btn-close-tutorial'),
@@ -740,9 +1102,24 @@ const dom = {
   btnSound: document.getElementById('btn-sound'),
   soundIcon: document.getElementById('sound-icon'),
   btnReset: document.getElementById('btn-reset'),
+  btnSwitchBazaar: document.getElementById('btn-switch-bazaar'),
+  btnSwitchAnimals: document.getElementById('btn-switch-animals'),
   challengeStatus: document.getElementById('challenge-status'),
   way1Badge: document.getElementById('way-1-badge'),
   way2Badge: document.getElementById('way-2-badge'),
+  animalChallengeBar: document.getElementById('animal-challenge-bar'),
+  animalChallengeBadge: document.getElementById('animal-challenge-badge'),
+  animalChallengeTitle: document.getElementById('animal-challenge-title'),
+  btnPrevAnimalChallenge: document.getElementById('btn-prev-animal-challenge'),
+  btnNextAnimalChallenge: document.getElementById('btn-next-animal-challenge'),
+  btnOpenAnimalChallenges: document.getElementById('btn-open-animal-challenges'),
+  modalAnimalChallenges: document.getElementById('modal-animal-challenges'),
+  btnCloseAnimalChallenges: document.getElementById('btn-close-animal-challenges'),
+  animalChallengesGrid: document.getElementById('animal-challenges-grid'),
+  panLabelLeft: document.querySelector('#pan-overlay-left .pan-label-tag'),
+  panLabelRight: document.querySelector('#pan-overlay-right .pan-label-tag'),
+  shelfTitle: document.querySelector('.shelf-title'),
+  shelfSub: document.querySelector('.shelf-sub'),
   hintText: document.getElementById('hint-text'),
   needleHintIcon: document.getElementById('needle-hint-icon'),
   beamGroup: document.getElementById('beam-group'),
@@ -793,14 +1170,20 @@ function loadProgress() {
     if (saved) {
       state.completedLevels = JSON.parse(saved);
     }
+    const savedAnimals = localStorage.getItem('tarazu_animal_progress');
+    if (savedAnimals) {
+      state.animalCompletedChallenges = JSON.parse(savedAnimals);
+    }
   } catch (e) {
     state.completedLevels = {};
+    state.animalCompletedChallenges = {};
   }
 }
 
 function saveProgress() {
   try {
     localStorage.setItem('tarazu_progress', JSON.stringify(state.completedLevels));
+    localStorage.setItem('tarazu_animal_progress', JSON.stringify(state.animalCompletedChallenges));
   } catch (e) {}
 }
 
@@ -812,8 +1195,25 @@ function setupWelcomeScreenEvents() {
     audio.init();
     audio.playTempleBell();
     dom.screenWelcome.classList.add('hidden');
-    loadLevel(0);
+    switchGameMode('bazaar');
   });
+
+  if (dom.btnStartAnimals) {
+    dom.btnStartAnimals.addEventListener('click', () => {
+      audio.init();
+      audio.playAnimalSound('elephant');
+      dom.screenWelcome.classList.add('hidden');
+      switchGameMode('animals');
+    });
+  }
+
+  if (dom.btnWelcomeAnimals) {
+    dom.btnWelcomeAnimals.addEventListener('click', () => {
+      audio.init();
+      audio.playPop();
+      openAnimalChallengesModal();
+    });
+  }
 
   dom.btnWelcomeLevels.addEventListener('click', () => {
     audio.init();
@@ -876,14 +1276,35 @@ function applyLanguage() {
     }
   });
 
-  const level = LEVELS[state.currentLevelIndex];
-  if (level) {
-    const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
-    updateMascotSpeech(prompt, false);
+  if (state.gameMode === 'animals') {
+    if (dom.panLabelLeft) dom.panLabelLeft.textContent = dict.pan_left_animal;
+    if (dom.panLabelRight) dom.panLabelRight.textContent = dict.pan_right_animal;
+    if (dom.shelfTitle) dom.shelfTitle.textContent = dict.animal_tray_title;
+    if (dom.shelfSub) dom.shelfSub.textContent = dict.animal_tray_hint;
+
+    const ch = ANIMAL_CHALLENGES[state.animalChallengeIndex];
+    if (ch) {
+      const desc = currentLang === 'hi' ? ch.descHi : (currentLang === 'mr' ? ch.descMr : ch.descEn);
+      const title = currentLang === 'hi' ? ch.titleHi : (currentLang === 'mr' ? ch.titleMr : ch.titleEn);
+      if (dom.animalChallengeTitle) dom.animalChallengeTitle.textContent = title;
+      updateMascotSpeech(desc, false);
+    }
+  } else {
+    if (dom.panLabelLeft) dom.panLabelLeft.textContent = dict.left_pan;
+    if (dom.panLabelRight) dom.panLabelRight.textContent = dict.right_pan;
+    if (dom.shelfTitle) dom.shelfTitle.textContent = dict.tray_title;
+    if (dom.shelfSub) dom.shelfSub.textContent = dict.tray_hint;
+
+    const level = LEVELS[state.currentLevelIndex];
+    if (level) {
+      const prompt = currentLang === 'hi' ? level.promptHi : (currentLang === 'mr' ? level.promptMr : level.promptEn);
+      updateMascotSpeech(prompt, false);
+    }
   }
 
   renderAllItems();
   renderLevelsGrid();
+  renderAnimalChallengesGrid();
 }
 
 function updateMascotSpeech(text, autoSpeak = true) {
@@ -904,8 +1325,28 @@ function setupHeaderEvents() {
 
   dom.btnOpenLevels.addEventListener('click', () => {
     audio.playPop();
-    openLevelsModal();
+    if (state.gameMode === 'animals') {
+      openAnimalChallengesModal();
+    } else {
+      openLevelsModal();
+    }
   });
+
+  if (dom.btnSwitchBazaar) {
+    dom.btnSwitchBazaar.addEventListener('click', () => {
+      if (state.gameMode !== 'bazaar') {
+        switchGameMode('bazaar');
+      }
+    });
+  }
+
+  if (dom.btnSwitchAnimals) {
+    dom.btnSwitchAnimals.addEventListener('click', () => {
+      if (state.gameMode !== 'animals') {
+        switchGameMode('animals');
+      }
+    });
+  }
 
   dom.btnTempleBell.addEventListener('click', () => {
     audio.playTempleBell();
@@ -924,7 +1365,11 @@ function setupHeaderEvents() {
 
   dom.btnReset.addEventListener('click', () => {
     audio.playPop();
-    resetCurrentLevel();
+    if (state.gameMode === 'animals') {
+      resetCurrentAnimalChallenge();
+    } else {
+      resetCurrentLevel();
+    }
   });
 }
 
@@ -933,6 +1378,36 @@ function setupModalEvents() {
     audio.playPop();
     dom.modalLevels.classList.add('hidden');
   });
+
+  if (dom.btnCloseAnimalChallenges) {
+    dom.btnCloseAnimalChallenges.addEventListener('click', () => {
+      audio.playPop();
+      dom.modalAnimalChallenges.classList.add('hidden');
+    });
+  }
+
+  if (dom.btnOpenAnimalChallenges) {
+    dom.btnOpenAnimalChallenges.addEventListener('click', () => {
+      audio.playPop();
+      openAnimalChallengesModal();
+    });
+  }
+
+  if (dom.btnPrevAnimalChallenge) {
+    dom.btnPrevAnimalChallenge.addEventListener('click', () => {
+      audio.playPop();
+      const prev = state.animalChallengeIndex > 0 ? state.animalChallengeIndex - 1 : ANIMAL_CHALLENGES.length - 1;
+      loadAnimalChallenge(prev);
+    });
+  }
+
+  if (dom.btnNextAnimalChallenge) {
+    dom.btnNextAnimalChallenge.addEventListener('click', () => {
+      audio.playPop();
+      const next = state.animalChallengeIndex < ANIMAL_CHALLENGES.length - 1 ? state.animalChallengeIndex + 1 : 0;
+      loadAnimalChallenge(next);
+    });
+  }
 
   dom.btnCloseTutorial.addEventListener('click', () => {
     audio.playPop();
@@ -948,16 +1423,28 @@ function setupModalEvents() {
   dom.btnReplayLevel.addEventListener('click', () => {
     audio.playPop();
     dom.modalCelebration.classList.add('hidden');
-    resetCurrentLevel();
+    if (state.gameMode === 'animals') {
+      resetCurrentAnimalChallenge();
+    } else {
+      resetCurrentLevel();
+    }
   });
 
   dom.btnNextLevel.addEventListener('click', () => {
     audio.playPop();
     dom.modalCelebration.classList.add('hidden');
-    if (state.currentLevelIndex < LEVELS.length - 1) {
-      loadLevel(state.currentLevelIndex + 1);
+    if (state.gameMode === 'animals') {
+      if (state.animalChallengeIndex < ANIMAL_CHALLENGES.length - 1) {
+        loadAnimalChallenge(state.animalChallengeIndex + 1);
+      } else {
+        openAnimalChallengesModal();
+      }
     } else {
-      openLevelsModal();
+      if (state.currentLevelIndex < LEVELS.length - 1) {
+        loadLevel(state.currentLevelIndex + 1);
+      } else {
+        openLevelsModal();
+      }
     }
   });
 
@@ -1001,10 +1488,128 @@ function renderLevelsGrid(filterStage = 1) {
       audio.playPop();
       dom.modalLevels.classList.add('hidden');
       dom.screenWelcome.classList.add('hidden');
+      switchGameMode('bazaar');
       loadLevel(idx);
     });
 
     dom.levelsGrid.appendChild(btn);
+  });
+}
+
+// -------------------------------------------------------------
+// 10B. ANIMAL KINGDOM CONTROLLER & MODAL LOGIC (NEW FEATURE)
+// -------------------------------------------------------------
+function switchGameMode(newMode) {
+  state.gameMode = newMode;
+  state.selectedTrayIndex = null;
+
+  if (newMode === 'animals') {
+    dom.gameContainer.classList.add('mode-animals');
+    if (dom.btnSwitchAnimals) dom.btnSwitchAnimals.classList.add('active');
+    if (dom.btnSwitchBazaar) dom.btnSwitchBazaar.classList.remove('active');
+
+    dom.challengeStatus.classList.add('hidden');
+    if (dom.animalChallengeBar) dom.animalChallengeBar.classList.remove('hidden');
+
+    if (dom.panLabelLeft) dom.panLabelLeft.textContent = I18N[currentLang].pan_left_animal;
+    if (dom.panLabelRight) dom.panLabelRight.textContent = I18N[currentLang].pan_right_animal;
+    if (dom.shelfTitle) dom.shelfTitle.textContent = I18N[currentLang].animal_tray_title;
+    if (dom.shelfSub) dom.shelfSub.textContent = I18N[currentLang].animal_tray_hint;
+
+    loadAnimalChallenge(state.animalChallengeIndex);
+  } else {
+    dom.gameContainer.classList.remove('mode-animals');
+    if (dom.btnSwitchBazaar) dom.btnSwitchBazaar.classList.add('active');
+    if (dom.btnSwitchAnimals) dom.btnSwitchAnimals.classList.remove('active');
+
+    if (dom.animalChallengeBar) dom.animalChallengeBar.classList.add('hidden');
+
+    if (dom.panLabelLeft) dom.panLabelLeft.textContent = I18N[currentLang].left_pan;
+    if (dom.panLabelRight) dom.panLabelRight.textContent = I18N[currentLang].right_pan;
+    if (dom.shelfTitle) dom.shelfTitle.textContent = I18N[currentLang].tray_title;
+    if (dom.shelfSub) dom.shelfSub.textContent = I18N[currentLang].tray_hint;
+
+    loadLevel(state.currentLevelIndex);
+  }
+}
+
+function loadAnimalChallenge(index) {
+  state.animalChallengeIndex = index;
+  state.selectedTrayIndex = null;
+  const ch = ANIMAL_CHALLENGES[index];
+
+  if (dom.animalChallengeBadge) {
+    dom.animalChallengeBadge.textContent = `🐾 ${ch.id}/${ANIMAL_CHALLENGES.length}`;
+  }
+  const title = currentLang === 'hi' ? ch.titleHi : (currentLang === 'mr' ? ch.titleMr : ch.titleEn);
+  if (dom.animalChallengeTitle) {
+    dom.animalChallengeTitle.textContent = title;
+  }
+  dom.levelNumber.textContent = ch.id;
+
+  state.leftPan = JSON.parse(JSON.stringify(ch.leftInitial));
+  state.rightPan = JSON.parse(JSON.stringify(ch.rightInitial));
+
+  // The tray has the 4 interactive animal species
+  state.tray = [
+    { type: 'animal', species: 'elephant', weight: 100 },
+    { type: 'animal', species: 'lion', weight: 50 },
+    { type: 'animal', species: 'monkey', weight: 10 },
+    { type: 'animal', species: 'rabbit', weight: 5 }
+  ];
+
+  const desc = currentLang === 'hi' ? ch.descHi : (currentLang === 'mr' ? ch.descMr : ch.descEn);
+  updateMascotSpeech(desc);
+
+  renderAllItems();
+  recalculateBalance();
+}
+
+function resetCurrentAnimalChallenge() {
+  loadAnimalChallenge(state.animalChallengeIndex);
+}
+
+function openAnimalChallengesModal() {
+  renderAnimalChallengesGrid();
+  if (dom.modalAnimalChallenges) {
+    dom.modalAnimalChallenges.classList.remove('hidden');
+  }
+}
+
+function renderAnimalChallengesGrid() {
+  if (!dom.animalChallengesGrid) return;
+  dom.animalChallengesGrid.innerHTML = '';
+
+  ANIMAL_CHALLENGES.forEach((ch, idx) => {
+    const card = document.createElement('button');
+    card.className = 'animal-challenge-card-btn';
+    if (state.animalChallengeIndex === idx && state.gameMode === 'animals') {
+      card.classList.add('active');
+    }
+
+    const title = currentLang === 'hi' ? ch.titleHi : (currentLang === 'mr' ? ch.titleMr : ch.titleEn);
+    const desc = currentLang === 'hi' ? ch.descHi : (currentLang === 'mr' ? ch.descMr : ch.descEn);
+    const stars = state.animalCompletedChallenges[ch.id] || 0;
+    const starStr = stars === 3 ? '⭐⭐⭐' : (stars > 0 ? '⭐☆☆' : '☆☆☆');
+
+    card.innerHTML = `
+      <div class="chal-card-header">
+        <span class="chal-badge">#${ch.id} ${ch.badgeEmoji || '🐾'}</span>
+        <span class="chal-stars">${starStr}</span>
+      </div>
+      <span class="chal-title">${title}</span>
+      <span class="chal-desc">${desc}</span>
+    `;
+
+    card.addEventListener('click', () => {
+      audio.playPop();
+      if (dom.modalAnimalChallenges) dom.modalAnimalChallenges.classList.add('hidden');
+      dom.screenWelcome.classList.add('hidden');
+      switchGameMode('animals');
+      loadAnimalChallenge(idx);
+    });
+
+    dom.animalChallengesGrid.appendChild(card);
   });
 }
 
@@ -1127,6 +1732,77 @@ function createItemElement(item, location, index) {
       </div>
     `;
   }
+  // 3. CUTE CARTOON ANIMAL (Animal Kingdom Feature!)
+  else if (item.type === 'animal') {
+    const sp = ANIMAL_SPECIES[item.species];
+    const name = sp ? (currentLang === 'hi' ? sp.nameHi : (currentLang === 'mr' ? sp.nameMr : sp.nameEn)) : 'Animal';
+
+    if (location === 'tray') {
+      // Animal Den Card in Tray
+      el.className = `animal-den-card animal-card-${item.species} weight-token`;
+      el.dataset.species = item.species;
+      el.dataset.location = 'tray';
+      el.dataset.index = index;
+      el.dataset.weight = item.weight;
+
+      el.innerHTML = `
+        <div class="animal-den-visual">
+          <span class="animal-den-emoji">${sp ? sp.emoji : '🐾'}</span>
+          <button class="animal-btn-sound" title="${sp ? sp.soundLabel : 'Sound'}">🔊</button>
+        </div>
+        <span class="animal-den-name">${name}</span>
+        <span class="animal-den-weight">${item.weight} kg</span>
+        <div class="animal-den-actions">
+          <button class="btn-quick-add btn-add-left" title="Add to Left Pan">${I18N[currentLang].btn_add_left || '⬅️ Left'}</button>
+          <button class="btn-quick-add btn-add-right" title="Add to Right Pan">${I18N[currentLang].btn_add_right || 'Right ➡️'}</button>
+        </div>
+      `;
+
+      const addLeft = el.querySelector('.btn-add-left');
+      if (addLeft) {
+        addLeft.addEventListener('click', (e) => {
+          e.stopPropagation();
+          addAnimalToPan(item.species, 'left');
+        });
+      }
+
+      const addRight = el.querySelector('.btn-add-right');
+      if (addRight) {
+        addRight.addEventListener('click', (e) => {
+          e.stopPropagation();
+          addAnimalToPan(item.species, 'right');
+        });
+      }
+
+      const sndBtn = el.querySelector('.animal-btn-sound');
+      if (sndBtn) {
+        sndBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          audio.playAnimalSound(item.species);
+        });
+      }
+    } else {
+      // Animal Token sitting on the Balance Pan
+      el.className = `weight-token animal-token animal-${item.species} animal-w-${item.weight}kg`;
+      el.dataset.species = item.species;
+      el.dataset.location = location;
+      el.dataset.index = index;
+      el.dataset.weight = item.weight;
+
+      el.innerHTML = `
+        <div class="animal-visual-wrap">
+          <div class="animal-avatar-bubble">
+            <span class="animal-emoji">${sp ? sp.emoji : '🐾'}</span>
+          </div>
+          <div class="animal-pan-shadow"></div>
+        </div>
+        <div class="animal-tag">
+          <span class="animal-tag-name">${name}</span>
+          <span class="animal-tag-weight">${item.weight} kg</span>
+        </div>
+      `;
+    }
+  }
 
   // Tap-to-move feature
   el.addEventListener('click', () => {
@@ -1139,10 +1815,56 @@ function createItemElement(item, location, index) {
   return el;
 }
 
+function addAnimalToPan(species, side) {
+  const sp = ANIMAL_SPECIES[species];
+  if (!sp) return;
+
+  const newAnimal = {
+    type: 'animal',
+    species: species,
+    weight: sp.weight,
+    id: 'a_' + Date.now() + Math.floor(Math.random() * 1000)
+  };
+
+  if (side === 'left') {
+    state.leftPan.push(newAnimal);
+  } else {
+    state.rightPan.push(newAnimal);
+  }
+
+  audio.playAnimalSound(species);
+  renderAllItems();
+  recalculateBalance();
+}
+
 function handleItemTap(location, index) {
   audio.playPop();
-  const level = LEVELS[state.currentLevelIndex];
 
+  if (state.gameMode === 'animals') {
+    if (location === 'tray') {
+      const item = state.tray[index];
+      if (item && item.species) {
+        const leftTotal = state.leftPan.reduce((s, i) => s + i.weight, 0);
+        const rightTotal = state.rightPan.reduce((s, i) => s + i.weight, 0);
+        const targetSide = leftTotal < rightTotal ? 'left' : 'right';
+        addAnimalToPan(item.species, targetSide);
+      }
+    } else if (location === 'left') {
+      state.leftPan.splice(index, 1);
+      audio.playPop();
+      renderAllItems();
+      recalculateBalance();
+    } else if (location === 'right') {
+      state.rightPan.splice(index, 1);
+      audio.playPop();
+      renderAllItems();
+      recalculateBalance();
+    }
+    return;
+  }
+
+  // Bazaar mode logic (unchanged!)
+  const level = LEVELS[state.currentLevelIndex];
   if (location === 'tray') {
     const item = state.tray.splice(index, 1)[0];
     state.rightPan.push(item);
@@ -1178,15 +1900,23 @@ let activeDrag = null;
 
 function setupPointerTouchDrag() {
   document.addEventListener('pointerdown', (e) => {
+    // If clicked on quick-add or sound buttons on animal card, don't drag card
+    if (e.target.closest('.btn-quick-add') || e.target.closest('.animal-btn-sound')) {
+      return;
+    }
+
     const token = e.target.closest('.weight-token');
     if (!token) return;
 
     const loc = token.dataset.location;
     const idx = parseInt(token.dataset.index, 10);
-    const level = LEVELS[state.currentLevelIndex];
 
-    if (loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
-      return;
+    // In Bazaar mode, left pan produce is fixed
+    if (state.gameMode === 'bazaar') {
+      const level = LEVELS[state.currentLevelIndex];
+      if (loc === 'left' && level && level.leftItems && level.leftItems[idx]) {
+        return;
+      }
     }
 
     e.preventDefault();
@@ -1195,6 +1925,7 @@ function setupPointerTouchDrag() {
       element: token,
       location: loc,
       index: idx,
+      species: token.dataset.species || (state[loc === 'tray' ? 'tray' : (loc === 'left' ? 'leftPan' : 'rightPan')][idx] && state[loc === 'tray' ? 'tray' : (loc === 'left' ? 'leftPan' : 'rightPan')][idx].species) || null,
       weight: parseInt(token.dataset.weight, 10),
       startX: e.clientX,
       startY: e.clientY,
@@ -1292,6 +2023,51 @@ function dropItemAtPosition(x, y, dragData) {
   else if (isInside(x, y, rightRect, 35)) targetLocation = 'right';
   else if (isInside(x, y, trayRect, 20)) targetLocation = 'tray';
 
+  // ANIMAL KINGDOM MODE: Kids can drag animals onto EITHER side of Tarazu!
+  if (state.gameMode === 'animals') {
+    if (dragData.location === 'tray') {
+      if (targetLocation === 'left' || targetLocation === 'right') {
+        const species = dragData.species || (state.tray[dragData.index] && state.tray[dragData.index].species);
+        if (species) {
+          addAnimalToPan(species, targetLocation);
+          return;
+        }
+      }
+    } else if (dragData.location === 'left') {
+      const item = state.leftPan.splice(dragData.index, 1)[0];
+      if (targetLocation === 'right' && item) {
+        state.rightPan.push(item);
+        audio.playAnimalSound(item.species);
+      } else if (targetLocation === 'left' && item) {
+        state.leftPan.push(item);
+      } else {
+        // Dropped outside or on tray: remove animal
+        audio.playPop();
+      }
+      renderAllItems();
+      recalculateBalance();
+      return;
+    } else if (dragData.location === 'right') {
+      const item = state.rightPan.splice(dragData.index, 1)[0];
+      if (targetLocation === 'left' && item) {
+        state.leftPan.push(item);
+        audio.playAnimalSound(item.species);
+      } else if (targetLocation === 'right' && item) {
+        state.rightPan.push(item);
+      } else {
+        // Dropped outside or on tray: remove animal
+        audio.playPop();
+      }
+      renderAllItems();
+      recalculateBalance();
+      return;
+    }
+
+    renderAllItems();
+    return;
+  }
+
+  // BAZAAR MODE (Unchanged!)
   if (!targetLocation || targetLocation === dragData.location) {
     renderAllItems();
     return;
@@ -1351,14 +2127,19 @@ function recalculateBalance() {
 
   const diff = leftTotal - rightTotal;
   const MAX_ANGLE = 14;
-  let target = diff * 2.8;
+  const angleFactor = state.gameMode === 'animals' ? 0.7 : 2.8;
+  let target = diff * angleFactor;
   if (target > MAX_ANGLE) target = MAX_ANGLE;
   if (target < -MAX_ANGLE) target = -MAX_ANGLE;
 
   state.targetAngle = -target;
 
   if (diff === 0 && (leftTotal > 0 || rightTotal > 0)) {
-    dom.hintText.textContent = I18N[currentLang].balanced_msg;
+    if (state.gameMode === 'animals') {
+      dom.hintText.textContent = I18N[currentLang].balanced_animals.replace('{weight}', leftTotal);
+    } else {
+      dom.hintText.textContent = I18N[currentLang].balanced_msg;
+    }
     dom.needleHintIcon.textContent = "✨";
     dom.balanceGlowIndicator.classList.add('balanced');
     dom.leftWeightBadge.classList.add('balanced');
@@ -1381,7 +2162,7 @@ function recalculateBalance() {
       dom.hintText.textContent = I18N[currentLang].tilted_right;
       dom.needleHintIcon.textContent = "➡️";
     } else {
-      dom.hintText.textContent = I18N[currentLang].level_hint_default;
+      dom.hintText.textContent = state.gameMode === 'animals' ? I18N[currentLang].animal_tray_hint : I18N[currentLang].level_hint_default;
       dom.needleHintIcon.textContent = "⚖️";
     }
   }
@@ -1486,8 +2267,14 @@ function syncOverlayPosition(overlay, svgX, svgY) {
 function checkWinCondition(leftTotal, rightTotal) {
   if (leftTotal === 0 && rightTotal === 0) return;
 
-  const level = LEVELS[state.currentLevelIndex];
+  // ANIMAL KINGDOM WIN CHECK
+  if (state.gameMode === 'animals') {
+    handleAnimalCheck(leftTotal, rightTotal);
+    return;
+  }
 
+  // BAZAAR MODE WIN CHECK (Unchanged!)
+  const level = LEVELS[state.currentLevelIndex];
   if (leftTotal !== rightTotal) {
     if (rightTotal > 0) {
       triggerFriendlyWobble();
@@ -1500,6 +2287,36 @@ function checkWinCondition(leftTotal, rightTotal) {
   } else {
     handleStandardSolve(leftTotal, rightTotal, level);
   }
+}
+
+function handleAnimalCheck(leftTotal, rightTotal) {
+  const challenge = ANIMAL_CHALLENGES[state.animalChallengeIndex];
+  if (!challenge) return;
+
+  if (leftTotal !== rightTotal) {
+    if (rightTotal > 0 || leftTotal > 0) {
+      triggerFriendlyWobble();
+    }
+    return;
+  }
+
+  audio.playWin();
+  state.animalCompletedChallenges[challenge.id] = 3;
+  saveProgress();
+
+  const leftStr = state.leftPan.map(i => {
+    const sp = ANIMAL_SPECIES[i.species];
+    const n = sp ? (currentLang === 'hi' ? sp.nameHi : (currentLang === 'mr' ? sp.nameMr : sp.nameEn)) : '';
+    return `${sp ? sp.emoji : ''} ${n} (${i.weight} kg)`;
+  }).join(' + ');
+
+  const rightStr = state.rightPan.map(i => {
+    const sp = ANIMAL_SPECIES[i.species];
+    const n = sp ? (currentLang === 'hi' ? sp.nameHi : (currentLang === 'mr' ? sp.nameMr : sp.nameEn)) : '';
+    return `${sp ? sp.emoji : ''} ${n} (${i.weight} kg)`;
+  }).join(' + ');
+
+  showCelebration(leftTotal, rightTotal, `${leftStr} = ${rightStr}`);
 }
 
 function triggerFriendlyWobble() {

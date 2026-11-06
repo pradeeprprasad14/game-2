@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Tarazu - The Balance Scale Game | तराजू का खेल | तराजूचा खेळ</title>
-  <link rel="stylesheet" href="style.css?v=5.0">
+  <link rel="stylesheet" href="style.css?v=6.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Yatra+One&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
@@ -72,16 +72,29 @@
           </div>
         </div>
 
-        <!-- Big Vibrant Action Buttons -->
+        <!-- Big Vibrant Action Buttons / Section Portals -->
         <div class="welcome-buttons">
-          <button id="btn-start-play" class="action-btn primary-btn pulse-glow big-play-btn">
-            <span class="play-icon">🛒</span>
-            <span class="play-text" data-i18n="start_play">ENTER BAZAAR</span>
-          </button>
+          <div class="welcome-section-grid">
+            <button id="btn-start-play" class="action-btn primary-btn pulse-glow section-portal-btn bazaar-portal">
+              <span class="portal-badge" data-i18n="badge_classic">Classic Mode</span>
+              <span class="play-icon">🛒</span>
+              <span class="play-text" data-i18n="start_play">ENTER BAZAAR</span>
+              <span class="portal-sub" data-i18n="mode_bazaar_sub">Fruits, Veggies & Brass Weights (1-6 kg)</span>
+            </button>
+            <button id="btn-start-animals" class="action-btn animal-btn pulse-glow section-portal-btn animal-portal">
+              <span class="portal-badge badge-new" data-i18n="badge_new">NEW! ✨</span>
+              <span class="play-icon">🦁🐘</span>
+              <span class="play-text" data-i18n="start_animals">ANIMAL KINGDOM</span>
+              <span class="portal-sub" data-i18n="mode_animals_sub">Elephant, Lion, Monkey & Rabbit (5-100 kg)</span>
+            </button>
+          </div>
           
           <div class="welcome-sub-actions">
             <button id="btn-welcome-levels" class="action-btn secondary-btn">
-              <span>🗺️</span> <span data-i18n="choose_level">Objects</span>
+              <span>🗺️</span> <span data-i18n="choose_level">Bazaar Objects</span>
+            </button>
+            <button id="btn-welcome-animals" class="action-btn secondary-btn safari-sub-btn">
+              <span>🐾</span> <span data-i18n="animal_challenges_title">Safari Challenges</span>
             </button>
             <button id="btn-how-to-play" class="action-btn secondary-btn info-btn">
               <span>❓</span> <span data-i18n="how_to_play">How to Play</span>
@@ -106,6 +119,16 @@
             <span id="level-number">1</span>
           </span>
         </button>
+
+        <!-- Mode Section Switcher (Bazaar Market vs Animal Kingdom) -->
+        <div class="game-section-switch" id="section-switch">
+          <button id="btn-switch-bazaar" class="section-switch-btn active" title="Bazaar Market">
+            <span>🛒</span> <span data-i18n="section_bazaar">Bazaar</span>
+          </button>
+          <button id="btn-switch-animals" class="section-switch-btn" title="Animal Kingdom">
+            <span>🐾</span> <span data-i18n="section_animals">Animals</span>
+          </button>
+        </div>
       </div>
 
       <!-- Mascot & Speech Banner -->
@@ -143,10 +166,25 @@
 
     <!-- Sub-bar for Multi-Way challenge progress & level hint -->
     <div id="sub-bar">
+      <!-- Bazaar Two-Ways Challenge Badges -->
       <div id="challenge-status" class="challenge-status hidden">
         <span class="challenge-badge active" id="way-1-badge">Way 1: ⭐</span>
         <span class="challenge-badge" id="way-2-badge">Way 2: ❓</span>
       </div>
+
+      <!-- Animal Kingdom Safari Challenge Navigator -->
+      <div id="animal-challenge-bar" class="animal-challenge-bar hidden">
+        <button id="btn-prev-animal-challenge" class="icon-nav-btn" title="Previous Challenge">◀</button>
+        <div id="animal-challenge-pill" class="animal-challenge-pill">
+          <span id="animal-challenge-badge">🐾 1/6</span>
+          <span id="animal-challenge-title">Balance the Monkey! 🐒</span>
+        </div>
+        <button id="btn-next-animal-challenge" class="icon-nav-btn" title="Next Challenge">▶</button>
+        <button id="btn-open-animal-challenges" class="action-btn small-btn safari-btn" title="Safari Challenges">
+          <span>🐾</span> <span data-i18n="animal_challenges_title">Challenges</span>
+        </button>
+      </div>
+
       <div id="status-hint" class="status-hint">
         <span id="needle-hint-icon">⚖️</span>
         <span id="hint-text">Add weights to balance both pans!</span>
@@ -357,7 +395,7 @@
       </div>
     </div>
 
-    <!-- LEVELS MENU MODAL -->
+    <!-- LEVELS MENU MODAL (Bazaar) -->
     <div id="modal-levels" class="modal-backdrop hidden">
       <div class="modal-card levels-card">
         <div class="modal-header">
@@ -373,8 +411,23 @@
       </div>
     </div>
 
+    <!-- ANIMAL KINGDOM CHALLENGES MODAL -->
+    <div id="modal-animal-challenges" class="modal-backdrop hidden">
+      <div class="modal-card levels-card animal-modal-card">
+        <div class="modal-header">
+          <h2 data-i18n="animal_challenges_title">Animal Kingdom Safari Challenges 🐾</h2>
+          <button id="btn-close-animal-challenges" class="close-btn" aria-label="Close">✕</button>
+        </div>
+        <div class="animal-modal-intro">
+          <span class="intro-emoji">🦁🐘🐒🐰</span>
+          <p data-i18n="animal_modal_sub">Choose a fun balancing challenge or play freely on the safari seesaw!</p>
+        </div>
+        <div id="animal-challenges-grid" class="animal-challenges-grid"></div>
+      </div>
+    </div>
+
   </div>
 
-  <script src="game.js?v=5.0"></script>
+  <script src="game.js?v=6.0"></script>
 </body>
 </html>

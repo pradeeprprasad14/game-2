@@ -1337,3 +1337,589 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* =============================================================
+   🐾 ANIMAL KINGDOM SECTION STYLES (NEW FEATURE)
+   ============================================================= */
+
+/* 1. Header Section Switcher (Bazaar vs Animal Kingdom) */
+.game-section-switch {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 3px;
+  border-radius: 999px;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-left: 6px;
+}
+
+.section-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #475569;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.section-switch-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.section-switch-btn.active#btn-switch-bazaar {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.35);
+}
+
+.section-switch-btn.active#btn-switch-animals {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(5, 150, 105, 0.4);
+}
+
+/* 2. Welcome Screen Portals (Classic Bazaar vs Animal Kingdom) */
+.welcome-section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .welcome-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-portal-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 12px 14px 12px;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.section-portal-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.portal-badge {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.portal-badge.badge-new {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  color: #ffffff;
+  border-color: #fda4af;
+  animation: pulseNewBadge 1.8s infinite alternate;
+}
+
+@keyframes pulseNewBadge {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+.bazaar-portal {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  border-color: #fdba74;
+  color: #ffffff;
+}
+
+.animal-portal {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border-color: #6ee7b7;
+  color: #ffffff;
+}
+
+.section-portal-btn .play-icon {
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.section-portal-btn .play-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.section-portal-btn .portal-sub {
+  font-size: 0.78rem;
+  opacity: 0.92;
+  line-height: 1.25;
+}
+
+.safari-sub-btn {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%) !important;
+  color: #0369a1 !important;
+  border-color: #7dd3fc !important;
+}
+
+/* 3. Animal Kingdom Theme Accents */
+#game-container.mode-animals {
+  background: linear-gradient(180deg, #ecfdf5 0%, #d1fae5 45%, #a7f3d0 100%);
+}
+
+#game-container.mode-animals .bazaar-awning {
+  background: repeating-linear-gradient(
+    90deg,
+    #15803d,
+    #15803d 30px,
+    #166534 30px,
+    #166534 60px
+  );
+  box-shadow: 0 4px 14px rgba(22, 101, 52, 0.4);
+}
+
+#game-container.mode-animals #bottom-shelf {
+  background: linear-gradient(180deg, #fef3c7 0%, #fde68a 100%);
+  border-top: 4px solid #b45309;
+}
+
+#game-container.mode-animals .shelf-title {
+  color: #14532d;
+}
+
+/* 4. Animal Challenge Navigator Bar (in #sub-bar) */
+.animal-challenge-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-nav-btn {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  color: #047857;
+  font-size: 0.95rem;
+  font-weight: 900;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.icon-nav-btn:hover {
+  background: #ecfdf5;
+  border-color: #10b981;
+  transform: scale(1.1);
+}
+
+.animal-challenge-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 2px solid #34d399;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15);
+}
+
+#animal-challenge-badge {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+#animal-challenge-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.safari-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  border-color: #047857 !important;
+}
+
+/* 5. Animal Cards in the Bottom Den Shelf */
+.animal-den-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 8px 10px 10px 10px;
+  min-width: 135px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.animal-den-card:active {
+  cursor: grabbing;
+}
+
+.animal-den-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.animal-card-elephant {
+  border-color: #60a5fa;
+  background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+}
+.animal-card-lion {
+  border-color: #f59e0b;
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+}
+.animal-card-monkey {
+  border-color: #a855f7;
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+}
+.animal-card-rabbit {
+  border-color: #ec4899;
+  background: linear-gradient(180deg, #fdf2f8 0%, #fce7f3 100%);
+}
+
+.animal-den-visual {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-den-emoji {
+  font-size: 2.7rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+  transition: transform 0.2s ease;
+}
+
+.animal-den-card:hover .animal-den-emoji {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+.animal-btn-sound {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease;
+}
+
+.animal-btn-sound:hover {
+  transform: scale(1.22);
+}
+
+.animal-den-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-top: 2px;
+}
+
+.animal-den-weight {
+  display: inline-block;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin: 4px 0 6px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.animal-card-elephant .animal-den-weight { background: #2563eb; }
+.animal-card-lion .animal-den-weight { background: #d97706; }
+.animal-card-monkey .animal-den-weight { background: #7e22ce; }
+.animal-card-rabbit .animal-den-weight { background: #db2777; }
+
+/* 1-Tap Quick Action Buttons (+ Left / + Right) */
+.animal-den-actions {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+.btn-quick-add {
+  flex: 1;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  border: 1.5px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-quick-add:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: scale(1.05);
+}
+
+.btn-add-left:hover {
+  background: #059669;
+  border-color: #059669;
+  color: #ffffff;
+}
+
+.btn-add-right:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+/* 6. Animal Tokens on the Balance Scale Pan */
+.animal-token {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px;
+  cursor: pointer;
+  user-select: none;
+  animation: animalDropBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes animalDropBounce {
+  0% { transform: translateY(-35px) scale(0.7); opacity: 0; }
+  60% { transform: translateY(4px) scale(1.12, 0.88); opacity: 1; }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.animal-visual-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animal-avatar-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+
+.animal-token:hover .animal-avatar-bubble {
+  transform: scale(1.18);
+}
+
+.animal-emoji {
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.22));
+}
+
+.animal-w-100kg .animal-emoji { font-size: 3.4rem; }
+.animal-w-50kg .animal-emoji { font-size: 2.8rem; }
+.animal-w-10kg .animal-emoji { font-size: 2.2rem; }
+.animal-w-5kg .animal-emoji { font-size: 1.8rem; }
+
+.animal-pan-shadow {
+  position: absolute;
+  bottom: -4px;
+  width: 75%;
+  height: 8px;
+  background: radial-gradient(ellipse at center, rgba(30, 20, 5, 0.45) 0%, rgba(30, 20, 5, 0) 75%);
+  border-radius: 50%;
+}
+
+.animal-tag {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid #cbd5e1;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.14);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.animal-tag-name {
+  color: #334155;
+}
+
+.animal-tag-weight {
+  color: #0f172a;
+  font-weight: 900;
+}
+
+.animal-w-100kg .animal-tag { border-color: #3b82f6; }
+.animal-w-50kg .animal-tag { border-color: #f59e0b; }
+.animal-w-10kg .animal-tag { border-color: #a855f7; }
+.animal-w-5kg .animal-tag { border-color: #ec4899; }
+
+/* Animals Victory Celebration Dance on Pan */
+.balanced .animal-token {
+  animation: animalHappyDance 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes animalHappyDance {
+  0% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-16px) rotate(-6deg) scale(1.12); }
+  100% { transform: translateY(0) rotate(6deg) scale(1.05); }
+}
+
+/* 7. Animal Kingdom Challenges Modal */
+.animal-modal-card {
+  max-width: 620px;
+  border: 4px solid #10b981;
+}
+
+.animal-modal-intro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ecfdf5;
+  border: 2px dashed #34d399;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.animal-modal-intro .intro-emoji {
+  font-size: 2rem;
+}
+
+.animal-modal-intro p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #065f46;
+}
+
+.animal-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 540px) {
+  .animal-challenges-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.animal-challenge-card-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  position: relative;
+  font-family: inherit;
+}
+
+.animal-challenge-card-btn:hover {
+  border-color: #10b981;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.18);
+}
+
+.animal-challenge-card-btn.active {
+  border-color: #059669;
+  background: #f0fdf4;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+}
+
+.chal-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.chal-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: #10b981;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.chal-stars {
+  font-size: 0.85rem;
+  color: #f59e0b;
+}
+
+.chal-title {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.chal-desc {
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.3;
+}
+
